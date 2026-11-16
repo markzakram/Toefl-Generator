@@ -170,6 +170,12 @@ per bentuk, set latihan Part C 120 soal sekitar 23 MB, Structure dan Reading kec
 larangan dibingkai situs lain, dan cache panjang untuk `files/` (nama file acak, jadi aman di-cache). Website ini statis,
 tanpa build command dan tanpa environment variable. Kata sandi tidak pernah dikirim ke Vercel.
 
+**Jangan deploy dari GitHub.** Repo ini hanya berisi generator Python. Website-nya dibangun di komputer sendiri dari
+bank soal (`output/`) dan `SITUS_PASSWORD`, dan keduanya sengaja tidak masuk repo. Kalau repo diimpor ke Vercel, build
+selalu gagal dengan pesan `No python entrypoint found`, karena Vercel mengira repo ini aplikasi server Python. File
+`vercel.json` di root repo mematikan deploy otomatis setiap push, jadi build yang gagal itu tidak muncul lagi. Proyek
+Vercel yang terlanjur dibuat dari GitHub tetap bisa dipakai: saat `link` di bawah, pilih proyek itu.
+
 **Pertama kali**, dengan Node.js terpasang. Vercel CLI dijalankan lewat `npx`, tidak perlu diinstal:
 
 ```bash
