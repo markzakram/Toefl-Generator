@@ -1,0 +1,1417 @@
+# Pustaka famili Structure & Written Expression.
+# Format frame dijelaskan di toefl_gen/families.py.
+# Setiap perubahan isi file ini mengubah versi pustaka (dicatat di ringkasan batch).
+
+families:
+
+  - id: SVA
+    topic: subject-verb agreement
+    konsep: "subject-verb agreement (kesesuaian subjek dan kata kerja)"
+    cara_cepat: "Temukan subjek intinya lebih dulu dan abaikan frasa sisipan di antara subjek dan verb, seperti frasa preposisi atau together with. Setelah itu, cocokkan bentuk verb dengan jumlah subjeknya. Subjek tunggal memakai verb tunggal, dan subjek jamak memakai verb jamak."
+    frames:
+      - id: s1
+        format: structure
+        level: Mudah
+        text: "The results of the latest {study} ___ that most {group} prefer online classes."
+        vars: {study: [survey, study, poll], group: [students, employees, residents, teachers]}
+        correct: "show"
+        distractors:
+          - ["shows", "subjek intinya 'results' jamak, jadi verb tidak memakai -s"]
+          - ["showing", "V-ing tidak bisa menjadi predikat tanpa to be"]
+          - ["to show", "to infinitive tidak bisa menjadi predikat utama"]
+        why: "Subjek inti kalimat adalah 'results' (jamak); frasa 'of the latest {study}' hanya keterangan. Verb yang tepat adalah bentuk jamak 'show'."
+      - id: s2
+        format: structure
+        level: Sedang
+        text: "The list of approved {thing} ___ posted on the department website every semester."
+        vars: {thing: [research topics, thesis titles, elective courses, internship programs, conference papers, student clubs]}
+        correct: "is"
+        distractors:
+          - ["are", "subjek intinya 'list' tunggal; '{thing}' hanya bagian frasa preposisi"]
+          - ["being", "'being' tidak bisa menjadi predikat utama"]
+          - ["have", "'have posted' bukan bentuk pasif dan tidak sesuai dengan subjek tunggal"]
+        why: "Subjek inti adalah 'list' (tunggal), dan daftar itu dipasang oleh orang lain, jadi kalimatnya pasif, yaitu is + V3."
+      - id: s3
+        format: structure
+        level: Sedang
+        text: "Each of the {people} in the study ___ asked to complete a short questionnaire."
+        vars: {people: [participants, volunteers, respondents, patients, students, employees]}
+        correct: "was"
+        distractors:
+          - ["were", "'each of' selalu diikuti verb tunggal"]
+          - ["have been", "'have' adalah bentuk jamak, padahal 'each' tunggal"]
+          - ["being", "'being' tidak bisa menjadi predikat utama"]
+        why: "'Each of the {people}' merujuk pada setiap orang satu per satu, jadi verb-nya tunggal, yaitu was."
+      - id: s4
+        format: structure
+        level: Sulit
+        text: "Neither the {leader} nor the researchers ___ aware of the error until the data were reviewed."
+        vars: {leader: [director, supervisor, project manager, lab coordinator, head of the department, principal investigator]}
+        correct: "were"
+        distractors:
+          - ["was", "pada neither...nor, verb mengikuti subjek terdekat 'researchers' yang jamak"]
+          - ["is", "bentuk tunggal dan present, padahal subjek terdekat jamak dan kejadiannya lampau"]
+          - ["being", "'being' tidak bisa menjadi predikat utama"]
+        why: "Pada pola neither A nor B, verb mengikuti B (subjek terdekat). B adalah 'researchers' (jamak) dan kejadiannya lampau, jadi 'were'."
+      - id: s5
+        format: structure
+        level: Sulit
+        text: "The number of international students enrolled at the {school} ___ steadily over the past decade."
+        vars: {school: [university, institute, college, academy, polytechnic, state university]}
+        correct: "has risen"
+        distractors:
+          - ["have risen", "'the number of' dianggap tunggal"]
+          - ["rising", "V-ing tidak bisa menjadi predikat tanpa to be"]
+          - ["has rose", "bentuk V3 dari 'rise' adalah 'risen', bukan 'rose'"]
+        why: "'The number of ...' adalah subjek tunggal, dan 'over the past decade' menandai present perfect, yaitu has + V3 (risen)."
+      - id: s6
+        format: structure
+        level: Mudah
+        text: "{subject} ___ one of the most popular majors among first-year students."
+        vars: {subject: [Economics, Mathematics, Physics, Statistics, Linguistics, Genetics]}
+        correct: "is"
+        distractors:
+          - ["are", "nama bidang studi berakhiran -s tetap dianggap tunggal"]
+          - ["being", "'being' tidak bisa menjadi predikat utama"]
+          - ["to be", "to infinitive tidak bisa menjadi predikat utama"]
+        why: "Nama bidang studi seperti '{subject}' adalah kata benda tunggal meski berakhiran -s, jadi memakai 'is'."
+      - id: s7
+        format: structure
+        level: Sedang
+        text: "The committee, together with several outside {experts}, ___ the proposal this week."
+        vars: {experts: [experts, advisors, consultants, reviewers, scientists, lawyers]}
+        correct: "is reviewing"
+        distractors:
+          - ["are reviewing", "frasa 'together with ...' tidak mengubah subjek 'committee' yang tunggal"]
+          - ["reviewing", "V-ing tanpa to be tidak bisa menjadi predikat"]
+          - ["have reviewed", "'have' jamak, padahal subjek 'committee' tunggal"]
+        why: "Subjek inti adalah 'committee' (tunggal). Frasa 'together with several outside {experts}' hanya sisipan, jadi verb-nya tunggal, yaitu is reviewing."
+      - id: w1
+        format: written_expression
+        level: Mudah
+        text: "The [scientists](m) in the {place} [carefully](m) [records](e:record) the {measure} [every](m) hour [during](m) the experiment."
+        vars: {place: [laboratory, research station, field camp], measure: [temperature, water level, air pressure]}
+        why: "Subjek 'scientists' jamak, jadi verb-nya tidak memakai -s."
+      - id: w2
+        format: written_expression
+        level: Sedang
+        text: "The [quality](m) of the {sample} [collected](m) from the {source} [were](e:was) [lower](m) than [expected](m)."
+        vars: {sample: [samples, water samples, soil samples], source: [river, lake, reservoir]}
+        why: "Subjek inti adalah 'quality' (tunggal); '{sample}' hanya bagian frasa preposisi."
+      - id: w3
+        format: written_expression
+        level: Sedang
+        text: "Each of the [new](m) {staff} [are](e:is) [required](m) to [attend](m) a {training} [session](m)."
+        vars: {staff: [employees, interns, volunteers], training: [training, safety, orientation]}
+        why: "'Each of' selalu diikuti verb tunggal."
+      - id: w4
+        format: written_expression
+        level: Sulit
+        text: "The [effects](m) of the new {policy} on small businesses [has](e:have) not yet [been](m) [fully](m) [understood](m)."
+        vars: {policy: [tax policy, trade policy, labor law, zoning rule, safety regulation, import rule]}
+        why: "Subjek inti adalah 'effects' (jamak); frasa 'of the new {policy} ...' tidak mengubahnya."
+      - id: w5
+        format: written_expression
+        level: Mudah
+        text: "[{field}](m) [are](e:is) a [required](m) course for [all](m) {major} [students](m)."
+        vars: {field: [Physics, Mathematics, Statistics], major: [engineering, science, economics]}
+        why: "Nama bidang studi berakhiran -s tetap tunggal, jadi memakai 'is'."
+      - id: w6
+        format: written_expression
+        level: Sedang
+        text: "There [is](e:are) [several](m) reasons [why](m) the {project} [was](m) [delayed](m)."
+        vars: {project: [project, bridge construction, product launch, survey, museum renovation, field study]}
+        why: "Setelah 'there', verb mengikuti kata benda sesudahnya, yaitu 'several reasons' jamak."
+      - id: w7
+        format: written_expression
+        level: Sulit
+        text: "The [findings](m) of the [two](m) {studies} [suggests](e:suggest) that the {treatment} is [effective](m) for [most](m) patients."
+        vars: {studies: [studies, experiments, trials], treatment: [treatment, therapy, new drug]}
+        why: "Subjek inti 'findings' jamak, jadi verb tanpa -s."
+      - id: w8
+        format: written_expression
+        level: Mudah
+        text: "The [{animal}](m) in the [{place}](m) [eats](e:eat) [mostly](m) [plants](m) and [small](m) insects."
+        vars: {animal: [bears, foxes, raccoons], place: [national park, nature reserve, forest]}
+        why: "Subjek '{animal}' jamak, jadi verb tidak memakai -s."
+      - id: w9
+        format: written_expression
+        level: Sedang
+        text: "Neither the [students](m) nor the [{teacher}](m) [were](e:was) [aware](m) of the [{item}](m) change."
+        vars: {teacher: [teacher, instructor, coordinator], item: [schedule, room, deadline]}
+        why: "Pada neither...nor, verb mengikuti subjek terdekat '{teacher}' yang tunggal."
+
+  - id: TENSE
+    topic: tenses
+    konsep: "pemilihan tense berdasarkan penanda waktu"
+    cara_cepat: "Cari penanda waktu di kalimat, karena penanda itulah yang menentukan tense. Since atau for dengan rentang hingga sekarang menunjuk present perfect, by the time dengan kejadian lampau menunjuk past perfect, ago atau last menunjuk simple past, dan by dengan waktu mendatang menunjuk future perfect."
+    frames:
+      - id: s1
+        format: structure
+        level: Mudah
+        text: "Since {year}, the city ___ three new public {facility}."
+        vars: {year: ["2015", "2018", "2020"], facility: [libraries, parks, health centers]}
+        correct: "has built"
+        distractors:
+          - ["built", "penanda 'since' menunjukkan rentang waktu sampai sekarang, jadi bukan simple past"]
+          - ["builds", "simple present tidak dipakai dengan 'since'"]
+          - ["is building", "present continuous tidak cocok dengan hasil yang sudah selesai sejak {year}"]
+        why: "'Since {year}' menunjukkan kejadian yang dimulai di masa lalu dan berlanjut hingga sekarang, jadi memakai present perfect, yaitu has + V3."
+      - id: s2
+        format: structure
+        level: Sedang
+        text: "By the time the rescue team arrived, the {disaster} ___ most of the village."
+        vars: {disaster: [storm, flood, fire, landslide, earthquake, wildfire]}
+        correct: "had destroyed"
+        distractors:
+          - ["has destroyed", "kejadian terjadi sebelum kejadian lampau lain, jadi present perfect tidak tepat"]
+          - ["destroys", "simple present tidak cocok untuk kejadian lampau"]
+          - ["was destroy", "bentuk 'was + V1' tidak gramatikal"]
+        why: "'By the time ... arrived' (lampau) menandai kejadian yang lebih dulu selesai, jadi memakai past perfect, yaitu had + V3."
+      - id: s3
+        format: structure
+        level: Sedang
+        text: "Professor {name} ___ the same textbook since she began teaching in {year}."
+        vars: {name: [Lee, Garcia, Novak, Okafor], year: ["2004", "2008", "2011"]}
+        correct: "has used"
+        distractors:
+          - ["uses", "'since' memerlukan present perfect, bukan simple present"]
+          - ["is used", "bentuk pasif tidak cocok; profesor yang memakai buku"]
+          - ["had been use", "bentuk tidak gramatikal dan tense tidak sesuai"]
+        why: "'Since she began teaching in {year}' menandai rentang waktu hingga sekarang, jadi memakai present perfect aktif, yaitu has used."
+      - id: s4
+        format: structure
+        level: Sulit
+        text: "By the end of next year, the engineers ___ the new {structure}."
+        vars: {structure: [bridge across the river, highway tunnel, water treatment plant, railway station, airport terminal, solar power plant]}
+        correct: "will have completed"
+        distractors:
+          - ["will complete", "'by the end of next year' menandai future perfect, bukan simple future"]
+          - ["have completed", "present perfect tidak dipakai untuk batas waktu di masa depan"]
+          - ["completing", "V-ing tidak bisa menjadi predikat tanpa to be"]
+        why: "'By the end of next year' menandai kegiatan yang sudah selesai sebelum titik di masa depan, jadi memakai future perfect, yaitu will have + V3."
+      - id: s5
+        format: structure
+        level: Mudah
+        text: "Last summer, a group of archaeologists ___ the remains of an ancient village near the {location}."
+        vars: {location: [coast, river, mountains, desert, lake, border]}
+        correct: "discovered"
+        distractors:
+          - ["discover", "'last summer' menandai simple past"]
+          - ["have discovered", "present perfect tidak dipakai dengan keterangan waktu lampau yang spesifik"]
+          - ["discovering", "V-ing tidak bisa menjadi predikat tanpa to be"]
+        why: "'Last summer' adalah waktu lampau yang spesifik, jadi memakai simple past, yaitu discovered."
+      - id: s6
+        format: structure
+        level: Sedang
+        text: "While the {who} ___ the samples, the power suddenly went out."
+        vars: {who: [researchers, technicians, students, lab assistants, chemists, graduate students]}
+        correct: "were analyzing"
+        distractors:
+          - ["are analyzing", "kejadiannya di masa lampau ('went out')"]
+          - ["have analyzed", "present perfect tidak cocok untuk aksi lampau yang sedang berlangsung"]
+          - ["analyze", "simple present tidak cocok untuk kejadian lampau"]
+        why: "Aksi yang sedang berlangsung lalu terpotong kejadian lain di masa lampau memakai past continuous, yaitu were + V-ing."
+      - id: w1
+        format: written_expression
+        level: Mudah
+        text: "[Since](m) the [factory](m) opened in {year}, it [produces](e:has produced) [more than](m) a million [{product}](m)."
+        vars: {year: ["2010", "2012", "2016"], product: [cars, bicycles, phones, washing machines]}
+        why: "'Since ...' menunjukkan rentang waktu hingga sekarang, jadi memakai present perfect."
+      - id: w2
+        format: written_expression
+        level: Sedang
+        text: "When the [police](m) [arrived](m), the thieves [have](e:had) already [escaped](m) through [a](m) back {exit}."
+        vars: {exit: [window, door, gate, entrance, staircase, passage]}
+        why: "Kaburnya pencuri terjadi sebelum polisi datang (lampau), jadi memakai past perfect, yaitu had + V3."
+      - id: w3
+        format: written_expression
+        level: Sedang
+        text: "[Yesterday](m), the [students](m) [present](e:presented) their [final](m) {work} to [a](m) panel of {judges}."
+        vars: {work: [projects, reports, designs], judges: [judges, professors, experts]}
+        why: "'Yesterday' menandai simple past."
+      - id: w4
+        format: written_expression
+        level: Sulit
+        text: "By the [time](m) the {event} [ends](m), the organizers [will collect](e:will have collected) [feedback](m) from [over](m) {n} participants."
+        vars: {event: [conference, festival, workshop], n: [five hundred, three hundred, a thousand]}
+        why: "'By the time ... ends' menandai kegiatan yang selesai sebelum titik di masa depan, jadi memakai future perfect."
+      - id: w5
+        format: written_expression
+        level: Mudah
+        text: "Scientists [discover](e:discovered) the [new](m) species [in](m) the {habitat} [two](m) years [ago](m)."
+        vars: {habitat: [rainforest, deep ocean, desert, mountains, Arctic, cave system]}
+        why: "'Two years ago' menandai simple past."
+      - id: w6
+        format: written_expression
+        level: Mudah
+        text: "Last [{period}](m), the [museum](m) [opens](e:opened) a [new](m) exhibit about [{topic}](m)."
+        vars: {period: [week, month, year], topic: [ancient Egypt, space travel, ocean life]}
+        why: "'Last {period}' menandai simple past."
+      - id: w7
+        format: written_expression
+        level: Sedang
+        text: "The [researchers](m) have [studied](m) the {species} [since](e:for) [ten](m) years in [{region}](m)."
+        vars: {species: [rare frogs, mountain goats, sea birds], region: [Peru, Kenya, Norway]}
+        why: "Untuk lamanya waktu dipakai 'for'; 'since' dipakai untuk titik awal waktu."
+
+  - id: PASSIVE
+    topic: passive voice
+    konsep: "passive voice (kalimat pasif)"
+    cara_cepat: "Tanyakan apakah subjek melakukan tindakan atau dikenai tindakan. Kalau dikenai tindakan, kalimatnya pasif dengan pola be + V3, dan pelakunya boleh disebut dengan by. Setelah itu, pastikan bentuk be sudah sesuai dengan tense dan jumlah subjeknya."
+    frames:
+      - id: s1
+        format: structure
+        level: Mudah
+        text: "The new {building} ___ by a team of local engineers in {year}."
+        vars: {building: [bridge, stadium, library, train station], year: ["2017", "2019", "2021"]}
+        correct: "was designed"
+        distractors:
+          - ["designed", "subjek menerima aksi dan ada 'by ...', jadi perlu bentuk pasif"]
+          - ["was designing", "past continuous aktif, bukan pasif"]
+          - ["has designed", "bentuk aktif dan tense tidak sesuai dengan tahun {year}"]
+        why: "Bangunan itu dirancang oleh tim insinyur, jadi kalimatnya pasif. Tahun {year} menandai kejadian lampau, sehingga bentuknya was + V3."
+      - id: s2
+        format: structure
+        level: Sedang
+        text: "Many of the world's oldest {doc} ___ in climate-controlled rooms to prevent damage."
+        vars: {doc: [manuscripts, maps, paintings, photographs, letters, scrolls]}
+        correct: "are kept"
+        distractors:
+          - ["keep", "bentuk aktif; benda itu tidak menyimpan, tetapi disimpan"]
+          - ["are keeping", "bentuk aktif progresif, bukan pasif"]
+          - ["is kept", "subjek 'many of ...' jamak"]
+        why: "Benda itu disimpan oleh orang lain, jadi pasif, dan subjeknya jamak, sehingga bentuknya are + V3."
+      - id: s3
+        format: structure
+        level: Sedang
+        text: "The results of the {study} ___ until all the data have been checked."
+        vars: {study: [experiment, survey, clinical trial, field study, national census, pilot program]}
+        correct: "will not be published"
+        distractors:
+          - ["will not publish", "bentuk aktif; hasil penelitian tidak menerbitkan, tetapi diterbitkan"]
+          - ["are not publishing", "bentuk aktif progresif"]
+          - ["not published", "tidak ada auxiliary, jadi kalimat tidak punya predikat lengkap"]
+        why: "Hasil penelitian akan diterbitkan oleh orang lain, jadi memakai future passive, yaitu will (not) be + V3."
+      - id: s4
+        format: structure
+        level: Sulit
+        text: "The ancient city is believed ___ by a powerful {event} about 3,000 years ago."
+        vars: {event: [earthquake, volcanic eruption, flood, tsunami, great fire, violent storm]}
+        correct: "to have been destroyed"
+        distractors:
+          - ["to destroy", "bentuk aktif; kota itu dihancurkan, bukan menghancurkan"]
+          - ["to be destroying", "bentuk progresif aktif tidak cocok"]
+          - ["having destroyed", "bentuk aktif dan tidak sesuai setelah 'is believed'"]
+        why: "Setelah 'is believed', kejadian lampau yang pasif memakai perfect passive infinitive, yaitu to have been + V3."
+      - id: s5
+        format: structure
+        level: Sulit
+        text: "The {proposal} ___ by the committee at the moment, so no decision has been made yet."
+        vars: {proposal: [proposal, budget plan, new curriculum, research plan, funding request, hiring plan]}
+        correct: "is being reviewed"
+        distractors:
+          - ["is reviewing", "bentuk aktif; dokumen itu tidak meninjau, tetapi ditinjau"]
+          - ["has reviewed", "bentuk aktif"]
+          - ["being reviewed", "tidak ada to be utama, jadi tidak ada predikat"]
+        why: "'At the moment' menandai kejadian yang sedang berlangsung, dan subjek menerima aksi, sehingga bentuknya is being + V3."
+      - id: w1
+        format: written_expression
+        level: Mudah
+        text: "The [{book}](m) [was](m) [translate](e:translated) into [more](m) than forty [languages](m)."
+        vars: {book: [novel, poem, play, biography, short story, memoir]}
+        why: "Pasif memerlukan be + V3, jadi 'translate' harus 'translated'."
+      - id: w2
+        format: written_expression
+        level: Sedang
+        text: "Most of the [research](m) on the {disease} [has](m) been [conduct](e:conducted) in [large](m) urban [hospitals](m)."
+        vars: {disease: [disease, virus, illness, infection, condition, disorder]}
+        why: "Bentuk yang dibutuhkan adalah present perfect pasif, yaitu has been + V3."
+      - id: w3
+        format: written_expression
+        level: Sedang
+        text: "The [ancient](m) {object} [were](m) [finding](e:found) by a [farmer](m) while he was [plowing](m) his field."
+        vars: {object: [coins, tools, pots, statues, weapons, jars]}
+        why: "Benda itu ditemukan oleh petani, jadi pasif, yaitu were + V3."
+      - id: w4
+        format: written_expression
+        level: Sulit
+        text: "The [new](m) [{product}](m) is [expected](m) to [approve](e:be approved) by [health](m) officials next {time}."
+        vars: {product: [vaccine, medicine, treatment], time: [month, year, spring]}
+        why: "Produk itu disetujui oleh pejabat, jadi setelah 'to' dipakai pasif, yaitu to be + V3."
+      - id: w5
+        format: written_expression
+        level: Mudah
+        text: "The [old](m) {building} [was](m) [build](e:built) by [local](m) [workers](m) in the {century}."
+        vars: {building: [church, school, bridge], century: [1800s, 1900s, eighteenth century]}
+        why: "Pasif memerlukan be + V3, jadi 'build' harus 'built'."
+      - id: w6
+        format: written_expression
+        level: Sedang
+        text: "The [results](m) of the {test} [will](m) [announce](e:be announced) [at](m) the end of the [{period}](m)."
+        vars: {test: [entrance exam, competition, survey], period: [week, month, semester]}
+        why: "Hasil diumumkan oleh orang lain, jadi pasif, yaitu will be + V3."
+
+  - id: GERINF
+    topic: gerund and infinitive
+    konsep: "gerund dan infinitive"
+    cara_cepat: "Lihat kata yang berada tepat sebelum kata kerja yang diuji. Avoid, consider, enjoy, suggest, recommend, look forward to, dan be used to diikuti V-ing, sedangkan decide, plan, hope, agree, dan be allowed diikuti to + V1. Kumpulkan pasangan seperti ini saat berlatih, karena polanya berulang."
+    frames:
+      - id: s1
+        format: structure
+        level: Mudah
+        text: "Many {people} avoid ___ difficult courses in their first semester."
+        vars: {people: [students, freshmen, undergraduates, first-year students, transfer students, part-time students]}
+        correct: "taking"
+        distractors:
+          - ["to take", "'avoid' diikuti V-ing, bukan to infinitive"]
+          - ["take", "verb setelah 'avoid' tidak boleh bentuk dasar"]
+          - ["taken", "V3 tidak dipakai setelah 'avoid'"]
+        why: "'Avoid' selalu diikuti gerund (V-ing)."
+      - id: s2
+        format: structure
+        level: Mudah
+        text: "The city council has decided ___ a new {facility} near the river."
+        vars: {facility: [park, sports center, public library, bus terminal, community garden, parking garage]}
+        correct: "to build"
+        distractors:
+          - ["building", "'decide' diikuti to infinitive"]
+          - ["build", "perlu 'to' sebelum verb dasar"]
+          - ["built", "V3 tidak dipakai setelah 'decide'"]
+        why: "'Decide' diikuti to infinitive, yaitu decide + to V1."
+      - id: s3
+        format: structure
+        level: Sedang
+        text: "The researchers are considering ___ the study to include participants from {region}."
+        vars: {region: [other countries, rural areas, other universities, neighboring regions, coastal towns, private schools]}
+        correct: "expanding"
+        distractors:
+          - ["to expand", "'consider' diikuti V-ing"]
+          - ["expand", "verb dasar tidak dipakai setelah 'considering'"]
+          - ["expanded", "V3 tidak dipakai setelah 'consider'"]
+        why: "'Consider' diikuti gerund (V-ing)."
+      - id: s4
+        format: structure
+        level: Sedang
+        text: "Visitors are not allowed ___ photographs inside the {venue}."
+        vars: {venue: [gallery, museum, archive room, concert hall, library archive, exhibition hall]}
+        correct: "to take"
+        distractors:
+          - ["taking", "'be allowed' diikuti to infinitive"]
+          - ["take", "perlu 'to' sebelum verb dasar"]
+          - ["took", "V2 tidak dipakai setelah 'allowed'"]
+        why: "Pola 'be allowed + to V1'."
+      - id: s5
+        format: structure
+        level: Sulit
+        text: "The museum is looking forward to ___ the {exhibit} to the public next spring."
+        vars: {exhibit: [exhibition, new gallery, sculpture garden, photo gallery, science wing, renovated hall]}
+        correct: "opening"
+        distractors:
+          - ["open", "'to' dalam 'look forward to' adalah preposisi, jadi diikuti V-ing"]
+          - ["opened", "V3 tidak dipakai setelah preposisi"]
+          - ["have opened", "bentuk perfect tidak dipakai setelah 'look forward to'"]
+        why: "Dalam 'look forward to', kata 'to' adalah preposisi, sehingga diikuti gerund (V-ing)."
+      - id: s6
+        format: structure
+        level: Sedang
+        text: "The professor recommended ___ the first two chapters before the {event}."
+        vars: {event: [seminar, exam, field trip, lab session, discussion, midterm]}
+        correct: "reading"
+        distractors:
+          - ["to read", "'recommend' diikuti V-ing"]
+          - ["read", "verb dasar tidak dipakai langsung setelah 'recommended'"]
+          - ["to reading", "'recommend' tidak diikuti 'to'"]
+        why: "'Recommend' diikuti gerund (V-ing)."
+      - id: w1
+        format: written_expression
+        level: Mudah
+        text: "Most [people](m) [enjoy](m) [to spend](e:spending) time [outdoors](m) during [warm](m) {season}."
+        vars: {season: [weather, months, evenings, days, afternoons, seasons]}
+        why: "'Enjoy' diikuti gerund (V-ing)."
+      - id: w2
+        format: written_expression
+        level: Sedang
+        text: "The [company](m) [plans](m) [expanding](e:to expand) its [operations](m) to [three](m) new {markets}."
+        vars: {markets: [countries, cities, regions, markets, provinces, continents]}
+        why: "'Plan' diikuti to infinitive."
+      - id: w3
+        format: written_expression
+        level: Sedang
+        text: "[After](m) [finishing](m) the {task}, the researchers [suggested](m) [to repeat](e:repeating) the [study](m) next year."
+        vars: {task: [survey, pilot test, first round, interviews, trial run, data collection]}
+        why: "'Suggest' diikuti gerund (V-ing)."
+      - id: w4
+        format: written_expression
+        level: Sulit
+        text: "The [students](m) are [used](m) to [work](e:working) in [small](m) groups [during](m) {session}."
+        vars: {session: [lab sessions, seminars, workshops, tutorials, field trips, class discussions]}
+        why: "Dalam 'be used to', kata 'to' adalah preposisi, sehingga diikuti V-ing."
+      - id: w5
+        format: written_expression
+        level: Mudah
+        text: "Many [{people}](m) [avoid](m) [eat](e:eating) [late](m) at night [before](m) a big {event}."
+        vars: {people: [students, athletes, teachers], event: [exam, race, presentation]}
+        why: "'Avoid' diikuti gerund (V-ing)."
+      - id: w6
+        format: written_expression
+        level: Sedang
+        text: "The [manager](m) [agreed](m) [hiring](e:to hire) [two](m) more [{staff}](m) for the {season}."
+        vars: {staff: [assistants, cooks, drivers], season: [summer, holidays, busy season]}
+        why: "'Agree' diikuti to infinitive."
+
+  - id: RELCL
+    topic: adjective clause
+    konsep: "adjective clause (klausa relatif)"
+    cara_cepat: "Lihat kata benda yang diterangkan, lalu tentukan fungsinya di dalam klausa. Who dipakai untuk orang sebagai subjek, whom untuk orang sebagai objek, which atau that untuk benda, whose untuk kepemilikan dan diikuti noun, dan where untuk tempat dan diikuti klausa lengkap."
+    frames:
+      - id: s1
+        format: structure
+        level: Mudah
+        text: "The {person} ___ discovered the new vaccine received an international award."
+        vars: {person: [scientist, researcher, doctor, biologist, physician, professor]}
+        correct: "who"
+        distractors:
+          - ["which", "'which' untuk benda, bukan orang"]
+          - ["whose", "'whose' menyatakan kepemilikan dan harus diikuti kata benda"]
+          - ["whom", "'whom' untuk objek, padahal yang dibutuhkan subjek dari 'discovered'"]
+        why: "Kata yang diterangkan adalah orang ('{person}') dan berfungsi sebagai subjek klausa, jadi memakai 'who'."
+      - id: s2
+        format: structure
+        level: Sedang
+        text: "The {place} ___ the famous poet was born has become a popular tourist destination."
+        vars: {place: [village, town, house, city, small cottage, farmhouse]}
+        correct: "where"
+        distractors:
+          - ["which", "'which' memerlukan preposisi ('in which') karena klausa sudah lengkap"]
+          - ["who", "'who' untuk orang"]
+          - ["what", "'what' tidak dipakai sebagai penghubung adjective clause"]
+        why: "Klausa 'the famous poet was born' sudah lengkap dan menerangkan tempat, jadi memakai 'where'."
+      - id: s3
+        format: structure
+        level: Sedang
+        text: "{applicants} ___ documents are incomplete will be contacted by the admissions office."
+        vars: {applicants: [Students, Applicants, Candidates, Researchers, Employees, Participants]}
+        correct: "whose"
+        distractors:
+          - ["who", "setelah kata penghubung ada kata benda 'documents', jadi butuh bentuk kepemilikan"]
+          - ["which", "'which' untuk benda dan bukan bentuk kepemilikan"]
+          - ["whom", "'whom' untuk objek, bukan kepemilikan"]
+        why: "Dokumen itu milik para pelamar; kepemilikan dinyatakan dengan 'whose' + kata benda."
+      - id: s4
+        format: structure
+        level: Sulit
+        text: "The {idea}, ___ was first proposed in the nineteenth century, is still widely debated."
+        vars: {idea: [theory, hypothesis, model, law, principle, explanation]}
+        correct: "which"
+        distractors:
+          - ["that", "'that' tidak dipakai pada klausa yang diapit koma (non-defining)"]
+          - ["what", "'what' tidak dipakai sebagai penghubung adjective clause"]
+          - ["it", "'it' membuat dua klausa tanpa kata penghubung"]
+        why: "Klausa diapit koma (non-defining) dan menerangkan benda, jadi memakai 'which'."
+      - id: s5
+        format: structure
+        level: Sedang
+        text: "The {item} ___ I borrowed from the library is about the history of medicine."
+        vars: {item: [book, journal, documentary, magazine, textbook, report]}
+        correct: "that"
+        distractors:
+          - ["who", "'who' untuk orang"]
+          - ["what", "'what' tidak dipakai setelah kata benda yang diterangkan"]
+          - ["whose", "'whose' menyatakan kepemilikan dan harus diikuti kata benda"]
+        why: "Kata yang diterangkan adalah benda dan menjadi objek 'borrowed', jadi memakai 'that' (atau 'which')."
+      - id: w1
+        format: written_expression
+        level: Mudah
+        text: "The [{person}](m) [which](e:who) [designed](m) the [{work}](m) has [won](m) several [awards](m)."
+        vars: {person: [engineer, architect, designer], work: [bridge, museum, stadium]}
+        why: "Untuk orang dipakai 'who', bukan 'which'."
+      - id: w2
+        format: written_expression
+        level: Sedang
+        text: "The [island](m) [who](e:which) [lies](m) off the [coast](m) is [home](m) to {animal}."
+        vars: {animal: [rare birds, sea turtles, wild horses, seals, rare plants, migrating whales]}
+        why: "Untuk benda atau tempat sebagai subjek klausa dipakai 'which' (atau 'that')."
+      - id: w3
+        format: written_expression
+        level: Sedang
+        text: "The [author](m), [whom](e:whose) {works} have been [translated](m) into many [languages](m), will [visit](m) the {school} next week."
+        vars: {works: [novels, poems, essays], school: [university, campus, library]}
+        why: "Karya itu milik pengarang; kepemilikan memakai 'whose' + kata benda."
+      - id: w4
+        format: written_expression
+        level: Sedang
+        text: "The [{place}](m) [which](e:where) the [famous](m) [{artist}](m) grew up is now a [museum](m)."
+        vars: {place: [house, apartment, cottage], artist: [painter, composer, writer]}
+        why: "Klausa 'the famous {artist} grew up' sudah lengkap dan menerangkan tempat, jadi memakai 'where'."
+      - id: w5
+        format: written_expression
+        level: Sulit
+        text: "[{people}](m) [who their](e:whose) [{work}](m) is [late](m) will [lose](m) points."
+        vars: {people: [Students, Interns, Trainees], work: [homework, report, project]}
+        why: "Kepemilikan dinyatakan dengan 'whose' + kata benda, bukan 'who their'."
+
+  - id: REDUCED
+    topic: reduced clause
+    konsep: "reduced clause (klausa yang diringkas dengan participle)"
+    cara_cepat: "Tentukan dulu subjek klausa utama, karena subjek klausa yang diringkas harus sama dengannya. Kalau subjek itu melakukan tindakan, pakai V-ing. Kalau subjek itu dikenai tindakan, pakai V3."
+    frames:
+      - id: s1
+        format: structure
+        level: Sedang
+        text: "___ in {year}, the {inst} is one of the oldest in the region."
+        vars: {year: ["1701", "1754", "1823"], inst: [university, college, academy]}
+        correct: "Founded"
+        distractors:
+          - ["Founding", "bentuk aktif; lembaga itu didirikan, bukan mendirikan"]
+          - ["It was founded", "membentuk dua klausa utama tanpa kata penghubung"]
+          - ["To found", "to infinitive menyatakan tujuan dan tidak cocok di sini"]
+        why: "Lembaga itu didirikan (pasif), jadi klausa ringkasnya memakai V3, yaitu 'Founded in {year}'."
+      - id: s2
+        format: structure
+        level: Sedang
+        text: "The scientists ___ on the {project} have published several important papers."
+        vars: {project: [project, climate study, vaccine research, mission, space program, energy project]}
+        correct: "working"
+        distractors:
+          - ["worked", "para ilmuwan melakukan pekerjaan (aktif), jadi memakai V-ing"]
+          - ["are working", "membuat dua predikat dalam satu klausa"]
+          - ["work", "verb dasar tidak bisa menerangkan kata benda"]
+        why: "'Working on the {project}' adalah ringkasan dari 'who are working ...' (aktif), jadi memakai V-ing."
+      - id: s3
+        format: structure
+        level: Sulit
+        text: "___ by the {result} results, the team decided to repeat the experiment."
+        vars: {result: [unexpected, unusual, inconsistent, contradictory, confusing, unclear]}
+        correct: "Puzzled"
+        distractors:
+          - ["Puzzling", "tim yang merasa bingung (menerima perasaan), jadi memakai V3"]
+          - ["They were puzzled", "membentuk dua klausa utama tanpa kata penghubung"]
+          - ["To puzzle", "to infinitive tidak cocok di sini"]
+        why: "Tim dibuat bingung oleh hasil itu (pasif), jadi klausa ringkasnya memakai V3, yaitu 'Puzzled by ...'."
+      - id: s4
+        format: structure
+        level: Sulit
+        text: "Most of the {art} ___ in the exhibition were created by local artists."
+        vars: {art: [paintings, photographs, sculptures, drawings, prints, ceramics]}
+        correct: "displayed"
+        distractors:
+          - ["displaying", "karya seni dipajang (pasif), jadi memakai V3"]
+          - ["are displayed", "membuat dua predikat tanpa kata penghubung"]
+          - ["display", "verb dasar tidak bisa menerangkan kata benda"]
+        why: "'Displayed in the exhibition' adalah ringkasan dari 'which are displayed ...' (pasif), jadi memakai V3."
+      - id: s5
+        format: structure
+        level: Sedang
+        text: "___ the experiment, the researchers recorded every change in {measure}."
+        vars: {measure: [temperature, pressure, humidity, air quality, light levels, water depth]}
+        correct: "While conducting"
+        distractors:
+          - ["While conducted", "peneliti melakukan percobaan (aktif), jadi memakai V-ing"]
+          - ["They conducted", "membentuk dua klausa utama tanpa kata penghubung"]
+          - ["While conduct", "setelah 'while' tidak dipakai verb dasar"]
+        why: "Peneliti melakukan percobaan (aktif), jadi klausa ringkasnya memakai while + V-ing."
+      - id: s6
+        format: structure
+        level: Sedang
+        text: "___ in the eighteenth century, the steam engine changed the way goods were produced."
+        correct: "Developed"
+        distractors:
+          - ["It was developed", "membentuk dua klausa utama tanpa kata penghubung"]
+          - ["Developing", "mesin uap dikembangkan (pasif), jadi memakai V3"]
+          - ["To develop", "to infinitive tidak cocok di sini"]
+        why: "Mesin uap dikembangkan oleh orang (pasif), jadi klausa ringkasnya memakai V3, yaitu 'Developed in ...'."
+
+  - id: NOUNCL
+    topic: noun clause
+    konsep: "noun clause"
+    cara_cepat: "Kalau kata tanya, that, atau whether berada di tengah kalimat atau menjadi subjek, urutan sesudahnya adalah urutan pernyataan, yaitu subjek lalu verb. Coret opsi yang memakai urutan kalimat tanya, seperti auxiliary sebelum subjek."
+    frames:
+      - id: s1
+        format: structure
+        level: Sedang
+        text: "___ the {animal} disappeared so suddenly is still a subject of debate."
+        vars: {animal: [dinosaurs, mammoths, ancient forests, saber-toothed cats, early cities, giant birds]}
+        correct: "Why"
+        distractors:
+          - ["Why did", "noun clause memakai urutan pernyataan, bukan urutan pertanyaan"]
+          - ["Because", "'because' menyatakan alasan dan tidak bisa menjadi subjek kalimat"]
+          - ["Since", "'since' memulai keterangan, bukan subjek kalimat"]
+        why: "Kalimat butuh subjek berupa noun clause, yaitu 'Why the {animal} disappeared so suddenly' (urutan subjek + verb)."
+      - id: s2
+        format: structure
+        level: Sedang
+        text: "Scientists are not sure ___ the {object} will pass close to Earth next year."
+        vars: {object: [comet, asteroid, meteor, satellite, space debris, old rocket]}
+        correct: "whether"
+        distractors:
+          - ["what", "'what' memerlukan klausa yang kehilangan subjek atau objek"]
+          - ["unless", "'unless' menyatakan syarat, bukan isi ketidakpastian"]
+          - ["which", "'which' tidak dipakai untuk menyatakan ya/tidak"]
+        why: "Ketidakpastian ya/tidak dinyatakan dengan 'whether' + klausa lengkap."
+      - id: s3
+        format: structure
+        level: Sulit
+        text: "The guide explained ___ in the ancient {settlement}."
+        vars: {settlement: [city, village, kingdom, town, empire, colony]}
+        correct: "how the people lived"
+        distractors:
+          - ["how did the people live", "noun clause memakai urutan pernyataan, bukan urutan pertanyaan"]
+          - ["the people how lived", "urutan kata salah"]
+          - ["how lived the people", "verb tidak boleh mendahului subjek dalam noun clause"]
+        why: "Objek 'explained' berupa noun clause dengan urutan kata tanya + subjek + verb, yaitu 'how the people lived'."
+      - id: s4
+        format: structure
+        level: Sedang
+        text: "___ the new {policy} will reduce traffic remains to be seen."
+        vars: {policy: [policy, toll system, bus route, parking fee, congestion charge, train schedule]}
+        correct: "Whether"
+        distractors:
+          - ["If", "'if' tidak dipakai untuk memulai noun clause yang menjadi subjek"]
+          - ["Because", "'because' tidak bisa menjadi subjek kalimat"]
+          - ["Unless", "'unless' menyatakan syarat"]
+        why: "Noun clause di posisi subjek yang menyatakan ya/tidak dimulai dengan 'whether'."
+      - id: s5
+        format: structure
+        level: Mudah
+        text: "The report shows ___ most {people} support the new park."
+        vars: {people: [residents, students, visitors, parents, employees, shop owners]}
+        correct: "that"
+        distractors:
+          - ["what", "'what' tidak dipakai sebelum klausa lengkap"]
+          - ["who", "'who' tidak cocok karena klausa sudah punya subjek"]
+          - ["which", "'which' tidak dipakai sebagai penghubung setelah 'shows'"]
+        why: "Klausa 'most {people} support the new park' sudah lengkap, jadi dihubungkan dengan 'that'."
+
+  - id: PARALLEL
+    topic: parallel structure
+    konsep: "parallel structure (kesejajaran bentuk)"
+    cara_cepat: "Temukan kata penghubungnya, seperti and, or, but, both...and, atau not only...but also. Lalu bandingkan unsur yang dihubungkan, karena semuanya harus berbentuk sama, misalnya sama-sama noun, V-ing, atau to + V1."
+    frames:
+      - id: s1
+        format: structure
+        level: Sedang
+        text: "The new program aims to reduce costs, improve services, and ___ {target} satisfaction."
+        vars: {target: [customer, student, patient, client, member, visitor]}
+        correct: "increase"
+        distractors:
+          - ["increasing", "harus sejajar dengan 'reduce' dan 'improve' (V1)"]
+          - ["to increasing", "bentuk tidak sejajar dan 'to + V-ing' salah"]
+          - ["increased", "V2 tidak sejajar dengan V1"]
+        why: "Tiga unsur setelah 'aims to' harus sejajar, yaitu reduce, improve, increase (V1)."
+      - id: s2
+        format: structure
+        level: Sedang
+        text: "The {job} requires both creativity and ___."
+        vars: {job: [job, position, research role, task, project, teaching role]}
+        correct: "patience"
+        distractors:
+          - ["patient", "adjective tidak sejajar dengan noun 'creativity'"]
+          - ["being patient", "frasa gerund tidak sejajar dengan noun"]
+          - ["to be patient", "to infinitive tidak sejajar dengan noun"]
+        why: "'Both ... and ...' menghubungkan dua noun, yaitu creativity dan patience."
+      - id: s3
+        format: structure
+        level: Sulit
+        text: "The professor is known not only for her research but also ___."
+        correct: "for her teaching"
+        distractors:
+          - ["she teaches well", "klausa tidak sejajar dengan frasa 'for her research'"]
+          - ["because of teaching", "bentuk tidak sejajar dengan 'for her research'"]
+          - ["her teaching is good", "klausa tidak sejajar"]
+        why: "'Not only ... but also ...' harus sejajar, yaitu for her research dan for her teaching."
+      - id: s4
+        format: structure
+        level: Mudah
+        text: "Visitors to the park can hike, swim, or ___ along the {feature}."
+        vars: {feature: [river, lake shore, coast, beach, canal, mountain trail]}
+        correct: "cycle"
+        distractors:
+          - ["cycling", "harus sejajar dengan 'hike' dan 'swim' (V1)"]
+          - ["to cycle", "to infinitive tidak sejajar"]
+          - ["cycled", "V2 tidak sejajar"]
+        why: "Tiga verb setelah 'can' sejajar dalam bentuk V1, yaitu hike, swim, cycle."
+      - id: w1
+        format: written_expression
+        level: Mudah
+        text: "The [course](m) teaches [students](m) how to [read](m) critically, write [clearly](m), and [speaking](e:speak) [confidently](m) in [{setting}](m)."
+        vars: {setting: [public, class, meetings, groups, seminars, interviews]}
+        why: "Unsur setelah 'how to' harus sejajar, yaitu read, write, speak (V1)."
+      - id: w2
+        format: written_expression
+        level: Sedang
+        text: "Hiking, [swimming](m), and [to ride](e:riding) [bicycles](m) are [popular](m) [activities](m) in the {area}."
+        vars: {area: [park, valley, national forest, region, resort, city park]}
+        why: "Unsur yang dihubungkan 'and' harus sejajar, yaitu hiking, swimming, riding."
+      - id: w3
+        format: written_expression
+        level: Sedang
+        text: "The [new](m) {system} is [faster](m), [cheaper](m), and [more reliability](e:more reliable) [than](m) the old one."
+        vars: {system: [system, printer, software, engine, device, network]}
+        why: "Unsur sejajar harus sama-sama adjective, yaitu faster, cheaper, more reliable."
+      - id: w4
+        format: written_expression
+        level: Sulit
+        text: "The [{doc}](m) was long, [detailed](m), and [carefully](m) [researching](e:researched)."
+        vars: {doc: [report, article, proposal, study, essay, presentation]}
+        why: "Unsur sejajar harus sama-sama adjective/participle, yaitu long, detailed, researched."
+      - id: w5
+        format: written_expression
+        level: Mudah
+        text: "{owner} new [{role}](m) is [kind](m), [patient](m), and [humor](e:humorous)."
+        vars: {owner: [Our, My brother's, The school's], role: [teacher, coach, doctor]}
+        why: "Unsur sejajar harus sama-sama adjective, yaitu kind, patient, humorous."
+      - id: w6
+        format: written_expression
+        level: Sedang
+        text: "The {program} helps [students](m) [improve](m) their writing, [build](m) confidence, and [finding](e:find) [new](m) {friends}."
+        vars: {program: [program, club, workshop], friends: [friends, mentors, interests]}
+        why: "Unsur setelah 'helps students' sejajar dalam bentuk V1, yaitu improve, build, find."
+
+  - id: COMPARE
+    topic: comparison
+    konsep: "comparison (perbandingan)"
+    cara_cepat: "Cari penanda perbandingannya. Than menuntut comparative (-er atau more), the dengan cakupan sebuah kelompok menuntut superlative (-est atau most), dan as ... as memakai bentuk dasar. Coret juga bentuk yang menggabungkan dua penanda, seperti more dengan -er."
+    frames:
+      - id: s1
+        format: structure
+        level: Mudah
+        text: "The Pacific Ocean is ___ than the Atlantic Ocean."
+        correct: "larger"
+        distractors:
+          - ["more large", "'large' bersuku kata satu, jadi comparative-nya 'larger'"]
+          - ["largest", "superlative tidak dipakai dengan 'than'"]
+          - ["the larger", "'the' tidak dipakai pada comparative dengan 'than'"]
+        why: "Perbandingan dua hal dengan 'than' memakai comparative; 'large' menjadi 'larger'."
+      - id: s2
+        format: structure
+        level: Sedang
+        text: "This year's {crop} harvest was ___ than last year's because of the heavy rain."
+        vars: {crop: [rice, wheat, corn, coffee, tea, cocoa]}
+        correct: "much smaller"
+        distractors:
+          - ["more smaller", "comparative ganda ('more' + '-er') tidak gramatikal"]
+          - ["very smaller", "'very' tidak dipakai untuk menguatkan comparative"]
+          - ["smallest", "superlative tidak dipakai dengan 'than'"]
+        why: "Comparative 'smaller' diperkuat dengan 'much', bukan 'very' atau 'more'."
+      - id: s3
+        format: structure
+        level: Mudah
+        text: "Mount Everest is ___ mountain in the world."
+        correct: "the highest"
+        distractors:
+          - ["the most high", "'high' bersuku kata satu, jadi superlative-nya 'the highest'"]
+          - ["higher", "comparative tidak cocok untuk 'in the world'"]
+          - ["highest", "superlative di depan kata benda perlu 'the'"]
+        why: "'In the world' menandai superlative, yaitu the + -est."
+      - id: s4
+        format: structure
+        level: Sulit
+        text: "The more you practice a language, ___ you become."
+        correct: "the more fluent"
+        distractors:
+          - ["more fluent", "pola 'the more ..., the more ...' memerlukan 'the' di kedua bagian"]
+          - ["the most fluent", "superlative tidak dipakai dalam pola ini"]
+          - ["the fluent more", "urutan kata salah"]
+        why: "Pola double comparative, yaitu the + comparative ..., the + comparative ..."
+      - id: s5
+        format: structure
+        level: Sedang
+        text: "The new {vehicle} uses only half ___ fuel as the old one."
+        vars: {vehicle: [model, engine, truck, generator, bus, boiler]}
+        correct: "as much"
+        distractors:
+          - ["as many", "'fuel' tidak bisa dihitung, jadi memakai 'much'"]
+          - ["so much", "pola perbandingan setara adalah 'as ... as'"]
+          - ["much", "perlu 'as' sebelum 'much' karena diikuti 'as the old one'"]
+        why: "Perbandingan setara untuk kata benda tak terhitung, yaitu half as much + noun + as."
+      - id: w1
+        format: written_expression
+        level: Mudah
+        text: "[Gold](m) is [more expensiver](e:more expensive) [than](m) [silver](m) in most [markets](m)."
+        why: "'Expensive' bersuku kata banyak, jadi comparative-nya 'more expensive' tanpa -er."
+      - id: w2
+        format: written_expression
+        level: Sedang
+        text: "The [Nile](m) is [the most longest](e:the longest) river [in](m) [Africa](m) and [one](m) of the longest in the world."
+        why: "Superlative ganda tidak gramatikal; 'long' menjadi 'the longest'."
+      - id: w3
+        format: written_expression
+        level: Sedang
+        text: "This [{method}](m) is [as](m) [effective](m) [than](e:as) the [traditional](m) one."
+        vars: {method: [method, approach, technique, treatment, strategy, procedure]}
+        why: "Perbandingan setara memakai 'as ... as', bukan 'as ... than'."
+      - id: w4
+        format: written_expression
+        level: Sulit
+        text: "Of the [three](m) {options}, the [second](m) one is [more practical](e:the most practical) [and](m) the least [expensive](m)."
+        vars: {options: [proposals, designs, plans, routes, models, offers]}
+        why: "Membandingkan lebih dari dua hal memakai superlative, yaitu the most practical."
+      - id: w5
+        format: written_expression
+        level: Mudah
+        text: "This [{place}](m) is [more quieter](e:quieter) [than](m) the [{other}](m) [near](m) the station."
+        vars: {place: [library, cafe, park], other: [one, old one, main one]}
+        why: "'Quiet' sudah memakai bentuk -er, jadi 'more' tidak dipakai lagi."
+      - id: w6
+        format: written_expression
+        level: Sedang
+        text: "Of [all](m) the [{items}](m), this one is the [more](e:most) [{adj}](m)."
+        vars: {items: [paintings, cars, phones], adj: [expensive, popular, modern]}
+        why: "Membandingkan lebih dari dua benda memakai superlative, yaitu the most."
+
+  - id: INVERSION
+    topic: inversion
+    konsep: "inversi setelah keterangan negatif atau terbatas"
+    cara_cepat: "Perhatikan awal kalimat. Kalau kalimat dibuka kata negatif atau terbatas seperti never, rarely, not only, atau only after, urutan sesudahnya menjadi auxiliary, subjek, lalu verb."
+    frames:
+      - id: s1
+        format: structure
+        level: Sulit
+        text: "Not only ___ the cost of the {project}, but it also delayed its completion."
+        vars: {project: [project, construction, renovation, expansion, repair work, excavation]}
+        correct: "did the storm increase"
+        distractors:
+          - ["the storm increased", "setelah 'not only' di awal kalimat diperlukan inversi"]
+          - ["increased the storm", "urutan kata salah"]
+          - ["the storm did increase", "auxiliary harus mendahului subjek"]
+        why: "'Not only' di awal kalimat diikuti inversi, yaitu did + subjek + V1."
+      - id: s2
+        format: structure
+        level: Sulit
+        text: "Rarely ___ such a large crowd at a {event}."
+        vars: {event: [scientific lecture, poetry reading, chess tournament, history lecture, film screening, public debate]}
+        correct: "has the hall seen"
+        distractors:
+          - ["the hall has seen", "'rarely' di awal kalimat memerlukan inversi"]
+          - ["has seen the hall", "subjek harus berada di antara auxiliary dan verb"]
+          - ["the hall seen", "tidak ada auxiliary"]
+        why: "'Rarely' di awal kalimat diikuti inversi, yaitu has + subjek + V3."
+      - id: s3
+        format: structure
+        level: Sulit
+        text: "Only after the {data} were checked ___ the results to the public."
+        vars: {data: [data, figures, samples, records, numbers, measurements]}
+        correct: "did the team release"
+        distractors:
+          - ["the team released", "'only after ...' di awal kalimat memerlukan inversi di klausa utama"]
+          - ["released the team", "urutan kata salah"]
+          - ["the team did release", "auxiliary harus mendahului subjek"]
+        why: "'Only after ...' di awal kalimat diikuti inversi pada klausa utama, yaitu did + subjek + V1."
+      - id: s4
+        format: structure
+        level: Sedang
+        text: "Never before ___ so many students apply for the {award}."
+        vars: {award: [scholarship, exchange program, research grant, fellowship, summer program, internship]}
+        correct: "had the university seen"
+        distractors:
+          - ["the university had seen", "'never before' di awal kalimat memerlukan inversi"]
+          - ["had seen the university", "subjek harus berada di antara auxiliary dan verb"]
+          - ["the university saw", "tidak ada inversi"]
+        why: "'Never before' di awal kalimat diikuti inversi, yaitu had + subjek + V3."
+
+  - id: COND
+    topic: conditional
+    konsep: "conditional sentence (kalimat pengandaian)"
+    cara_cepat: "Lihat bentuk verb pada klausa if, lalu cocokkan pasangannya di klausa utama. Present berpasangan dengan will + V1, past berpasangan dengan would + V1, dan had + V3 berpasangan dengan would have + V3."
+    frames:
+      - id: s1
+        format: structure
+        level: Mudah
+        text: "If it rains tomorrow, the outdoor {event} ___ to the main hall."
+        vars: {event: [concert, ceremony, festival, party, fair, graduation]}
+        correct: "will be moved"
+        distractors:
+          - ["would be moved", "kondisi nyata di masa depan (tipe 1) memakai 'will'"]
+          - ["was moved", "bentuk lampau tidak cocok dengan 'tomorrow'"]
+          - ["would have been moved", "bentuk tipe 3 untuk kejadian lampau"]
+        why: "'If it rains tomorrow' adalah conditional tipe 1, jadi klausa utama memakai will + V1 (di sini pasif, yaitu will be moved)."
+      - id: s2
+        format: structure
+        level: Sedang
+        text: "If the city had more funding, it ___ more public {facility}."
+        vars: {facility: [parks, libraries, bike lanes, schools, clinics, playgrounds]}
+        correct: "would build"
+        distractors:
+          - ["will build", "'had' di klausa if menandai tipe 2, jadi memakai 'would'"]
+          - ["would have built", "bentuk tipe 3 untuk kejadian lampau"]
+          - ["builds", "simple present tidak cocok"]
+        why: "'If ... had' (past) adalah conditional tipe 2, sehingga klausa utamanya memakai would + V1."
+      - id: s3
+        format: structure
+        level: Sulit
+        text: "If the researchers had checked the {device}, they ___ the error."
+        vars: {device: [equipment, sensors, software, machine, data, instruments]}
+        correct: "would have noticed"
+        distractors:
+          - ["would notice", "'had checked' menandai tipe 3, jadi memakai 'would have + V3'"]
+          - ["will notice", "bentuk tipe 1 tidak cocok"]
+          - ["had noticed", "klausa utama tipe 3 memerlukan 'would have'"]
+        why: "'If ... had + V3' adalah conditional tipe 3, sehingga klausa utamanya memakai would have + V3."
+      - id: s4
+        format: structure
+        level: Sulit
+        text: "___ more time, the students would have finished the {task}."
+        vars: {task: [project, report, experiment, survey, assignment, model]}
+        correct: "Had they had"
+        distractors:
+          - ["If they have", "bentuk tipe 1 tidak cocok dengan 'would have finished'"]
+          - ["They had had", "tanpa 'if' atau inversi, kalimat menjadi dua klausa utama"]
+          - ["Have they had", "inversi tipe 3 memakai 'had', bukan 'have'"]
+        why: "Conditional tipe 3 bisa ditulis tanpa 'if' dengan inversi, yaitu Had + subjek + V3."
+      - id: w1
+        format: written_expression
+        level: Mudah
+        text: "If the [weather](m) [is](m) good, we [would](e:will) [visit](m) the [national](m) {place}."
+        vars: {place: [park, museum, zoo, gallery, forest, monument]}
+        why: "Conditional tipe 1 (If + present) memakai 'will'."
+      - id: w2
+        format: written_expression
+        level: Sedang
+        text: "If [I](m) [were](m) the {role}, I [will](e:would) [improve](m) public [transportation](m)."
+        vars: {role: [mayor, governor, minister, president, director, principal]}
+        why: "'If I were' adalah conditional tipe 2, jadi memakai 'would'."
+      - id: w3
+        format: written_expression
+        level: Sulit
+        text: "If the [team](m) [had](m) started [earlier](m), they [would finish](e:would have finished) the [{task}](m) on time."
+        vars: {task: [project, report, survey, experiment, building, assignment]}
+        why: "'If ... had started' adalah tipe 3, jadi memakai 'would have + V3'."
+      - id: w4
+        format: written_expression
+        level: Sedang
+        text: "If the [{team}](m) [wins](m) the [{game}](m), the [fans](m) [would](e:will) celebrate all night."
+        vars: {team: [team, club, school], game: [match, final, tournament]}
+        why: "Conditional tipe 1 (If + present) memakai 'will'."
+      - id: w5
+        format: written_expression
+        level: Sulit
+        text: "If [{name}](m) [has](e:had) [studied](m) [harder](m), she [would have passed](m) the {exam}."
+        vars: {name: [Maria, Aisha, Sofia], exam: [exam, test, course]}
+        why: "Conditional tipe 3 memakai 'If + had + V3'."
+
+  - id: WORDFORM
+    topic: word form
+    konsep: "word form (bentuk kata)"
+    cara_cepat: "Tentukan fungsi kata itu dari kata di sekitarnya. Adjective menerangkan noun, adverb menerangkan verb atau adjective, dan noun muncul setelah artikel atau possessive serta sebelum of."
+    frames:
+      - id: s1
+        format: structure
+        level: Mudah
+        text: "The {speaker} explained the theory very ___."
+        vars: {speaker: [scientist, lecturer, author, professor, engineer, teacher]}
+        correct: "clearly"
+        distractors:
+          - ["clear", "yang diterangkan adalah verb 'explained', jadi butuh adverb"]
+          - ["clarity", "noun tidak bisa menerangkan verb"]
+          - ["clearness", "noun tidak bisa menerangkan verb"]
+        why: "Kata setelah 'very' di sini menerangkan cara menjelaskan (verb), jadi memakai adverb, yaitu clearly."
+      - id: s2
+        format: structure
+        level: Sedang
+        text: "The ___ of the new {treatment} surprised many doctors."
+        vars: {treatment: [medicine, therapy, vaccine, drug, procedure, diet]}
+        correct: "effectiveness"
+        distractors:
+          - ["effective", "setelah 'the' dan sebelum 'of' dibutuhkan noun"]
+          - ["effectively", "adverb tidak bisa menjadi subjek"]
+          - ["effecting", "bentuk V-ing tidak tepat untuk makna 'keefektifan'"]
+        why: "Posisi setelah 'the' dan sebelum 'of' adalah posisi noun, yaitu effectiveness."
+      - id: s3
+        format: structure
+        level: Sedang
+        text: "Regular exercise can ___ improve a person's {aspect}."
+        vars: {aspect: [mood, sleep, memory, health, energy, concentration]}
+        correct: "significantly"
+        distractors:
+          - ["significant", "adjective tidak bisa menerangkan verb 'improve'"]
+          - ["significance", "noun tidak cocok di antara modal dan verb"]
+          - ["signify", "dua verb berturut-turut tidak gramatikal"]
+        why: "Kata di antara 'can' dan 'improve' menerangkan verb, jadi memakai adverb, yaitu significantly."
+      - id: s4
+        format: structure
+        level: Sulit
+        text: "The museum's collection includes several ___ valuable {items}."
+        vars: {items: [paintings, manuscripts, coins, statues, jewels, books]}
+        correct: "extremely"
+        distractors:
+          - ["extreme", "adjective tidak bisa menerangkan adjective 'valuable'"]
+          - ["extremity", "noun tidak cocok di posisi ini"]
+          - ["extremes", "noun jamak tidak cocok di posisi ini"]
+        why: "Kata yang menerangkan adjective 'valuable' adalah adverb, yaitu extremely."
+      - id: w1
+        format: written_expression
+        level: Mudah
+        text: "The [team](m) worked [very](m) [hard](m) to finish the [{task}](m) [quick](e:quickly)."
+        vars: {task: [project, report, survey, assignment, experiment, presentation]}
+        why: "Kata yang menerangkan verb 'finish' harus adverb, yaitu quickly."
+      - id: w2
+        format: written_expression
+        level: Sedang
+        text: "The [discovery](m) of [{drug}](m) had a [significance](e:significant) [impact](m) on [modern](m) medicine."
+        vars: {drug: [penicillin, insulin, vaccines, antibiotics, aspirin, X-rays]}
+        why: "Kata sebelum noun 'impact' harus adjective, yaitu significant."
+      - id: w3
+        format: written_expression
+        level: Sedang
+        text: "Many [visitors](m) [are](m) [impressed](m) by the [beautiful](e:beauty) of the [{scenery}](m)."
+        vars: {scenery: [mountains, coastline, old city, lake, valley, gardens]}
+        why: "Setelah 'the' dan sebelum 'of' dibutuhkan noun, yaitu beauty."
+      - id: w4
+        format: written_expression
+        level: Sulit
+        text: "The [economy](m) grew [steady](e:steadily) [during](m) the [first](m) half of the [{period}](m)."
+        vars: {period: [year, decade, century, quarter, season, term]}
+        why: "Kata yang menerangkan verb 'grew' harus adverb, yaitu steadily."
+      - id: w5
+        format: written_expression
+        level: Mudah
+        text: "The [{kids}](m) [played](m) [happy](e:happily) in the [{place}](m) all [afternoon](m)."
+        vars: {kids: [children, puppies, students], place: [garden, park, yard]}
+        why: "Kata yang menerangkan verb 'played' harus adverb, yaitu happily."
+      - id: w6
+        format: written_expression
+        level: Sedang
+        text: "The [{speaker}](m) [gave](m) a [clearly](e:clear) [explanation](m) of the [{topic}](m)."
+        vars: {speaker: [professor, guide, engineer], topic: [problem, process, results]}
+        why: "Kata sebelum noun 'explanation' harus adjective, yaitu clear."
+      - id: w7
+        format: written_expression
+        level: Sulit
+        text: "The [{plan}](m) [was](m) [criticized](m) for its [complex](e:complexity) and [high](m) [{flaw}](m)."
+        vars: {plan: [plan, design, proposal], flaw: [cost, price, risk]}
+        why: "Setelah 'its' dibutuhkan noun yang sejajar dengan '{flaw}', yaitu complexity."
+
+  - id: NOUNQ
+    topic: noun and quantifier
+    konsep: "noun dan quantifier (countable/uncountable)"
+    cara_cepat: "Tentukan dulu apakah noun-nya countable atau uncountable. Much, little, dan less dipakai untuk uncountable, sedangkan many, few, dan fewer dipakai untuk countable jamak. Countable tunggal membutuhkan artikel atau penentu lain."
+    frames:
+      - id: s1
+        format: structure
+        level: Mudah
+        text: "There is not ___ information about the early history of the {place}."
+        vars: {place: [town, region, island, village, castle, temple]}
+        correct: "much"
+        distractors:
+          - ["many", "'information' tidak bisa dihitung, jadi memakai 'much'"]
+          - ["a few", "'a few' untuk kata benda jamak yang bisa dihitung"]
+          - ["several", "'several' untuk kata benda jamak yang bisa dihitung"]
+        why: "'Information' adalah uncountable noun, jadi memakai 'much'."
+      - id: s2
+        format: structure
+        level: Mudah
+        text: "Only ___ students passed the advanced {subject} exam this year."
+        vars: {subject: [physics, chemistry, calculus, biology, statistics, economics]}
+        correct: "a few"
+        distractors:
+          - ["a little", "'a little' untuk uncountable noun, padahal 'students' bisa dihitung"]
+          - ["much", "'much' untuk uncountable noun"]
+          - ["an", "artikel 'an' tidak dipakai sebelum kata benda jamak"]
+        why: "'Students' adalah countable noun jamak, jadi memakai 'a few'."
+      - id: s3
+        format: structure
+        level: Sedang
+        text: "The museum has ___ collection of ancient {craft}."
+        vars: {craft: [pottery, jewelry, textiles, tools, coins, masks]}
+        correct: "an impressive"
+        distractors:
+          - ["a impressive", "sebelum bunyi vokal dipakai 'an'"]
+          - ["impressive", "kata benda tunggal 'collection' memerlukan artikel"]
+          - ["an impressively", "adverb tidak bisa menerangkan noun"]
+        why: "'Collection' adalah countable noun tunggal sehingga perlu artikel; 'impressive' diawali bunyi vokal, jadi 'an impressive'."
+      - id: w1
+        format: written_expression
+        level: Mudah
+        text: "The [library](m) has [many](m) [book](e:books) about the [history](m) of [{field}](m)."
+        vars: {field: [science, medicine, art, music, physics, architecture]}
+        why: "Setelah 'many' dibutuhkan kata benda jamak, yaitu books."
+      - id: w2
+        format: written_expression
+        level: Sedang
+        text: "The [scientists](m) did not have [many](e:much) [time](m) to [complete](m) the [{task}](m)."
+        vars: {task: [experiment, analysis, survey, project, study, report]}
+        why: "'Time' di sini uncountable, jadi memakai 'much'."
+      - id: w3
+        format: written_expression
+        level: Sedang
+        text: "A [number](m) of [researcher](e:researchers) have [studied](m) the [effects](m) of {factor} on [learning](m)."
+        vars: {factor: [noise, sleep, music, stress, diet, exercise]}
+        why: "Setelah 'a number of' dibutuhkan kata benda jamak, yaitu researchers."
+      - id: w4
+        format: written_expression
+        level: Sulit
+        text: "[Less](e:Fewer) [people](m) [attended](m) the [{event}](m) than [expected](m)."
+        vars: {event: [lecture, workshop, seminar, concert, meeting, festival]}
+        why: "'People' adalah countable noun, jadi memakai 'fewer', bukan 'less'."
+      - id: w5
+        format: written_expression
+        level: Mudah
+        text: "We [need](m) [an](e:a) [new](m) [{item}](m) for the [{room}](m)."
+        vars: {item: [table, printer, lamp], room: [office, classroom, kitchen]}
+        why: "Sebelum bunyi konsonan dipakai 'a', bukan 'an'."
+      - id: w6
+        format: written_expression
+        level: Sedang
+        text: "The [teacher](m) gave us [many](e:much) [{advice}](m) about [{topic}](m)."
+        vars: {advice: [advice, information, homework], topic: [the exam, our projects, the trip]}
+        why: "'{advice}' adalah uncountable noun, jadi memakai 'much'."
+
+  - id: PREP
+    topic: preposition
+    konsep: "preposisi yang berpasangan tetap"
+    cara_cepat: "Preposisi jenis ini mengikuti pasangan tetap, jadi lihat kata tepat sebelumnya dan ingat pasangan bakunya, misalnya depend on, interested in, capable of, similar to, dan famous for. Pasangan seperti ini paling cepat dikuasai dengan menghafalnya sebagai satu kesatuan."
+    frames:
+      - id: s1
+        format: structure
+        level: Mudah
+        text: "The success of the {plan} depends ___ the support of the local community."
+        vars: {plan: [project, program, campaign, initiative, festival, clinic]}
+        correct: "on"
+        distractors:
+          - ["in", "'depend' berpasangan dengan 'on'"]
+          - ["of", "'depend' berpasangan dengan 'on'"]
+          - ["at", "'depend' berpasangan dengan 'on'"]
+        why: "Bentuk yang benar mengikuti pasangan tetap depend on."
+      - id: s2
+        format: structure
+        level: Sedang
+        text: "Many {people} are interested ___ studying abroad after graduation."
+        vars: {people: [students, undergraduates, first-year students, high school students, young people, language learners]}
+        correct: "in"
+        distractors:
+          - ["on", "'interested' berpasangan dengan 'in'"]
+          - ["for", "'interested' berpasangan dengan 'in'"]
+          - ["to", "'interested' berpasangan dengan 'in'"]
+        why: "Bentuk yang benar mengikuti pasangan tetap interested in + V-ing."
+      - id: s3
+        format: structure
+        level: Sedang
+        text: "The new {structure} is capable ___ supporting very heavy trucks."
+        vars: {structure: [bridge, platform, road, overpass, ramp, ferry]}
+        correct: "of"
+        distractors:
+          - ["to", "'capable' berpasangan dengan 'of'"]
+          - ["for", "'capable' berpasangan dengan 'of'"]
+          - ["in", "'capable' berpasangan dengan 'of'"]
+        why: "Bentuk yang benar mengikuti pasangan tetap capable of + V-ing."
+      - id: w1
+        format: written_expression
+        level: Mudah
+        text: "The [results](m) of the [{study}](m) are [similar](m) [with](e:to) [those](m) of earlier [research](m)."
+        vars: {study: [study, survey, experiment, trial, analysis, review]}
+        why: "Bentuk yang benar mengikuti pasangan tetap similar to."
+      - id: w2
+        format: written_expression
+        level: Sedang
+        text: "The [{place}](m) is [famous](m) [of](e:for) its [ancient](m) [{sight}](m)."
+        vars: {place: [city, region, valley], sight: [temples, bridges, ruins]}
+        why: "Bentuk yang benar mengikuti pasangan tetap famous for."
+      - id: w3
+        format: written_expression
+        level: Sedang
+        text: "The [team](m) [arrived](m) [to](e:at) the [research](m) [{site}](m) late at night."
+        vars: {site: [station, camp, center, base, laboratory, facility]}
+        why: "'Arrive' berpasangan dengan 'at' (tempat tertentu) atau 'in' (kota/negara), bukan 'to'."
+      - id: w4
+        format: written_expression
+        level: Mudah
+        text: "My [{rel}](m) is [interested](m) [on](e:in) [learning](m) [{lang}](m)."
+        vars: {rel: [brother, sister, cousin], lang: [Spanish, Japanese, Arabic]}
+        why: "Bentuk yang benar mengikuti pasangan tetap interested in."
+      - id: w5
+        format: written_expression
+        level: Sedang
+        text: "The [success](m) of the [{event}](m) [depends](m) [of](e:on) the [{factor}](m)."
+        vars: {event: [festival, campaign, project], factor: [weather, budget, volunteers]}
+        why: "Bentuk yang benar mengikuti pasangan tetap depend on."
+
+  - id: CONJ
+    topic: conjunction
+    konsep: "kata penghubung (conjunction dan connector)"
+    cara_cepat: "Lihat apa yang mengikuti kata penghubungnya. Although dan because diikuti klausa yang punya subjek dan verb, despite dan because of diikuti frasa benda, sedangkan however menghubungkan dua kalimat dengan titik koma di depannya."
+    frames:
+      - id: s1
+        format: structure
+        level: Mudah
+        text: "___ the heavy rain, the {event} continued as planned."
+        vars: {event: [football match, outdoor concert, graduation ceremony, parade, picnic, marathon]}
+        correct: "Despite"
+        distractors:
+          - ["Although", "'although' harus diikuti klausa (subjek + verb)"]
+          - ["Because of", "makna sebab tidak cocok; kegiatan justru tetap berjalan"]
+          - ["However", "'however' tidak bisa diikuti kata benda seperti ini"]
+        why: "'The heavy rain' adalah frasa benda dan maknanya berlawanan, jadi memakai 'despite'."
+      - id: s2
+        format: structure
+        level: Sedang
+        text: "The flight was delayed ___ a technical problem with the {part}."
+        vars: {part: [engine, landing gear, radio system, brakes, fuel system, door]}
+        correct: "because of"
+        distractors:
+          - ["because", "'because' harus diikuti klausa"]
+          - ["although", "makna berlawanan tidak cocok dan harus diikuti klausa"]
+          - ["despite", "makna berlawanan tidak cocok"]
+        why: "Frasa benda yang menyatakan sebab didahului 'because of'."
+      - id: s3
+        format: structure
+        level: Sedang
+        text: "___ the {activity} was carefully planned, several problems occurred."
+        vars: {activity: [experiment, survey, field trip, conference, launch, study]}
+        correct: "Although"
+        distractors:
+          - ["Despite", "'despite' diikuti frasa benda, bukan klausa"]
+          - ["Because", "makna sebab tidak cocok"]
+          - ["In spite", "'in spite' harus diikuti 'of' dan frasa benda"]
+        why: "Klausa 'the {activity} was carefully planned' yang maknanya berlawanan didahului 'although'."
+      - id: s4
+        format: structure
+        level: Sulit
+        text: "The new policy was popular with residents; ___, it was criticized by several {critics}."
+        vars: {critics: [economists, journalists, scholars, experts, analysts, historians]}
+        correct: "however"
+        distractors:
+          - ["although", "'although' tidak dipakai setelah titik koma untuk menghubungkan dua kalimat"]
+          - ["despite", "'despite' harus diikuti frasa benda"]
+          - ["because", "makna sebab tidak cocok"]
+        why: "Dua kalimat yang maknanya berlawanan dihubungkan dengan '; however,'."
+      - id: w1
+        format: written_expression
+        level: Mudah
+        text: "[Although](e:Despite) the [high](m) [cost](m), the [{project}](m) was [approved](m)."
+        vars: {project: [project, plan, proposal, bridge, building, program]}
+        why: "'The high cost' adalah frasa benda, jadi memakai 'despite'."
+      - id: w2
+        format: written_expression
+        level: Sedang
+        text: "The [roads](m) were [closed](m) [because](e:because of) the [heavy](m) [{weather}](m)."
+        vars: {weather: [snow, rain, fog, storm, flooding, winds]}
+        why: "'The heavy {weather}' adalah frasa benda, jadi memakai 'because of'."
+      - id: w3
+        format: written_expression
+        level: Sedang
+        text: "[Despite](e:Although) the [{venue}](m) [was](m) small, it [attracted](m) many [visitors](m)."
+        vars: {venue: [museum, gallery, theater, library, hall, cafe]}
+        why: "'The {venue} was small' adalah klausa, jadi memakai 'although'."
+      - id: w4
+        format: written_expression
+        level: Sedang
+        text: "[Because](e:Because of) the [{weather}](m), the [{event}](m) was [postponed](m)."
+        vars: {weather: [storm, heat, snow], event: [game, picnic, parade]}
+        why: "'The {weather}' adalah frasa benda, jadi memakai 'because of'."
+      - id: w5
+        format: written_expression
+        level: Sulit
+        text: "The [{store}](m) was [crowded](m); [although](e:however), the [service](m) was [{adj}](m)."
+        vars: {store: [restaurant, bank, clinic], adj: [fast, friendly, efficient]}
+        why: "Dua kalimat yang dihubungkan titik koma dan maknanya berlawanan memakai '; however,'."
+
+  - id: COMPLETE
+    topic: sentence completeness
+    konsep: "kelengkapan kalimat (subjek dan verb utama)"
+    cara_cepat: "Hitung subjek dan verb utama di kalimat. Setiap kalimat butuh satu subjek dan satu verb utama, dan setiap klausa tambahan butuh kata penghubung. Kalau ada yang kurang atau berlebih, di situlah letak jawabannya."
+    frames:
+      - id: s1
+        format: structure
+        level: Mudah
+        text: "___ the largest planet in our solar system."
+        correct: "Jupiter is"
+        distractors:
+          - ["Jupiter", "kalimat tidak punya verb utama"]
+          - ["Jupiter, which is", "klausa 'which is' membuat kalimat tidak punya verb utama"]
+          - ["Being Jupiter", "V-ing tidak bisa menjadi verb utama"]
+        why: "Kalimat butuh subjek dan verb utama, misalnya 'Jupiter is the largest planet ...'."
+      - id: s2
+        format: structure
+        level: Sedang
+        text: "In the early twentieth century, ___ the first successful powered airplane."
+        correct: "the Wright brothers built"
+        distractors:
+          - ["the Wright brothers, who built", "klausa 'who built' membuat kalimat tidak punya verb utama"]
+          - ["the Wright brothers building", "V-ing tanpa to be tidak bisa menjadi verb utama"]
+          - ["built by the Wright brothers", "kalimat tidak punya subjek"]
+        why: "Kalimat butuh subjek dan verb utama, misalnya 'the Wright brothers built ...'."
+      - id: s3
+        format: structure
+        level: Sedang
+        text: "The Amazon rainforest, ___ millions of species, is often called the lungs of the planet."
+        correct: "home to"
+        distractors:
+          - ["is home to", "membuat dua verb utama dalam satu kalimat"]
+          - ["it is home to", "membuat klausa baru tanpa kata penghubung"]
+          - ["which home to", "klausa 'which' tidak punya verb"]
+        why: "Bagian di antara koma adalah aposisi (frasa benda) yang menjelaskan subjek; verb utamanya 'is often called'."
+      - id: s4
+        format: structure
+        level: Sulit
+        text: "___ about 70 percent of Earth's surface, the oceans play a key role in regulating climate."
+        correct: "Covering"
+        distractors:
+          - ["They cover", "membentuk dua klausa utama tanpa kata penghubung"]
+          - ["Cover", "verb dasar tidak bisa memulai keterangan seperti ini"]
+          - ["Covered", "lautan yang menutupi (aktif), jadi memakai V-ing"]
+        why: "Bagian awal adalah keterangan yang diringkas dari 'Because they cover ...' (aktif), jadi memakai V-ing."
+      - id: s5
+        format: structure
+        level: Sedang
+        text: "Each year, thousands of {animal} ___ south to escape the cold winter."
+        vars: {animal: [birds, geese, butterflies, whales, bats, ducks]}
+        correct: "travel"
+        distractors:
+          - ["traveling", "V-ing tanpa to be tidak bisa menjadi verb utama"]
+          - ["to travel", "to infinitive tidak bisa menjadi verb utama"]
+          - ["travels", "subjek 'thousands of {animal}' jamak"]
+        why: "Kalimat butuh verb utama yang sesuai dengan subjek jamak, yaitu travel."
+
+  - id: PRONOUN
+    topic: pronoun
+    konsep: "pronoun (kata ganti)"
+    cara_cepat: "Cari kata yang dirujuk pronoun, lalu periksa dua hal, yaitu jumlahnya (tunggal atau jamak) dan fungsinya di kalimat (subjek, objek, atau possessive)."
+    frames:
+      - id: s1
+        format: structure
+        level: Sedang
+        text: "The {org} changed ___ admission policy last year."
+        vars: {org: [university, college, institute, school, academy, department]}
+        correct: "its"
+        distractors:
+          - ["their", "'{org}' tunggal, jadi possessive-nya 'its'"]
+          - ["it's", "'it's' adalah singkatan 'it is'"]
+          - ["it", "sebelum kata benda dibutuhkan bentuk kepemilikan"]
+        why: "Sebelum kata benda 'admission policy' dibutuhkan possessive yang sesuai dengan '{org}' (tunggal), yaitu its."
+      - id: w1
+        format: written_expression
+        level: Sedang
+        text: "The [{org}](m) announced [that](m) [their](e:its) [profits](m) had [increased](m) last year."
+        vars: {org: [company, bank, airline, firm, factory, hotel]}
+        why: "Kata yang dirujuk ('{org}') tunggal dan bukan orang, jadi possessive-nya 'its'."
+      - id: w2
+        format: written_expression
+        level: Sedang
+        text: "The [committee](m) [gave](m) [we](e:us) [two](m) [weeks](m) to prepare the {doc}."
+        vars: {doc: [report, budget, presentation, plan, proposal, speech]}
+        why: "Setelah verb 'gave' dibutuhkan object pronoun, yaitu us."
+      - id: w3
+        format: written_expression
+        level: Sedang
+        text: "The [researchers](m) presented [theirs](e:their) [findings](m) at the [international](m) [{meeting}](m)."
+        vars: {meeting: [conference, symposium, forum, seminar, workshop, congress]}
+        why: "Sebelum kata benda 'findings' dipakai possessive adjective 'their', bukan 'theirs'."
+      - id: w4
+        format: written_expression
+        level: Sulit
+        text: "The [{place}](m) and [it's](e:its) [gardens](m) [attract](m) [thousands](m) of visitors each year."
+        vars: {place: [museum, palace, castle, temple, mansion, library]}
+        why: "'It's' adalah singkatan 'it is'; bentuk kepemilikan yang benar adalah 'its'."
+      - id: w5
+        format: written_expression
+        level: Mudah
+        text: "[My](m) [{rel}](m) and [me](e:I) [went](m) to the [{place}](m) yesterday."
+        vars: {rel: [friend, cousin, neighbor], place: [museum, beach, concert]}
+        why: "Sebagai bagian dari subjek dipakai 'I', bukan 'me'."
+      - id: w6
+        format: written_expression
+        level: Sedang
+        text: "The [{group}](m) [finished](m) [it's](e:its) [{doc}](m) [before](m) the deadline."
+        vars: {group: [committee, team, department], doc: [report, review, survey]}
+        why: "Bentuk kepemilikan dari 'it' adalah 'its'; 'it's' berarti 'it is'."

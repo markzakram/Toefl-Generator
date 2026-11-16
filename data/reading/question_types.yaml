@@ -1,0 +1,110 @@
+# Tipe soal Reading TOEFL ITP.
+# per_paket: jumlah soal tipe ini dalam satu paket (total harus 50).
+# hardness: dipakai perencana untuk membagi level (makin tinggi, makin condong ke Sulit).
+# konsep: disambung setelah "Soal ini membahas" di awal pembahasan.
+# cara_cepat: isi bagian "Cara cepat" di pembahasan. Harus umum, tidak terikat isi teks.
+
+types:
+  - id: main_idea
+    name: Main idea
+    konsep: "gagasan utama teks, yaitu pokok yang mencakup keseluruhan teks dan bukan hanya satu bagiannya"
+    cara_cepat: "Baca kalimat pertama tiap paragraf untuk menangkap pokok bahasannya. Pilih opsi yang mencakup seluruh teks, lalu coret opsi yang hanya membahas satu paragraf, terlalu luas, atau tidak dibahas."
+    per_paket: 5
+    hardness: 1.5
+    stems:
+      - "What is the main idea of the passage?"
+      - "What does the passage mainly discuss?"
+      - "The passage is mainly concerned with"
+      - "Which of the following would be the best title for the passage?"
+    rules: "Opsi benar merangkum seluruh teks. Pengecoh terlalu sempit (hanya satu paragraf), terlalu luas, atau tidak dibahas."
+
+  - id: detail
+    name: Detail
+    konsep: "informasi yang dinyatakan di dalam teks, biasanya dengan kata-kata yang berbeda dari opsinya"
+    cara_cepat: "Ambil kata kunci dari pertanyaan, temukan letaknya di teks, lalu baca satu atau dua kalimat di sekitarnya. Pilih opsi yang memparafrasekan bagian itu, dan waspadai opsi yang memakai kata yang sama dengan teks tetapi maknanya berbeda."
+    per_paket: 13
+    hardness: 1.0
+    stems:
+      - "According to the passage, ..."
+      - "Which of the following is stated about ...?"
+      - "According to paragraph N, why ...?"
+    rules: "Jawaban ada di teks tetapi ditulis dengan parafrase, bukan disalin persis. Pengecoh memakai kata dari teks dengan makna yang salah."
+
+  - id: negative_detail
+    name: NOT/EXCEPT
+    konsep: "informasi yang tidak dinyatakan di dalam teks, yang ditandai kata NOT atau EXCEPT"
+    cara_cepat: "Perlakukan setiap opsi sebagai pernyataan benar atau salah. Cari bukti tiap opsi di teks dan coret yang ditemukan. Opsi yang tersisa, yaitu yang tidak disebut atau bertentangan dengan teks, adalah jawabannya."
+    per_paket: 4
+    hardness: 2.0
+    stems:
+      - "All of the following are mentioned as ... EXCEPT"
+      - "Which of the following is NOT mentioned as ...?"
+    rules: "Tiga opsi disebut di teks dan satu tidak. Kata NOT atau EXCEPT ditulis huruf kapital. Opsi benar adalah yang TIDAK disebut."
+
+  - id: inference
+    name: Inference
+    konsep: "kesimpulan, yaitu hal yang tidak tertulis langsung tetapi pasti benar berdasarkan teks"
+    cara_cepat: "Temukan bagian teks yang berkaitan, lalu tanyakan apakah opsi itu pasti benar berdasarkan bagian tersebut. Hindari opsi yang hanya masuk akal menurut pengetahuan umum, atau yang melebihi apa yang didukung teks."
+    per_paket: 8
+    hardness: 2.5
+    stems:
+      - "It can be inferred from the passage that ..."
+      - "The author implies that ..."
+      - "Which of the following can be inferred about ...?"
+    rules: "Jawaban tidak tertulis langsung, tetapi pasti benar berdasarkan teks. Pengecoh masuk akal secara umum tetapi tidak didukung teks."
+
+  - id: vocabulary
+    name: Vocabulary in context
+    konsep: "makna kata berdasarkan konteks kalimatnya"
+    cara_cepat: "Baca kalimat tempat kata itu berada, jangan hanya mengandalkan arti yang sudah dihafal. Coba ganti kata itu dengan tiap opsi, lalu pilih yang tidak mengubah makna kalimat."
+    per_paket: 9
+    hardness: 1.0
+    stems:
+      - "The word \"X\" in paragraph N is closest in meaning to"
+      - "The phrase \"X\" in paragraph N is closest in meaning to"
+    rules: "Kata yang ditanyakan ditulis persis seperti di paragraf N dan diapit tanda kutip ganda. Keempat opsi satu kelas kata dan bisa menggantikan kata itu secara gramatikal."
+
+  - id: reference
+    name: Reference
+    konsep: "rujukan kata ganti, yaitu kata benda yang digantikan oleh kata tersebut"
+    cara_cepat: "Lihat kalimat yang memuat kata ganti dan kalimat tepat sebelumnya, karena rujukannya biasanya di situ. Pastikan jumlahnya cocok, lalu ganti kata itu dengan opsi untuk memeriksa apakah kalimatnya tetap bermakna."
+    per_paket: 4
+    hardness: 0.5
+    stems:
+      - "The word \"it\" in paragraph N refers to"
+      - "The word \"they\" in paragraph N refers to"
+    rules: "Kata rujukan (it, they, them, this, which, these) ditulis persis seperti di paragraf N dan diapit tanda kutip ganda. Pengecoh adalah kata benda lain dari kalimat di sekitarnya."
+
+  - id: purpose
+    name: Author's purpose
+    konsep: "tujuan penulis, yaitu alasan penulis menyebut suatu hal di dalam teks"
+    cara_cepat: "Temukan bagian yang ditanyakan, lalu lihat gagasan di sekitarnya. Tanyakan gagasan apa yang didukung oleh penyebutan hal itu. Jawabannya biasanya berkaitan dengan fungsinya, seperti memberi contoh, membandingkan, atau menjelaskan, bukan isi hal itu sendiri."
+    per_paket: 3
+    hardness: 2.5
+    stems:
+      - "Why does the author mention ... in paragraph N?"
+      - "The author mentions ... in order to"
+    rules: "Menanyakan alasan penulis menyebut contoh, angka, atau perbandingan tertentu."
+
+  - id: organization
+    name: Organization
+    konsep: "susunan teks atau fungsi sebuah paragraf"
+    cara_cepat: "Perhatikan kalimat pertama tiap paragraf dan kata penanda seperti first, however, atau as a result. Dari situ, tentukan pola penyajiannya, misalnya urutan waktu, sebab-akibat, atau perbandingan, lalu pilih opsi yang sesuai dengan pola itu."
+    per_paket: 2
+    hardness: 2.5
+    stems:
+      - "How is the information in the passage organized?"
+      - "What does paragraph N mainly discuss?"
+      - "The paragraph following the passage most likely discusses"
+    rules: "Menanyakan susunan teks atau fungsi satu paragraf."
+
+  - id: tone
+    name: Tone/attitude
+    konsep: "sikap atau nada penulis terhadap topik yang dibahas"
+    cara_cepat: "Perhatikan kata sifat dan kata keterangan yang menunjukkan penilaian penulis. Kalau teks hanya memaparkan fakta tanpa penilaian, nadanya cenderung netral atau informatif. Hindari opsi yang terlalu kuat kalau tidak didukung pilihan kata di teks."
+    per_paket: 2
+    hardness: 3.0
+    stems:
+      - "The author's attitude toward ... can best be described as"
+      - "The tone of the passage can best be described as"
+    rules: "Paling banyak 2 per paket. Opsi berupa satu kata sifat sikap (informative, critical, admiring, skeptical, ...)."

@@ -1,0 +1,113 @@
+# Tipe soal Listening TOEFL ITP.
+# Part A: per_paket harus berjumlah 30. Part B/C: urutan tipe untuk setiap percakapan/kuliah (4 soal).
+# hardness: dipakai perencana untuk membagi level (makin tinggi, makin condong ke Sulit).
+# about_second: pertanyaan wajib menyebut pembicara kedua (the man / the woman).
+# konsep: disambung setelah "Soal ini membahas" di awal pembahasan.
+# cara_cepat: isi bagian "Cara cepat" di pembahasan. Harus umum, tidak terikat isi percakapan.
+
+part_a:
+  - id: implication
+    name: Makna tersirat
+    konsep: "makna tersirat, yaitu maksud yang disampaikan pembicara kedua secara tidak langsung"
+    cara_cepat: "Fokus pada kalimat pembicara kedua, karena kuncinya hampir selalu ada di sana. Tangkap maksudnya, bukan kata-katanya, dan waspadai opsi yang mengulang kata atau bunyi yang mirip dengan yang terdengar."
+    per_paket: 6
+    hardness: 2.5
+    about_second: true
+    question: "What does the man/woman mean? | What does the man/woman imply?"
+    rules: "Pembicara kedua menjawab secara tidak langsung. Opsi benar menyimpulkan maksudnya tanpa mengulang kata-katanya."
+  - id: idiom
+    name: Idiom
+    konsep: "idiom, yaitu ungkapan yang maknanya tidak bisa ditebak dari arti tiap katanya"
+    cara_cepat: "Jangan menerjemahkan idiom kata per kata. Gunakan situasi percakapan untuk menebak maknanya, lalu coret opsi yang memakai arti harfiah atau kata yang sama dengan idiomnya. Semakin banyak idiom umum yang dikenali, semakin cepat soal jenis ini terjawab."
+    per_paket: 5
+    hardness: 2.5
+    about_second: true
+    question: "What does the man/woman mean?"
+    rules: "Pembicara kedua memakai satu idiom Amerika yang umum (misalnya 'hit the books', 'call it a day', 'under the weather'). Opsi benar menjelaskan maknanya."
+  - id: suggestion
+    name: Saran
+    konsep: "saran, yaitu tindakan yang diusulkan salah satu pembicara"
+    cara_cepat: "Dengarkan ungkapan pemberi saran seperti why don't you, have you tried, atau you might want to. Tindakan setelah ungkapan itu biasanya menjadi jawaban, tetapi di opsi ditulis dengan kata-kata lain."
+    per_paket: 4
+    hardness: 1.5
+    about_second: false
+    question: "What does the woman suggest the man do?"
+    rules: "Pembicara kedua memberi saran, sering dengan 'Why don't you...', 'Have you tried...', 'You might want to...'."
+  - id: negative
+    name: Ungkapan negatif
+    konsep: "ungkapan negatif, yaitu ungkapan yang maknanya bisa berlawanan dengan kesan sekilasnya"
+    cara_cepat: "Jangan berhenti pada kata not, never, atau no. Pahami makna keseluruhan ungkapannya, karena bentuk negatif bisa bermakna positif dan sebaliknya. Membandingkannya dengan kalimat pembicara pertama membantu menentukan arah maknanya."
+    per_paket: 3
+    hardness: 2.0
+    about_second: true
+    question: "What does the man/woman mean?"
+    rules: "Pembicara kedua memakai ungkapan negatif yang maknanya positif atau sebaliknya ('I couldn't agree more', 'It's not bad at all', 'Not unless...')."
+  - id: condition
+    name: Pengandaian/keinginan
+    konsep: "pengandaian dan keinginan, yaitu ungkapan yang menyiratkan kenyataan sebaliknya"
+    cara_cepat: "Kalau terdengar if only, I wish, atau if I had known, balikkan maknanya untuk menemukan kenyataannya. Bentuk positif berarti kenyataannya negatif, dan bentuk negatif berarti kenyataannya positif."
+    per_paket: 3
+    hardness: 2.0
+    about_second: true
+    question: "What does the man/woman mean?"
+    rules: "Pembicara kedua memakai 'If only...', 'I wish...', atau 'If I had known...' yang menyiratkan kenyataan sebaliknya."
+  - id: agreement
+    name: Setuju/tidak setuju
+    konsep: "ungkapan setuju dan tidak setuju"
+    cara_cepat: "Kenali pola ungkapannya. So do I dan you can say that again menunjukkan persetujuan, neither have I menyetujui pernyataan negatif, dan I'm not so sure menunjukkan keraguan. Setelah itu, cocokkan dengan apa yang dikatakan pembicara pertama."
+    per_paket: 3
+    hardness: 1.5
+    about_second: true
+    question: "What does the man/woman mean?"
+    rules: "Pembicara kedua setuju atau tidak setuju dengan ungkapan seperti 'So do I', 'Neither have I', 'You can say that again', 'I'm not so sure about that'."
+  - id: feeling
+    name: Perasaan pembicara
+    konsep: "perasaan pembicara yang tersirat dari nada dan pilihan katanya"
+    cara_cepat: "Perhatikan nada suara dan kata yang menunjukkan penilaian, seperti kata sifat atau seruan. Tentukan dulu apakah perasaannya positif atau negatif, lalu coret opsi yang berlawanan arah."
+    per_paket: 2
+    hardness: 1.5
+    about_second: true
+    question: "How does the man/woman feel about ...?"
+    rules: "Perasaan pembicara kedua tersirat dari nada dan pilihan kata."
+  - id: next_action
+    name: Rencana berikutnya
+    konsep: "rencana pembicara yang tersirat dari percakapan"
+    cara_cepat: "Perhatikan kalimat terakhir, karena rencana biasanya muncul di akhir percakapan. Cari kata yang menunjukkan niat atau keputusan, lalu pilih tindakan yang paling langsung mengikutinya."
+    per_paket: 2
+    hardness: 1.0
+    about_second: false
+    question: "What will the man/woman probably do next?"
+    rules: "Rencana tersirat dari percakapan."
+  - id: setting
+    name: Tempat/situasi
+    konsep: "tempat atau situasi percakapan yang tersirat dari kata-kata kunci"
+    cara_cepat: "Kumpulkan kata-kata yang berkaitan dengan suatu tempat atau kegiatan, lalu tentukan tempat yang paling cocok dengan semuanya. Jangan terpancing oleh satu kata yang hanya disebut sekilas."
+    per_paket: 2
+    hardness: 1.0
+    about_second: false
+    question: "Where does this conversation probably take place?"
+    rules: "Tempat tidak disebut langsung; tersirat dari kata-kata kunci."
+
+part_b:
+  - {id: main_topic, name: Topik percakapan, hardness: 1.5}
+  - {id: detail, name: Detail, hardness: 1.0}
+  - {id: detail, name: Detail, hardness: 1.0}
+  - {id: inference, name: Inferensi/rencana, hardness: 2.5}
+
+part_c:
+  - {id: main_topic, name: Topik kuliah, hardness: 1.5}
+  - {id: detail, name: Detail, hardness: 1.0}
+  - {id: detail, name: Detail, hardness: 1.0}
+  - {id: inference, name: Inferensi/tujuan pembicara, hardness: 2.5}
+
+# Pembahasan tipe soal Part B dan C.
+group_types:
+  main_topic:
+    konsep: "topik utama, yaitu hal yang dibahas dari awal hingga akhir"
+    cara_cepat: "Perhatikan kalimat-kalimat awal, karena topik biasanya diperkenalkan di sana, lalu pastikan topik itu bertahan sampai akhir. Coret opsi yang hanya disebut sekilas atau terlalu sempit."
+  detail:
+    konsep: "informasi yang disebut secara langsung oleh pembicara"
+    cara_cepat: "Pertanyaan baru terdengar setelah audio selesai, jadi biasakan mencatat singkat nama, alasan, dan angka saat mendengarkan. Pilih opsi yang memparafrasekan informasi yang terdengar, dan waspadai opsi yang memakai kata yang sama tetapi maknanya berbeda."
+  inference:
+    konsep: "kesimpulan, yaitu hal yang tersirat atau rencana yang tidak dinyatakan langsung oleh pembicara"
+    cara_cepat: "Gabungkan beberapa informasi yang terdengar, lalu tanyakan kesimpulan apa yang pasti didukung olehnya. Hindari opsi yang hanya benar menurut pengetahuan umum tetapi tidak disebut pembicara."

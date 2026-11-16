@@ -1,0 +1,26 @@
+{
+  "source": "Markaz TOEFL Academy, tryout 3892, Listening Part A no 11, 17, 20, 28",
+  "catatan": "Acuan gaya saja, bukan untuk disalin. Format transkrip diseragamkan dengan label MAN/WOMAN/NARRATOR.",
+  "items": [
+    {
+      "transcript": "WOMAN: Are you driving to work today?\nMAN: Not unless the buses stop running.\nNARRATOR: What does the man mean?",
+      "options": {"A": "He intends to take public transportation.", "B": "He doesn't know how to drive.", "C": "He forgot where he parked his car.", "D": "He plans to leave work early."},
+      "key": "A"
+    },
+    {
+      "transcript": "WOMAN: Did your manager like your proposal?\nMAN: He didn't exactly say no.\nNARRATOR: What can be inferred about the man's proposal?",
+      "options": {"A": "It has definitely been approved.", "B": "It has probably not been rejected.", "C": "The manager refused to read it.", "D": "It needs to be rewritten."},
+      "key": "B"
+    },
+    {
+      "transcript": "WOMAN: Did you call the dentist?\nMAN: It's at the top of tomorrow's to-do list.\nNARRATOR: What does the man imply?",
+      "options": {"A": "He has already spoken to the dentist.", "B": "He forgot the dentist's phone number.", "C": "He plans to call the dentist tomorrow.", "D": "His appointment has been canceled."},
+      "key": "C"
+    },
+    {
+      "transcript": "MAN: Can you help me carry these boxes upstairs?\nWOMAN: I just got back from the gym an hour ago.\nNARRATOR: What does the woman imply?",
+      "options": {"A": "She is too tired to help right now.", "B": "She will go to the gym again later today.", "C": "She is eager to help lift the boxes.", "D": "She spends most of her time exercising."},
+      "key": "A"
+    }
+  ]
+}

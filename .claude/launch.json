@@ -1,0 +1,23 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "situs-lokal",
+      "runtimeExecutable": ".venv/Scripts/python.exe",
+      "runtimeArgs": ["-m", "http.server", "8766", "--bind", "127.0.0.1", "--directory", "output/situs-lokal"],
+      "port": 8766
+    },
+    {
+      "name": "situs",
+      "runtimeExecutable": ".venv/Scripts/python.exe",
+      "runtimeArgs": ["-m", "http.server", "8767", "--bind", "127.0.0.1", "--directory", "output/situs"],
+      "port": 8767
+    },
+    {
+      "name": "file-tryout",
+      "runtimeExecutable": ".venv/Scripts/python.exe",
+      "runtimeArgs": ["-m", "http.server", "8768", "--bind", "127.0.0.1", "--directory", "output"],
+      "port": 8768
+    }
+  ]
+}

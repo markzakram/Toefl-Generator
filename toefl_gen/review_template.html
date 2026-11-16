@@ -1,0 +1,1232 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>__TITLE__</title>
+<style>
+/* Gaya sama dengan website generator: tata letak SKD Generator, warna logo TOEFL Academy (navy #262364, merah #ED2B2D).
+   Tim Input: unduhan di kiri, daftar kerja audio di kanan. Peserta: soal di kiri, lembar jawaban di kanan.
+   Peninjau: kartu soal dengan panel catatan. */
+@font-face { font-family: "Manrope"; font-style: normal; font-weight: 200 800; font-display: swap; src: url(data:font/woff2;base64,__FONT_DISPLAY__) format("woff2"); }
+@font-face { font-family: "DM Sans"; font-style: normal; font-weight: 100 1000; font-display: swap; src: url(data:font/woff2;base64,__FONT_BODY__) format("woff2"); }
+:root {
+  --font-display: "Manrope", system-ui, "Segoe UI", sans-serif;
+  --font-body: "DM Sans", system-ui, "Segoe UI", sans-serif;
+  --size-s: .8125rem; --size-m: .9375rem; --size-l: 1.0625rem; --size-xl: 1.5rem;
+  --bg: #f6f6fa; --sheet: #ffffff; --surface: #f8f8fc; --pale: #efeff8; --seg: #ffffff; --logo-tile: #ffffff;
+  --ink: #1d1e3b; --ink-2: #4a4c6b; --muted: #5f6180;
+  --line: #e0e1ec; --line-soft: #ebebf3; --line-strong: #cbccdd;
+  --navy: #262364; --primary: #262364; --primary-hover: #36328a; --on-primary: #ffffff;
+  --indigo: #4845a0; --tint: #eeedf8; --tint-line: #d7d5ef;
+  --red: #ed2b2d; --red-ink: #c4191c;
+  --good: #17634b; --good-tint: #edf8f3; --good-line: #c9e3d7;
+  --warn: #7d5900; --warn-tint: #fff6d9; --warn-line: #ecdeb0;
+  --bad: #a3262b; --bad-tint: #fdeeed; --bad-line: #efd3cf; --toast: #a3262b;
+  --player: #262364;
+  --shadow-panel: 0 3px 10px rgba(38, 35, 100, .03); --shadow-btn: 0 3px 7px rgba(38, 35, 100, .08);
+  --shadow-active: 0 2px 6px rgba(38, 35, 100, .14); --shadow-toast: 0 14px 40px rgba(38, 35, 100, .33);
+  --shadow-dialog: 0 30px 100px rgba(38, 35, 100, .22); --backdrop: rgba(15, 14, 45, .45);
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0f0f1a; --sheet: #181828; --surface: #1d1d2f; --pale: #232338; --seg: #2d2c55;
+  --ink: #e8e8f3; --ink-2: #c3c4da; --muted: #9fa1bd;
+  --line: #2a2b42; --line-soft: #222336; --line-strong: #3d3f5c;
+  --navy: #ecebff; --primary: #5753d1; --primary-hover: #6763e0; --on-primary: #ffffff;
+  --indigo: #aaa7f5; --tint: #24234a; --tint-line: #3a3870;
+  --red: #ff4d50; --red-ink: #ff8587;
+  --good: #5fcf9c; --good-tint: #13271f; --good-line: #23503c;
+  --warn: #e9be5c; --warn-tint: #2b240f; --warn-line: #574818;
+  --bad: #f2928d; --bad-tint: #351a1b; --bad-line: #643031; --toast: #8f2c2c;
+  --player: #2a2870;
+  --shadow-panel: none; --shadow-btn: none; --shadow-active: none; --shadow-toast: 0 14px 40px rgba(0, 0, 0, .5);
+  --shadow-dialog: 0 30px 100px rgba(0, 0, 0, .6); --backdrop: rgba(0, 0, 0, .6);
+  color-scheme: dark;
+} }
+:root[data-theme="dark"] {
+  --bg: #0f0f1a; --sheet: #181828; --surface: #1d1d2f; --pale: #232338; --seg: #2d2c55;
+  --ink: #e8e8f3; --ink-2: #c3c4da; --muted: #9fa1bd;
+  --line: #2a2b42; --line-soft: #222336; --line-strong: #3d3f5c;
+  --navy: #ecebff; --primary: #5753d1; --primary-hover: #6763e0; --on-primary: #ffffff;
+  --indigo: #aaa7f5; --tint: #24234a; --tint-line: #3a3870;
+  --red: #ff4d50; --red-ink: #ff8587;
+  --good: #5fcf9c; --good-tint: #13271f; --good-line: #23503c;
+  --warn: #e9be5c; --warn-tint: #2b240f; --warn-line: #574818;
+  --bad: #f2928d; --bad-tint: #351a1b; --bad-line: #643031; --toast: #8f2c2c;
+  --player: #2a2870;
+  --shadow-panel: none; --shadow-btn: none; --shadow-active: none; --shadow-toast: 0 14px 40px rgba(0, 0, 0, .5);
+  --shadow-dialog: 0 30px 100px rgba(0, 0, 0, .6); --backdrop: rgba(0, 0, 0, .6);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.6 var(--font-body); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); background: var(--sheet); z-index: 10; }
+[hidden] { display: none !important; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 3px solid var(--red); outline-offset: 2px; }
+h1, h2, h3 { margin: 0; font-family: var(--font-display); color: var(--navy); line-height: 1.3; letter-spacing: -.02em; text-wrap: balance; }
+h1 { font-size: 22px; font-weight: 800; }
+h2 { font-size: 16px; font-weight: 800; }
+h3 { font-size: 15px; font-weight: 700; }
+p { margin: 0; }
+.wrap { max-width: 1240px; margin-inline: auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+main.wrap { padding-block: 24px 72px; display: grid; gap: 18px; }
+.muted { color: var(--muted); }
+.small { font-size: 12.5px; }
+.num { font-variant-numeric: tabular-nums; }
+.stack { display: grid; gap: 12px; min-width: 0; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.spread { justify-content: space-between; }
+.prose { max-width: 72ch; }
+.prose > p { color: var(--muted); font-size: 14px; }
+.eyebrow { display: block; font-size: 11px; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; color: var(--red-ink); }
+.icon { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+
+/* Bilah atas */
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--sheet); border-bottom: 1px solid var(--line); }
+.bar-in { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; justify-content: space-between; padding-block: 10px; }
+.brand { display: flex; align-items: center; gap: 12px; min-width: 0; flex: 1 1 260px; }
+.brand-mark { width: 40px; height: 40px; flex: none; border-radius: 10px; background: var(--logo-tile); border: 1px solid var(--line); box-shadow: inset 0 -3px 0 var(--red); display: grid; place-items: center; }
+.brand-mark img { width: 29px; height: 29px; display: block; margin-top: -2px; }
+.brand-text { display: grid; min-width: 0; line-height: 1.35; }
+.brand-text strong { font: 800 15px/1.35 var(--font-display); color: var(--navy); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.brand-text span { font-size: 12px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bar-tools { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; }
+.who { display: flex; gap: 8px; align-items: center; font-size: 12.5px; font-weight: 600; color: var(--muted); }
+.who input { width: 10rem; min-height: 36px; }
+.modes { display: inline-flex; gap: 2px; padding: 3px; background: var(--pale); border: 1px solid var(--line); border-radius: 10px; }
+.modes button { border: 0; background: transparent; border-radius: 7px; min-height: 32px; padding: 0 14px; font-size: 13px; font-weight: 600; color: var(--muted); white-space: nowrap; }
+.modes button:hover { color: var(--navy); }
+.modes button[aria-pressed="true"] { background: var(--seg); color: var(--navy); font-weight: 700; box-shadow: var(--shadow-active), inset 0 0 0 1px var(--line); }
+
+/* Kontrol umum */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 38px; padding: 0 14px; border: 1px solid var(--line-strong); background: var(--sheet); color: var(--navy); border-radius: 8px; font-size: 13px; font-weight: 700; line-height: 1.3; }
+.btn:hover:not(:disabled) { background: var(--pale); }
+.btn.primary { background: var(--primary); border-color: var(--primary); color: var(--on-primary); box-shadow: var(--shadow-btn); }
+.btn.primary:hover:not(:disabled) { background: var(--primary-hover); }
+.btn:disabled { opacity: .55; cursor: not-allowed; }
+input[type="text"], input[type="search"], select, textarea { background: var(--sheet); color: var(--ink); border: 1px solid var(--line-strong); border-radius: 8px; padding: 0 12px; min-height: 38px; max-width: 100%; font-size: 14px; }
+textarea { width: 100%; min-height: 72px; padding: 9px 12px; resize: vertical; line-height: 1.6; }
+input[type="checkbox"] { width: 16px; height: 16px; margin: 0; flex: none; accent-color: var(--primary); cursor: pointer; }
+label.field { display: grid; gap: 6px; font-size: 12.5px; font-weight: 600; color: var(--ink); }
+label.check { display: inline-flex; gap: 8px; align-items: center; font-size: 13px; cursor: pointer; }
+.panel { background: var(--sheet); border: 1px solid var(--line); border-radius: 12px; padding: 20px; box-shadow: var(--shadow-panel); min-width: 0; }
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 13.5px; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line-soft); vertical-align: middle; }
+th { background: var(--surface); color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; border-bottom: 1px solid var(--line); }
+tr:last-child td { border-bottom: 0; }
+td.r, th.r { text-align: right; }
+.chip { display: inline-block; font-size: 10.5px; line-height: 1.4; font-weight: 700; letter-spacing: .03em; padding: 3px 7px; border-radius: 4px; background: var(--tint); color: var(--indigo); white-space: nowrap; }
+.chip.plain { background: transparent; box-shadow: inset 0 0 0 1px var(--line-strong); color: var(--muted); }
+.chip.good { background: var(--good-tint); color: var(--good); }
+.chip.warn { background: var(--warn-tint); color: var(--warn); }
+.chip.bad { background: var(--bad-tint); color: var(--bad); }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); border: 1px solid var(--line); border-radius: 10px; padding: 12px 4px; }
+.stats > div { padding: 0 12px; border-right: 1px solid var(--line); }
+.stats > div:last-child { border-right: 0; }
+.stats strong { display: block; font: 800 20px/1.2 var(--font-display); color: var(--navy); font-variant-numeric: tabular-nums; }
+.stats span { font-size: 11px; color: var(--muted); }
+
+/* Tim Input */
+.in-desk { display: grid; grid-template-columns: minmax(0, 310px) minmax(0, 1fr); gap: 16px; align-items: start; }
+.in-desk.single { grid-template-columns: minmax(0, 1fr); max-width: 560px; }
+.in-rail { display: grid; gap: 16px; min-width: 0; }
+.in-rail .panel { display: grid; gap: 14px; align-content: start; }
+.in-work { background: var(--sheet); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow-panel); display: flex; flex-direction: column; min-width: 0; }
+.in-count { font: 800 32px/1 var(--font-display); color: var(--navy); font-variant-numeric: tabular-nums; }
+.in-meter { display: block; height: 6px; background: var(--line-soft); border-radius: 9px; overflow: hidden; }
+.in-meter span { display: block; height: 100%; width: 0; background: var(--good); }
+.in-btn { min-height: 42px; width: 100%; justify-content: flex-start; text-align: left; white-space: normal; padding-block: 9px; }
+.in-btn .label { flex: 1; }
+.in-stack { display: grid; gap: 8px; }
+.in-doc { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px solid var(--line-soft); }
+.in-doc-name { flex: 1 1 120px; min-width: 0; font-size: 13px; font-weight: 600; }
+.in-doc-btns, .in-btns { display: flex; gap: 6px; }
+.in-small { min-height: 34px; padding: 0 12px; font-size: 12px; white-space: nowrap; }
+.in-head { padding: 18px 18px 14px; display: grid; gap: 10px; border-bottom: 1px solid var(--line); }
+.in-head p { font-size: 12.5px; color: var(--muted); line-height: 1.65; }
+.in-chip { min-height: 32px; padding: 0 11px; border: 1px solid var(--line); border-radius: 6px; background: var(--sheet); color: var(--muted); font-size: 12px; font-weight: 600; }
+.in-chip[aria-pressed="true"] { background: var(--tint); border-color: var(--indigo); color: var(--navy); }
+.in-list { max-height: 640px; overflow-y: auto; }
+.in-part { position: sticky; top: 0; z-index: 1; display: flex; align-items: center; gap: 8px; padding: 8px 18px; background: var(--surface); border-bottom: 1px solid var(--line-soft); font-size: 12px; font-weight: 700; color: var(--ink-2); }
+.in-part .in-part-count { margin-left: auto; font-weight: 500; color: var(--muted); }
+.in-item { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; padding: 8px 18px; border-bottom: 1px solid var(--line-soft); }
+.in-tick { display: flex; align-items: center; gap: 10px; min-height: 40px; cursor: pointer; }
+.in-no { min-width: 36px; height: 34px; padding: 0 4px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--muted); font-size: 12px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.in-item.is-done { background: var(--good-tint); }
+.in-item.is-done .in-no { background: var(--good-tint); border-color: var(--good-line); color: var(--good); }
+.in-item.is-playing { background: var(--tint); }
+.in-item.is-playing .in-no { background: var(--primary); border-color: var(--primary); color: var(--on-primary); box-shadow: var(--shadow-active); }
+.in-info { flex: 1 1 130px; min-width: 0; }
+.in-file { font-size: 13.5px; font-weight: 600; overflow-wrap: anywhere; }
+.in-meta { font-size: 12px; color: var(--muted); }
+.in-list .empty { border: 0; background: none; }
+.in-player { position: sticky; bottom: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; padding: 10px 18px; background: var(--player); color: #ffffff; border-radius: 0 0 11px 11px; font-size: 13px; }
+.in-player b { white-space: nowrap; font-family: var(--font-display); }
+.in-track { flex: 1 1 160px; min-width: 0; height: 5px; background: rgba(255, 255, 255, .25); border-radius: 3px; overflow: hidden; }
+.in-track span { display: block; height: 100%; width: 0; background: #ffffff; }
+.in-player .btn { background: transparent; border-color: rgba(255, 255, 255, .5); color: #ffffff; }
+.in-player .btn:hover:not(:disabled) { background: rgba(255, 255, 255, .12); }
+.in-toast { position: fixed; left: 50%; bottom: max(20px, env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); width: min(32rem, calc(100vw - 32px)); z-index: 30; font-size: 13px; background: var(--toast); color: #ffffff; padding: 12px 16px; border-radius: 10px; box-shadow: var(--shadow-toast); }
+
+/* Teks soal */
+.booklet { font-size: 16px; line-height: 1.85; color: var(--ink); }
+.booklet p + p { margin-top: .9em; }
+.passage h3 { font-size: 16px; margin-bottom: .6em; }
+.blank { display: inline-block; width: 5.5em; border-bottom: 2px solid currentColor; vertical-align: baseline; margin-inline: .15em; }
+.we-mark { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1.5px; text-decoration-color: var(--indigo); }
+.we-mark sup { font-size: .68em; font-weight: 800; margin-left: 1px; color: var(--red-ink); display: inline-block; text-decoration: none; }
+
+/* Pilihan jawaban: huruf kotak seperti SKD. Lembar jawaban tetap bulat seperti LJK. */
+.bub { width: 26px; height: 26px; flex: none; display: inline-grid; place-items: center; border-radius: 6px; border: 1px solid var(--line-strong); background: var(--surface); font: 700 12px/1 var(--font-body); padding: 0; color: var(--muted); }
+.bub.on { background: var(--primary); border-color: var(--primary); color: var(--on-primary); }
+.opts { display: grid; gap: 10px; }
+.opt { display: flex; gap: 12px; align-items: flex-start; text-align: left; width: 100%; background: var(--sheet); border: 1px solid var(--line); border-radius: 8px; padding: 12px 13px; color: var(--ink); }
+button.opt:hover { border-color: var(--line-strong); background: var(--surface); }
+.opt[aria-checked="true"] { border-color: var(--indigo); background: var(--tint); }
+.opt-text { font-size: 15px; line-height: 1.7; min-width: 0; flex: 1; }
+.opt .bub { margin-top: 1px; }
+.opt.is-key { border-color: var(--good-line); background: var(--good-tint); }
+.opt.is-key .bub { background: var(--good); border-color: var(--good); color: var(--sheet); }
+.opt.is-wrong { border-color: var(--bad-line); background: var(--bad-tint); }
+.opt.is-wrong .bub { background: var(--bad); border-color: var(--bad); color: var(--sheet); }
+.opt-chips { display: flex; flex-wrap: wrap; gap: 4px; justify-content: flex-end; }
+
+/* Mode peserta */
+.sec-actions { text-align: right; white-space: nowrap; }
+.exam { display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr) 260px; align-items: start; }
+.exam-head { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; justify-content: space-between; }
+.exam-head strong { font-family: var(--font-display); color: var(--navy); }
+.timer { padding: 6px 14px; background: var(--primary); color: var(--on-primary); font: 800 17px/1.3 var(--font-display); border-radius: 8px; font-variant-numeric: tabular-nums; }
+.timer.over { background: var(--toast); color: #ffffff; }
+.split { display: grid; gap: 16px; min-width: 0; }
+.split.two { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); align-items: start; }
+.split.two .passage { max-height: calc(100vh - 225px); overflow-y: auto; }
+.player { display: grid; gap: 8px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+.player progress { width: 100%; height: 6px; accent-color: var(--primary); }
+.sheet-box { position: sticky; top: 74px; max-height: calc(100vh - 94px); overflow-y: auto; padding: 14px; }
+.sheet-grid { display: grid; gap: 2px; }
+.sheet-row { display: flex; gap: 4px; align-items: center; padding: 2px 4px; border-radius: 6px; }
+.sheet-row.now { background: var(--tint); }
+.sheet-row .go { border: 0; background: transparent; width: 2rem; text-align: right; font-size: 12px; padding: 2px 6px 2px 0; font-variant-numeric: tabular-nums; font-weight: 700; color: var(--muted); }
+.sheet-row.now .go { color: var(--navy); }
+.sheet-row.flag .go { color: var(--warn); text-decoration: underline; }
+.sheet-row .bub { width: 22px; height: 22px; border-radius: 50%; font-size: 10.5px; background: transparent; }
+.sheet-row .bub.on { background: var(--primary); border-color: var(--primary); color: var(--on-primary); }
+.nav-row { display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-between; }
+
+/* Mode peninjau */
+.progress { height: 6px; background: var(--line-soft); border-radius: 9px; overflow: hidden; min-width: 60px; }
+.progress span { display: block; height: 100%; background: var(--good); }
+.filters { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); align-items: end; }
+.filters label.field { min-width: 0; }
+.filters select, .filters input[type="search"] { width: 100%; min-width: 0; }
+.group-head { display: grid; gap: 8px; padding-top: 10px; }
+.group-head h2 { font-size: 17px; }
+.group-head h2 small { font-family: var(--font-body); font-weight: 500; color: var(--muted); font-size: 13px; letter-spacing: 0; }
+details > summary { cursor: pointer; font-weight: 700; font-size: 12.5px; color: var(--indigo); }
+details.passage-box { background: var(--sheet); border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; }
+details.passage-box[open] summary { margin-bottom: 10px; }
+.card { background: var(--sheet); border: 1px solid var(--line); border-radius: 12px; min-width: 0; box-shadow: var(--shadow-panel); }
+.card.st-ok { border-color: var(--good-line); box-shadow: inset 4px 0 0 var(--good); }
+.card.st-revisi { border-color: var(--warn-line); box-shadow: inset 4px 0 0 var(--warn); }
+.card.st-tolak { border-color: var(--bad-line); box-shadow: inset 4px 0 0 var(--bad); }
+.card-head { display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; padding: 14px 18px; border-bottom: 1px solid var(--line); }
+.card-head strong { font: 800 18px/1.3 var(--font-display); color: var(--navy); font-variant-numeric: tabular-nums; margin-right: 4px; }
+.card-body { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); }
+.q-col { padding: 18px; display: grid; gap: 14px; min-width: 0; align-content: start; border-right: 1px solid var(--line); }
+.rev-col { padding: 18px; display: grid; gap: 12px; align-content: start; min-width: 0; position: sticky; top: 74px; align-self: start; }
+.pembahasan { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 13.5px; line-height: 1.75; margin-top: 10px; }
+.flag-list { margin: 0; padding: 10px 12px 10px 28px; background: var(--warn-tint); color: var(--warn); border: 1px solid var(--warn-line); border-radius: 8px; font-size: 12.5px; }
+.status-btns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.status-btns button { border: 1px solid var(--line); background: var(--sheet); border-radius: 7px; min-height: 34px; padding: 0 4px; font-size: 12px; font-weight: 700; color: var(--muted); }
+.status-btns button:hover { border-color: var(--line-strong); }
+.status-btns button[aria-pressed="true"][data-status="ok"] { background: var(--good-tint); border-color: var(--good); color: var(--good); }
+.status-btns button[aria-pressed="true"][data-status="revisi"] { background: var(--warn-tint); border-color: var(--warn); color: var(--warn); }
+.status-btns button[aria-pressed="true"][data-status="tolak"] { background: var(--bad-tint); border-color: var(--bad); color: var(--bad); }
+.tags { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12.5px; }
+.tags label.check { font-size: 12.5px; }
+.others { font-size: 12.5px; display: grid; gap: 4px; border-top: 1px solid var(--line); padding-top: 10px; color: var(--ink-2); }
+.sim-table td, .sim-table th { padding: 6px 8px; font-size: 12px; }
+.empty { padding: 32px; text-align: center; color: var(--muted); background: var(--sheet); border: 1px dashed var(--line-strong); border-radius: 12px; }
+dialog { border: 1px solid var(--line); border-radius: 18px; background: var(--sheet); color: var(--ink); max-width: min(30rem, calc(100vw - 32px)); padding: 24px; box-shadow: var(--shadow-dialog); }
+dialog::backdrop { background: var(--backdrop); backdrop-filter: blur(3px); }
+dialog form { display: grid; gap: 12px; }
+dialog h2 { font-size: 18px; }
+dialog p { color: var(--ink-2); font-size: 14px; }
+dialog menu { display: flex; justify-content: flex-end; gap: 8px; margin: 8px 0 0; padding: 0; }
+.notice { font-size: 13px; background: var(--warn-tint); color: var(--warn); border: 1px solid var(--warn-line); padding: 10px 12px; border-radius: 8px; }
+
+@media (max-width: 1040px) {
+  .split.two { grid-template-columns: minmax(0, 1fr); }
+  .split.two .passage { max-height: 45vh; }
+}
+@media (max-width: 860px) {
+  .exam { grid-template-columns: minmax(0, 1fr); }
+  .sheet-box { position: static; max-height: none; }
+  .sheet-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  .card-body { grid-template-columns: minmax(0, 1fr); }
+  .q-col { border-right: 0; }
+  .rev-col { position: static; border-top: 1px solid var(--line); }
+  .in-desk { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 560px) {
+  .bar { position: static; }
+  .bar-tools, .modes { width: 100%; }
+  .modes button { flex: 1; padding: 0 8px; }
+  .who input { flex: 1; width: auto; }
+  .who { flex: 1 1 100%; }
+  .panel { padding: 16px; }
+  .in-head, .in-item, .in-part, .in-player { padding-inline: 14px; }
+  .opt { flex-wrap: wrap; }
+  .opt-text { flex-basis: calc(100% - 2.6rem); }
+  .opt-chips { width: 100%; justify-content: flex-start; padding-left: 2.35rem; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .progress span, .in-meter span { transition: width .2s ease; }
+}
+</style>
+<link rel="icon" type="image/png" href="data:image/png;base64,__LOGO_MARK__">
+</head>
+<body>
+<header class="bar">
+  <div class="wrap bar-in">
+    <div class="brand">
+      <span class="brand-mark"><img src="data:image/png;base64,__LOGO_MARK__" alt="TOEFL Academy"></span>
+      <div class="brand-text">
+        <strong id="brand-title"></strong>
+        <span id="brand-sub"></span>
+      </div>
+    </div>
+    <div class="bar-tools">
+      <div class="who"><label for="who">Nama</label><input id="who" type="text" placeholder="Nama Anda" autocomplete="name"></div>
+      <div class="modes" role="group" aria-label="Pilih mode">
+        <button type="button" id="mode-input" data-act="mode" data-mode="input" aria-pressed="true">Tim Input</button>
+        <button type="button" id="mode-peserta" data-act="mode" data-mode="peserta" aria-pressed="false">Peserta</button>
+        <button type="button" id="mode-peninjau" data-act="mode" data-mode="peninjau" aria-pressed="false">Peninjau</button>
+      </div>
+    </div>
+  </div>
+</header>
+<main class="wrap" id="app"></main>
+<dialog id="dialog"></dialog>
+<input id="import-file" type="file" accept="application/json,.json" hidden>
+<script id="qc-data" type="application/json">__DATA__</script>
+<script id="qc-audio" type="application/json">__AUDIO__</script>
+<script id="qc-files" type="application/json">__FILES__</script>
+<p class="in-toast" id="in-error" role="alert" hidden></p>
+<script>
+(function () {
+  'use strict';
+  const DATA = JSON.parse(document.getElementById('qc-data').textContent);
+  const LETTERS = ['A', 'B', 'C', 'D'];
+  const STATUS = { ok: 'OK', revisi: 'Perlu revisi', tolak: 'Tolak' };
+  const STATUS_RANK = { tolak: 3, revisi: 2, ok: 1 };
+  const TAGS = ['Kunci salah', 'Ambigu', 'Pengecoh lemah', 'Bahasa/grammar', 'Fakta', 'Level tidak sesuai', 'Pembahasan', 'Audio'];
+  const PERSONAS = { awam: '0% (hanya opsi)', menengah: '50%', mahir: '80%' };
+  const SHORT = { awam: '0%', menengah: '50%', mahir: '80%' };
+  const KEY = 'toefl-qc:' + DATA.batch + ':p' + DATA.paket;
+  const app = document.getElementById('app');
+  const dlg = document.getElementById('dialog');
+  const itemsOf = s => DATA.items.filter(it => it.section === s);
+  const sectionOf = s => DATA.sections.find(x => x.id === s);
+
+  // ---------- Penyimpanan di browser ----------
+  function blank() { return { name: '', limitAudio: true, reviews: {}, attempts: {}, done: {} }; }
+  function load() {
+    try {
+      const raw = localStorage.getItem(KEY);
+      if (raw) return Object.assign(blank(), JSON.parse(raw));
+    } catch (e) { /* mode privat: tetap jalan tanpa penyimpanan */ }
+    return blank();
+  }
+  function save() {
+    try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) { /* lihat load() */ }
+  }
+  const store = load();
+  const view = { mode: 'input', screen: 'home', section: null, wrongOnly: false, inFilter: 'all' };
+  const filters = { section: 'all', part: 'all', level: 'all', status: 'all', flagged: false, q: '' };
+
+  function attempt(s) {
+    if (!store.attempts[s]) store.attempts[s] = { answers: {}, flags: {}, played: {}, elapsed: 0, current: 0, submitted: false };
+    return store.attempts[s];
+  }
+
+  // ---------- Pembantu ----------
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const paragraphs = text => String(text).split(/\n\n+/).map(p => '<p>' + esc(p) + '</p>').join('');
+  const clock = sec => {
+    const s = Math.max(0, Math.floor(sec));
+    return String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0');
+  };
+  // Ikon garis 24x24 (gaya Lucide), sama dengan website generator.
+  const PATHS = {
+    download: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/>',
+    package: '<path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/>',
+    music: '<path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>',
+    file: '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M16 13H8"/><path d="M16 17H8"/>',
+    sheet: '<rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M12 3v18"/>',
+    play: '<path d="M6 3v18l14-9Z"/>',
+    stop: '<rect width="14" height="14" x="5" y="5" rx="2"/>',
+    check: '<path d="M20 6 9 17l-5-5"/>',
+  };
+  const icon = name => '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true">' + PATHS[name] + '</svg>';
+  const SECTION_SHORT = { listening: 'Listening', structure: 'Structure', reading: 'Reading' };
+  const PART_NAMES = { A: 'Percakapan pendek', B: 'Percakapan panjang', C: 'Kuliah' };
+  const levelChip = l =>'<span class="chip ' + (l === 'Mudah' ? 'good' : l === 'Sulit' ? 'bad' : 'warn') + '">' + esc(l) + '</span>';
+
+  function stemHtml(it) {
+    if (it.section === 'listening') return '';
+    let html = esc(it.stem);
+    if (it.part === 'written_expression') {
+      LETTERS.forEach((L, i) => {
+        const needle = esc(it.options[i]) + '(' + L + ')';
+        html = html.replace(needle, '<span class="we-mark">' + esc(it.options[i]) + '<sup>' + L + '</sup></span>');
+      });
+    } else {
+      html = html.replace('___', '<span class="blank" role="img" aria-label="rumpang"></span>');
+    }
+    return html;
+  }
+
+  // ---------- Audio ----------
+  let audioData = null;
+  const audioUrls = {};
+  let playing = null;
+  let playingNo = null;
+  function audioUrl(file) {
+    if (!audioData) audioData = JSON.parse(document.getElementById('qc-audio').textContent);
+    if (audioUrls[file]) return audioUrls[file];
+    const b64 = audioData[file];
+    if (!b64) return null;
+    const bin = atob(b64);
+    const bytes = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    audioUrls[file] = URL.createObjectURL(new Blob([bytes], { type: 'audio/mpeg' }));
+    return audioUrls[file];
+  }
+  function stopAudio() {
+    if (playing) { playing.pause(); playing = null; }
+  }
+
+  // ---------- Bilah atas ----------
+  function renderBar() {
+    document.getElementById('brand-title').textContent = DATA.title;
+    document.getElementById('brand-sub').textContent = DATA.batch + ' · draf, belum disetujui editor';
+    document.getElementById('who').value = store.name || '';
+    ['input', 'peserta', 'peninjau'].forEach(m => {
+      document.getElementById('mode-' + m).setAttribute('aria-pressed', String(view.mode === m));
+    });
+  }
+
+  // ---------- Dialog konfirmasi ----------
+  function ask(title, body, okLabel) {
+    return new Promise(resolve => {
+      dlg.innerHTML = '<form method="dialog"><h2>' + esc(title) + '</h2><p>' + esc(body) + '</p>' +
+        '<menu><button class="btn" value="no">Batal</button><button class="btn primary" value="ok">' + esc(okLabel) + '</button></menu></form>';
+      const finish = answer => e => {
+        e.preventDefault();
+        resolve(answer);
+        dlg.close();
+      };
+      dlg.querySelector('[value="ok"]').onclick = finish(true);
+      dlg.querySelector('[value="no"]').onclick = finish(false);
+      dlg.oncancel = finish(false);
+      dlg.onclose = () => resolve(false);
+      dlg.showModal();
+    });
+  }
+
+  // ---------- Mode Tim Input ----------
+  const inRows = () => itemsOf('listening').filter(it => it.audio);
+  function inFilters() {
+    const parts = [...new Set(inRows().map(it => it.part))];
+    return [['all', 'Semua'], ...(parts.length > 1 ? parts.map(p => [p, 'Part ' + p]) : []), ['todo', 'Belum diinput']];
+  }
+  const fileSize = bytes => (bytes >= 1e6 ? (bytes / 1e6).toFixed(1).replace('.', ',') + ' MB' : Math.max(1, Math.round(bytes / 1e3)) + ' KB');
+  const inSaved = new Set();
+  let embedded = null;
+  const bytesFrom = b64 => {
+    const bin = atob(b64);
+    const bytes = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    return bytes;
+  };
+  function docBytes(name) {
+    if (!embedded) embedded = JSON.parse(document.getElementById('qc-files').textContent);
+    return bytesFrom(embedded[name]);
+  }
+  function audioBytes(file) {
+    if (!audioData) audioData = JSON.parse(document.getElementById('qc-audio').textContent);
+    return bytesFrom(audioData[file]);
+  }
+  // ZIP tanpa kompresi: mp3, docx, dan xlsx sudah terkompresi, jadi cukup disimpan apa adanya.
+  const CRC_TABLE = (() => {
+    const table = new Uint32Array(256);
+    for (let n = 0; n < 256; n++) {
+      let c = n;
+      for (let k = 0; k < 8; k++) c = c & 1 ? 0xedb88320 ^ (c >>> 1) : c >>> 1;
+      table[n] = c >>> 0;
+    }
+    return table;
+  })();
+  function crc32(bytes) {
+    let c = 0xffffffff;
+    for (let i = 0; i < bytes.length; i++) c = CRC_TABLE[(c ^ bytes[i]) & 255] ^ (c >>> 8);
+    return (c ^ 0xffffffff) >>> 0;
+  }
+  function makeZip(files) {
+    const parts = [], central = [];
+    let offset = 0;
+    const DOS_DATE = 33; // 1 Januari 1980: tanggal berkas tidak dipakai.
+    files.forEach(file => {
+      const name = new TextEncoder().encode(file.name), crc = crc32(file.bytes), size = file.bytes.length;
+      const head = new DataView(new ArrayBuffer(30));
+      head.setUint32(0, 0x04034b50, true); head.setUint16(4, 20, true); head.setUint16(6, 0x0800, true);
+      head.setUint16(12, DOS_DATE, true); head.setUint32(14, crc, true); head.setUint32(18, size, true);
+      head.setUint32(22, size, true); head.setUint16(26, name.length, true);
+      parts.push(new Uint8Array(head.buffer), name, file.bytes);
+      const entry = new DataView(new ArrayBuffer(46));
+      entry.setUint32(0, 0x02014b50, true); entry.setUint16(4, 20, true); entry.setUint16(6, 20, true); entry.setUint16(8, 0x0800, true);
+      entry.setUint16(14, DOS_DATE, true); entry.setUint32(16, crc, true); entry.setUint32(20, size, true);
+      entry.setUint32(24, size, true); entry.setUint16(28, name.length, true); entry.setUint32(42, offset, true);
+      central.push(new Uint8Array(entry.buffer), name);
+      offset += 30 + name.length + size;
+    });
+    const centralSize = central.reduce((sum, part) => sum + part.length, 0);
+    const end = new DataView(new ArrayBuffer(22));
+    end.setUint32(0, 0x06054b50, true); end.setUint16(8, files.length, true); end.setUint16(10, files.length, true);
+    end.setUint32(12, centralSize, true); end.setUint32(16, offset, true);
+    return new Blob([...parts, ...central, new Uint8Array(end.buffer)], { type: 'application/zip' });
+  }
+  function audioEntries(folder) {
+    if (!audioData) audioData = JSON.parse(document.getElementById('qc-audio').textContent);
+    return inRows().filter(it => audioData[it.audio]).map(it => ({ name: folder + it.audio, bytes: audioBytes(it.audio) }));
+  }
+  function paketZip() {
+    const root = 'P' + DATA.paket + '/';
+    const docs = DATA.docs.flatMap(d => [d.word, d.excel]).filter(Boolean)
+      .map(d => ({ name: root + d.name, bytes: docBytes(d.name) }));
+    return makeZip([{ name: root + 'CARA_INPUT.txt', bytes: new TextEncoder().encode(DATA.guide) }, ...docs, ...audioEntries(root + 'audio/')]);
+  }
+  const audioZip = () => makeZip(audioEntries('P' + DATA.paket + '_audio/'));
+  const inDocSize = () => DATA.docs.flatMap(d => [d.word, d.excel]).filter(Boolean).reduce((sum, d) => sum + d.size, 0);
+  const inLabel = (key, label, doneLabel) => (inSaved.has(key) ? doneLabel : label);
+  const inSave = (key, label, doneLabel, cls, iconName, aria) => '<button type="button" class="btn ' + cls + '" data-act="in-save" data-key="' + esc(key) + '" data-label="' + esc(label) + '" data-done-label="' + esc(doneLabel) + '"' + (aria ? ' aria-label="' + esc(aria) + '"' : '') + '>' +
+    icon(inSaved.has(key) ? 'check' : iconName) + '<span class="label">' + esc(inLabel(key, label, doneLabel)) + '</span></button>';
+  function inputHtml() {
+    const rows = inRows();
+    const stats = '<div class="stats">' + DATA.sections.map(s => '<div><strong>' + s.count + '</strong><span>' + esc(SECTION_SHORT[s.id] || s.label) + '</span></div>').join('') + '</div>';
+    const progress = rows.length
+      ? '<div class="row" style="align-items:baseline"><span class="in-count" id="in-count"></span><span class="muted small">dari ' + rows.length + ' audio sudah diinput</span></div><span class="in-meter" id="in-meter" role="img"><span></span></span><p class="small muted">Centang tersimpan di browser ini.</p>'
+      : '<p class="small muted">Paket ini tidak memiliki audio.</p>';
+    const docs = DATA.docs.filter(d => d.word || d.excel).map(d => '<div class="in-doc"><span class="in-doc-name">' + esc(d.label) + '</span><span class="in-doc-btns">' +
+      (d.word ? inSave('doc:' + d.word.name, 'Word', 'Word', 'in-small', 'file', 'Unduh Word ' + d.label) : '') +
+      (d.excel ? inSave('doc:' + d.excel.name, 'Excel', 'Excel', 'in-small', 'sheet', 'Unduh Excel ' + d.label) : '') + '</span></div>').join('');
+    const left = '<div class="in-rail"><section class="panel"><div><span class="eyebrow">Paket untuk tim input</span><h2 style="font-size:20px;margin-top:6px">' + esc(DATA.heading) + '</h2></div>' + stats + progress + '</section>' +
+      '<section class="panel"><h3>Unduh sekaligus</h3><div class="in-stack">' +
+      inSave('zip', 'Paket lengkap (' + fileSize(DATA.audioBytes + inDocSize()) + ')', 'Paket lengkap terunduh', 'primary in-btn', 'package') +
+      (rows.length ? inSave('audioZip', 'Semua audio (' + fileSize(DATA.audioBytes) + ')', 'Semua audio terunduh', 'in-btn', 'music') : '') +
+      '</div><p class="small muted">Paket lengkap berisi Word, Excel, audio, dan petunjuk input.</p></section>' +
+      '<section class="panel"><h3>Dokumen soal</h3>' + (docs || '<p class="small muted">Dokumen belum tersedia di file ini.</p>') + '</section></div>';
+    if (!rows.length) return '<div class="in-desk single">' + left + '</div>';
+    return '<div class="in-desk">' + left + '<section class="in-work"><div class="in-head"><div class="row spread" style="align-items:baseline"><h2>Audio Listening</h2><span class="small muted">' + rows.length + ' file</span></div>' +
+      '<p>Nomor sama dengan nomor soal di file Word. Di Part B dan C, percakapan atau kuliah hanya ada di audio soal pertama tiap kelompok.</p>' +
+      '<div class="row" role="group" aria-label="Saring audio" id="in-filters" style="gap:6px"></div></div>' +
+      '<div class="in-list" id="in-list" tabindex="0" aria-label="Daftar audio"></div>' +
+      '<div class="in-player" id="in-player" hidden><b id="in-player-label"></b><span class="in-track"><span id="in-player-bar"></span></span><span class="num" id="in-player-time"></span><button type="button" class="btn in-small" data-act="in-stop">' + icon('stop') + 'Berhenti</button></div></section></div>';
+  }
+  function audioContent(it) {
+    if (!it.audioFull) return 'Pertanyaan saja';
+    return it.part === 'C' ? 'Kuliah dan pertanyaan' : 'Percakapan dan pertanyaan';
+  }
+  function renderInputList() {
+    const list = document.getElementById('in-list');
+    if (!list) return;
+    const all = inRows();
+    document.getElementById('in-filters').innerHTML = inFilters().map(([id, label]) => '<button type="button" class="in-chip" data-act="in-filter" data-filter-id="' + id + '" aria-pressed="' + (id === view.inFilter) + '">' + label + '</button>').join('');
+    const rows = all.filter(it => view.inFilter === 'all' || (view.inFilter === 'todo' ? !store.done[it.no] : it.part === view.inFilter));
+    // Set satu part (misalnya Part C saja) dikelompokkan per kuliah, bukan per part.
+    const onePart = new Set(all.map(it => it.part)).size === 1;
+    const groupOf = it => (onePart ? it.group : it.part);
+    const sizes = {};
+    rows.forEach(it => { sizes[groupOf(it)] = (sizes[groupOf(it)] || 0) + 1; });
+    let part = null;
+    const top = list.scrollTop;
+    list.innerHTML = rows.map(it => {
+      const key = groupOf(it);
+      let head = '';
+      if (key !== part) {
+        const topic = String(it.topic || '');
+        const tag = onePart && it.group ? 'Kuliah ' + it.group : 'Part ' + it.part;
+        const title = onePart && it.group ? topic.charAt(0).toUpperCase() + topic.slice(1) : (PART_NAMES[it.part] || '');
+        head = '<div class="in-part"><span class="chip">' + esc(tag) + '</span>' + esc(title) + '<span class="in-part-count">' + sizes[key] + ' audio</span></div>';
+      }
+      part = key;
+      const isDone = !!store.done[it.no], isPlaying = playingNo === it.no;
+      const label = isPlaying ? 'Berhenti' : 'Putar';
+      return head + '<div class="in-item' + (isPlaying ? ' is-playing' : isDone ? ' is-done' : '') + '">' +
+        '<label class="in-tick"><input type="checkbox" data-act="in-done" data-no="' + it.no + '"' + (isDone ? ' checked' : '') + ' aria-label="Soal ' + it.no + ' sudah diinput"><span class="in-no">' + it.no + '</span></label>' +
+        '<div class="in-info"><div class="in-file">' + esc(it.audio) + '</div><div class="in-meta">' + audioContent(it) + (it.audioSeconds != null ? ' · ' + inClock(it.audioSeconds) : '') + '</div></div>' +
+        '<div class="in-btns"><button type="button" class="btn in-small" data-act="in-play" data-no="' + it.no + '" aria-label="' + label + ' soal ' + it.no + '">' + icon(isPlaying ? 'stop' : 'play') + label + '</button>' +
+        inSave('audio:' + it.audio, 'Unduh', 'Terunduh', 'in-small', 'download', 'Unduh audio soal ' + it.no) + '</div></div>';
+    }).join('') || '<p class="empty">Semua audio di daftar ini sudah diinput.</p>';
+    list.scrollTop = top;
+    const count = all.filter(it => store.done[it.no]).length;
+    document.getElementById('in-count').textContent = count;
+    const meter = document.getElementById('in-meter');
+    meter.setAttribute('aria-label', count + ' dari ' + all.length + ' audio sudah diinput');
+    meter.firstChild.style.width = (count / all.length * 100) + '%';
+  }
+  const inClock = seconds => {
+    const s = Math.round(seconds);
+    return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
+  };
+  function showInError(message) {
+    const box = document.getElementById('in-error');
+    box.textContent = message;
+    box.hidden = !message;
+  }
+  function inSaveFile(button) {
+    const key = button.dataset.key;
+    showInError('');
+    try {
+      if (key === 'zip') saveBlob('P' + DATA.paket + '_paket_input.zip', paketZip());
+      else if (key === 'audioZip') saveBlob('P' + DATA.paket + '_audio.zip', audioZip());
+      else if (key.startsWith('doc:')) saveBlob(key.slice(4), new Blob([docBytes(key.slice(4))]));
+      else saveBlob(key.slice(6), new Blob([audioBytes(key.slice(6))], { type: 'audio/mpeg' }));
+      inSaved.add(key);
+      (button.querySelector('.label') || button).textContent = inLabel(key, button.dataset.label, button.dataset.doneLabel);
+      const svg = button.querySelector('svg');
+      if (svg) svg.innerHTML = PATHS.check;
+    } catch (e) {
+      showInError('Gagal menyiapkan file. Coba lagi, atau muat ulang halaman.');
+    }
+  }
+  function stopInputAudio() {
+    const had = playingNo !== null;
+    stopAudio();
+    playingNo = null;
+    const bar = document.getElementById('in-player');
+    if (bar) bar.hidden = true;
+    if (had) renderInputList();
+  }
+  function inputPlay(no) {
+    const same = playingNo === no;
+    stopInputAudio();
+    if (same) return;
+    const it = inRows().find(x => x.no === no);
+    const url = audioUrl(it.audio);
+    if (!url) { showInError('File audio soal ' + no + ' tidak ada di paket.'); return; }
+    showInError('');
+    const current = new Audio(url);
+    playing = current;
+    playingNo = no;
+    document.getElementById('in-player').hidden = false;
+    document.getElementById('in-player-label').textContent = 'Soal ' + no;
+    document.getElementById('in-player-bar').style.width = '0';
+    document.getElementById('in-player-time').textContent = '0:00 / ' + inClock(it.audioSeconds || 0);
+    current.addEventListener('timeupdate', () => {
+      if (playing !== current || !current.duration) return;
+      document.getElementById('in-player-bar').style.width = (current.currentTime / current.duration * 100) + '%';
+      document.getElementById('in-player-time').textContent = inClock(current.currentTime) + ' / ' + inClock(current.duration);
+    });
+    current.addEventListener('ended', () => { if (playing === current) stopInputAudio(); });
+    renderInputList();
+    current.play().catch(() => {
+      stopInputAudio();
+      showInError('Gagal memutar audio soal ' + no + '.');
+    });
+  }
+
+  // ---------- Mode peserta: beranda ----------
+  function correctCount(s) {
+    const a = attempt(s);
+    return itemsOf(s).filter(it => a.answers[it.no] === it.key).length;
+  }
+  function homeHtml() {
+    const rows = DATA.sections.map(sec => {
+      const a = attempt(sec.id);
+      const answered = Object.keys(a.answers).length;
+      let state = '<span class="muted">Belum dimulai</span>';
+      let label = 'Mulai';
+      if (a.submitted) {
+        state = '<span class="chip good">Selesai</span> benar <strong>' + correctCount(sec.id) + '</strong> dari ' + sec.count;
+        label = 'Lihat hasil';
+      } else if (answered || a.elapsed) {
+        state = answered + ' dari ' + sec.count + ' terjawab · ' + clock(a.elapsed);
+        label = 'Lanjutkan';
+      }
+      return '<tr><td><strong>' + esc(sec.label) + '</strong></td><td class="r">' + sec.count + '</td><td class="r">' + sec.minutes +
+        ' menit</td><td>' + state + '</td><td class="sec-actions"><button type="button" class="btn primary" data-act="open-section" data-section="' +
+        sec.id + '">' + label + '</button></td></tr>';
+    }).join('');
+    const anySubmitted = DATA.sections.some(s => attempt(s.id).submitted);
+    return '<section class="stack prose"><h1>Kerjakan seperti peserta</h1>' +
+      '<p>Pilih section dan kerjakan soalnya. Kunci dan pembahasan baru muncul setelah section diselesaikan. Jawaban tersimpan otomatis di browser ini.</p></section>' +
+      '<section class="panel table-wrap"><table><thead><tr><th>Section</th><th class="r">Soal</th><th class="r">Waktu</th><th>Status</th><th></th></tr></thead><tbody>' + rows + '</tbody></table></section>' +
+      '<section class="panel stack"><label class="check"><input type="checkbox" id="limit-audio" data-act="limit-audio"' + (store.limitAudio ? ' checked' : '') +
+      '> Audio Listening hanya bisa diputar sekali, seperti tes asli</label>' +
+      '<p class="small muted">Di Part B dan C, percakapan atau kuliah ada di audio soal pertama setiap kelompok. Soal berikutnya hanya berisi pertanyaan.</p>' +
+      (anySubmitted ? '<div class="row"><button type="button" class="btn" data-act="export-attempt">Unduh jawaban (CSV)</button></div>' : '') + '</section>';
+  }
+
+  // ---------- Mode peserta: mengerjakan ----------
+  function sheetHtml(sec, a) {
+    const rows = itemsOf(sec.id).map((it, i) => {
+      const bubbles = LETTERS.map(L => '<button type="button" class="bub' + (a.answers[it.no] === L ? ' on' : '') + '" data-act="answer" data-no="' + it.no + '" data-l="' + L + '" aria-label="Soal ' + it.no + ' jawaban ' + L + '">' + L + '</button>').join('');
+      return '<div class="sheet-row' + (i === a.current ? ' now' : '') + (a.flags[it.no] ? ' flag' : '') + '"><button type="button" class="go" data-act="goto" data-i="' + i + '" aria-label="Buka soal ' + it.no + '">' + it.no + '</button>' + bubbles + '</div>';
+    }).join('');
+    const answered = Object.keys(a.answers).length;
+    return '<aside class="panel sheet-box"><div class="row spread small"><strong>Lembar jawaban</strong><span class="muted num">' + answered + '/' + sec.count + '</span></div>' +
+      '<div class="sheet-grid" id="sheet-grid" style="margin-top:8px">' + rows + '</div></aside>';
+  }
+  function playerHtml(it, a) {
+    if (!audioUrl(it.audio)) return '<div class="notice">File audio untuk soal ini tidak ada di paket.</div>';
+    const used = store.limitAudio && a.played[it.no];
+    const label = used ? (playing && playingNo === it.no ? 'Sedang diputar' : 'Audio sudah diputar') : a.played[it.no] ? 'Putar lagi' : 'Putar audio';
+    return '<div class="player"><div class="row spread"><button type="button" class="btn primary" id="play-btn" data-act="play" data-no="' + it.no + '"' + (used ? ' disabled' : '') + '>' + label + '</button>' +
+      '<span class="small muted num" id="play-time"></span></div><progress id="play-bar" value="0" max="1" aria-label="Posisi audio"></progress></div>';
+  }
+  function examHtml() {
+    const sec = sectionOf(view.section);
+    const a = attempt(sec.id);
+    const its = itemsOf(sec.id);
+    const it = its[a.current];
+    const opts = it.options.map((text, i) => {
+      const L = LETTERS[i];
+      const on = a.answers[it.no] === L;
+      return '<button type="button" class="opt" role="radio" aria-checked="' + on + '" data-act="answer" data-no="' + it.no + '" data-l="' + L + '"><span class="bub' + (on ? ' on' : '') + '">' + L + '</span><span class="opt-text">' + esc(text) + '</span></button>';
+    }).join('');
+    const question = it.section === 'listening'
+      ? playerHtml(it, a) + '<p class="small muted">Dengarkan audio, lalu pilih jawaban.</p>'
+      : '<div class="booklet">' + stemHtml(it) + '</div>';
+    const body = '<div class="stack">' + question + '<div class="opts" role="radiogroup" aria-label="Pilihan jawaban">' + opts + '</div></div>';
+    let content = body;
+    if (it.section === 'reading') {
+      const p = DATA.passages[it.passage];
+      content = '<div class="split two"><div class="panel passage booklet" id="passage" data-p="' + esc(it.passage) + '"><h3>' + esc(p.heading) + '</h3>' + paragraphs(p.body) + '</div><div class="panel">' + body + '</div></div>';
+    } else {
+      content = '<div class="panel">' + body + '</div>';
+    }
+    const last = a.current === its.length - 1;
+    return '<div class="exam"><div class="stack">' +
+      '<div class="exam-head"><div class="row"><button type="button" class="btn" data-act="home">Daftar section</button><strong>' + esc(sec.label) + '</strong>' +
+      (it.partLabel ? '<span class="chip plain">' + esc(it.partLabel) + '</span>' : '') + '<span class="muted num">Soal ' + it.no + ' dari ' + sec.count + '</span></div>' +
+      '<span class="timer" id="timer"></span></div>' + content +
+      '<div class="nav-row"><button type="button" class="btn" data-act="prev"' + (a.current === 0 ? ' disabled' : '') + '>Sebelumnya</button>' +
+      '<button type="button" class="btn" data-act="flag" aria-pressed="' + !!a.flags[it.no] + '">' + (a.flags[it.no] ? 'Hapus tanda ragu' : 'Tandai ragu') + '</button>' +
+      (last ? '<button type="button" class="btn primary" data-act="finish">Selesaikan section</button>' : '<button type="button" class="btn primary" data-act="next">Berikutnya</button>') +
+      '</div></div>' + sheetHtml(sec, a) + '</div>';
+  }
+  function updateTimer() {
+    const el = document.getElementById('timer');
+    if (!el || !view.section) return;
+    const a = attempt(view.section);
+    const limit = sectionOf(view.section).minutes * 60;
+    const left = limit - a.elapsed;
+    el.textContent = left >= 0 ? clock(left) : 'Waktu habis +' + clock(-left);
+    el.classList.toggle('over', left < 0);
+  }
+
+  // ---------- Mode peserta: hasil ----------
+  function resultHtml() {
+    const sec = sectionOf(view.section);
+    const a = attempt(sec.id);
+    const its = itemsOf(sec.id);
+    const correct = correctCount(sec.id);
+    const blankCount = its.filter(it => !a.answers[it.no]).length;
+    const parts = [...new Set(its.map(it => it.partLabel))].filter(Boolean);
+    const byPart = parts.length > 1 ? '<div class="table-wrap"><table><thead><tr><th>Bagian</th><th class="r">Benar</th><th class="r">Soal</th></tr></thead><tbody>' + parts.map(p => {
+      const sub = its.filter(it => it.partLabel === p);
+      return '<tr><td>' + esc(p) + '</td><td class="r">' + sub.filter(it => a.answers[it.no] === it.key).length + '</td><td class="r">' + sub.length + '</td></tr>';
+    }).join('') + '</tbody></table></div>' : '';
+    const shown = view.wrongOnly ? its.filter(it => a.answers[it.no] !== it.key) : its;
+    const cards = shown.map(it => {
+      const mine = a.answers[it.no];
+      const opts = it.options.map((text, i) => {
+        const L = LETTERS[i];
+        const cls = L === it.key ? ' is-key' : L === mine ? ' is-wrong' : '';
+        const note = L === it.key ? '<span class="chip good">Kunci</span>' : L === mine ? '<span class="chip bad">Jawaban Anda</span>' : '';
+        return '<div class="opt' + cls + '"><span class="bub">' + L + '</span><span class="opt-text">' + esc(text) + '</span>' + note + '</div>';
+      }).join('');
+      const url = it.audio ? audioUrl(it.audio) : null;
+      return '<article class="card"><div class="card-head"><strong>No ' + it.no + '</strong>' + (it.partLabel ? '<span class="chip plain">' + esc(it.partLabel) + '</span>' : '') +
+        (mine === it.key ? '<span class="chip good">Benar</span>' : mine ? '<span class="chip bad">Salah</span>' : '<span class="chip plain">Tidak dijawab</span>') +
+        (a.flags[it.no] ? '<span class="chip warn">Ragu</span>' : '') + '</div><div class="q-col">' +
+        (it.section === 'listening' ? (url ? '<audio controls preload="none" src="' + url + '"></audio>' : '') : '<div class="booklet">' + stemHtml(it) + '</div>') +
+        '<div class="opts">' + opts + '</div><details><summary>Pembahasan</summary><div class="pembahasan">' + esc(it.pembahasan) + '</div></details></div></article>';
+    }).join('');
+    return '<section class="panel stack"><div class="row spread"><h1>' + esc(sec.label) + '</h1><button type="button" class="btn" data-act="home">Daftar section</button></div>' +
+      '<p><strong class="num" style="font-size:var(--size-xl)">' + correct + ' / ' + sec.count + '</strong> benar · ' + blankCount + ' tidak dijawab · waktu ' + clock(a.elapsed) + '</p>' +
+      '<p class="small muted">Ini skor mentah. Skor skala TOEFL ITP dihitung oleh platform.</p>' + byPart +
+      '<div class="row"><label class="check"><input type="checkbox" id="wrong-only" data-act="wrong-only"' + (view.wrongOnly ? ' checked' : '') + '> Tampilkan yang salah saja</label>' +
+      '<button type="button" class="btn" data-act="export-attempt">Unduh jawaban (CSV)</button><button type="button" class="btn" data-act="reset-section">Kerjakan ulang</button></div></section>' +
+      (cards || '<div class="empty">Tidak ada jawaban yang salah.</div>');
+  }
+
+  // ---------- Mode peninjau ----------
+  function me() { return (store.name || '').trim() || 'Tanpa nama'; }
+  function entries(id) { return store.reviews[id] || {}; }
+  function combined(id) {
+    let best = null;
+    Object.values(entries(id)).forEach(e => {
+      if (e.status && (!best || STATUS_RANK[e.status] > STATUS_RANK[best])) best = e.status;
+    });
+    return best;
+  }
+  function summaryHtml() {
+    const rows = DATA.sections.map(sec => {
+      const its = itemsOf(sec.id);
+      const c = { ok: 0, revisi: 0, tolak: 0, none: 0 };
+      its.forEach(it => { c[combined(it.id) || 'none']++; });
+      const done = its.length - c.none;
+      const flagged = its.filter(it => it.flags.length).length;
+      return { label: sec.label, total: its.length, c, done, flagged };
+    });
+    const sum = key => rows.reduce((n, r) => n + key(r), 0);
+    const line = (label, total, c, done, flagged, bold) => '<tr' + (bold ? ' style="font-weight:600"' : '') + '><td>' + esc(label) + '</td><td class="r">' + total + '</td><td class="r">' + c.ok + '</td><td class="r">' + c.revisi + '</td><td class="r">' + c.tolak + '</td><td class="r">' + c.none + '</td><td class="r">' + flagged + '</td><td><div class="progress" role="img" aria-label="' + done + ' dari ' + total + ' ditinjau"><span style="width:' + (total ? done / total * 100 : 0) + '%"></span></div></td></tr>';
+    const totals = { ok: sum(r => r.c.ok), revisi: sum(r => r.c.revisi), tolak: sum(r => r.c.tolak), none: sum(r => r.c.none) };
+    return '<div class="table-wrap"><table><thead><tr><th>Section</th><th class="r">Soal</th><th class="r">OK</th><th class="r">Perlu revisi</th><th class="r">Tolak</th><th class="r">Belum</th><th class="r">Ditandai simulasi</th><th>Kemajuan</th></tr></thead><tbody>' +
+      rows.map(r => line(r.label, r.total, r.c, r.done, r.flagged)).join('') +
+      line('Total', sum(r => r.total), totals, sum(r => r.done), sum(r => r.flagged), true) + '</tbody></table></div>';
+  }
+  function simSummary() {
+    const lines = DATA.sections.map(sec => {
+      const its = itemsOf(sec.id).filter(it => it.sim);
+      if (!its.length) return '';
+      const pct = p => Math.round(its.filter(it => it.sim[p] && it.sim[p].answer === it.key).length / its.length * 100) + '%';
+      return '<tr><td>' + esc(sec.label) + '</td><td class="r">' + pct('awam') + '</td><td class="r">' + Math.round(DATA.baseline[sec.id] * 100) + '%</td><td class="r">' + pct('menengah') + '</td><td class="r">' + pct('mahir') + '</td></tr>';
+    }).join('');
+    if (!lines) return '';
+    return '<details><summary>Skor simulasi per section</summary><div class="table-wrap" style="margin-top:8px"><table class="sim-table"><thead><tr><th>Section</th><th class="r">Hanya opsi</th><th class="r">Hanya opsi, tryout 3892</th><th class="r">50%</th><th class="r">80%</th></tr></thead><tbody>' + lines +
+      '</tbody></table></div><p class="small muted" style="margin-top:6px">Persona adalah Claude yang berperan sebagai peserta. Hasilnya membantu menemukan kunci salah dan soal ambigu, tetapi bukan ukuran kesulitan yang sebenarnya. Kolom tryout 3892 adalah pembanding: tryout lama yang dijawab persona yang sama tanpa melihat teks atau audio.</p></details>';
+  }
+  function filtered() {
+    const q = filters.q.trim().toLowerCase();
+    return DATA.items.filter(it => {
+      if (filters.section !== 'all' && it.section !== filters.section) return false;
+      if (filters.part !== 'all' && it.partLabel !== filters.part) return false;
+      if (filters.level !== 'all' && it.level !== filters.level) return false;
+      if (filters.flagged && !it.flags.length) return false;
+      if (filters.status !== 'all') {
+        const st = combined(it.id);
+        if (filters.status === 'none' ? st : st !== filters.status) return false;
+      }
+      if (q) {
+        const hay = [it.stem, it.options.join(' '), it.pembahasan, it.topic, it.type, 'no ' + it.no].join(' ').toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
+      return true;
+    });
+  }
+  function select(id, label, value, options) {
+    return '<label class="field" for="' + id + '">' + label + '<select id="' + id + '" data-filter="' + id.slice(2) + '">' +
+      options.map(([v, t]) => '<option value="' + esc(v) + '"' + (v === value ? ' selected' : '') + '>' + esc(t) + '</option>').join('') + '</select></label>';
+  }
+  function filtersHtml() {
+    const parts = [...new Set(DATA.items.map(it => it.partLabel))].filter(Boolean);
+    return '<div class="filters">' +
+      select('f-section', 'Section', filters.section, [['all', 'Semua']].concat(DATA.sections.map(s => [s.id, s.label]))) +
+      select('f-part', 'Bagian', filters.part, [['all', 'Semua']].concat(parts.map(p => [p, p]))) +
+      select('f-level', 'Level', filters.level, [['all', 'Semua'], ['Mudah', 'Mudah'], ['Sedang', 'Sedang'], ['Sulit', 'Sulit']]) +
+      select('f-status', 'Status', filters.status, [['all', 'Semua'], ['none', 'Belum ditinjau'], ['ok', 'OK'], ['revisi', 'Perlu revisi'], ['tolak', 'Tolak']]) +
+      '<label class="field" for="f-q">Cari<input id="f-q" type="search" data-filter="q" value="' + esc(filters.q) + '" placeholder="Kata di soal atau pembahasan"></label>' +
+      '<label class="check small"><input id="f-flagged" type="checkbox" data-filter="flagged"' + (filters.flagged ? ' checked' : '') + '> Hanya yang ditandai simulasi</label></div>';
+  }
+  function reviewFormHtml(it) {
+    const mine = entries(it.id)[me()] || {};
+    const buttons = Object.keys(STATUS).map(s => '<button type="button" data-act="status" data-id="' + it.id + '" data-status="' + s + '" aria-pressed="' + (mine.status === s) + '">' + STATUS[s] + '</button>').join('');
+    const tags = TAGS.map((t, i) => '<label class="check"><input type="checkbox" data-act="tag" data-id="' + it.id + '" data-tag="' + esc(t) + '" id="tag-' + it.id + '-' + i + '"' + ((mine.tags || []).includes(t) ? ' checked' : '') + '> ' + esc(t) + '</label>').join('');
+    const others = Object.entries(entries(it.id)).filter(([n]) => n !== me()).map(([n, e]) => '<div><strong>' + esc(n) + ':</strong> ' + esc(STATUS[e.status] || 'Belum ada status') + ((e.tags || []).length ? ' · ' + esc(e.tags.join(', ')) : '') + (e.note ? ' · ' + esc(e.note) : '') + '</div>').join('');
+    return '<div class="status-btns" role="group" aria-label="Status soal ' + it.no + '">' + buttons + '</div><div class="tags">' + tags + '</div>' +
+      '<label class="field" for="note-' + it.id + '">Catatan<textarea id="note-' + it.id + '" data-note="' + it.id + '" placeholder="Apa yang perlu diubah?">' + esc(mine.note || '') + '</textarea></label>' +
+      (others ? '<div class="others">' + others + '</div>' : '');
+  }
+  function reviewCard(it) {
+    const a = store.attempts[it.section];
+    const tried = a && a.answers[it.no];
+    const opts = it.options.map((text, i) => {
+      const L = LETTERS[i];
+      let chips = L === it.key ? '<span class="chip good">Kunci</span>' : '';
+      if (it.sim) Object.keys(SHORT).forEach(p => { if (it.sim[p] && it.sim[p].answer === L) chips += '<span class="chip plain" title="Jawaban persona ' + PERSONAS[p] + '">' + SHORT[p] + '</span>'; });
+      if (tried === L) chips += '<span class="chip">Uji coba</span>';
+      return '<div class="opt' + (L === it.key ? ' is-key' : '') + '"><span class="bub">' + L + '</span><span class="opt-text">' + esc(text) + '</span><span class="opt-chips">' + chips + '</span></div>';
+    }).join('');
+    const main = it.section === 'listening'
+      ? '<div class="stack"><div class="booklet">' + esc(it.question) + '</div><div data-audio-slot>' + (it.audio ? '<button type="button" class="btn" data-act="review-audio" data-file="' + esc(it.audio) + '">Putar audio</button>' : '') + '</div></div>'
+      : '<div class="booklet">' + stemHtml(it) + '</div>';
+    const flags = it.flags.length ? '<ul class="flag-list">' + it.flags.map(f => '<li>' + esc(f) + '</li>').join('') + '</ul>' : '';
+    const sim = it.sim ? '<details><summary>Jawaban simulasi</summary><div class="table-wrap"><table class="sim-table" style="margin-top:6px"><thead><tr><th>Persona</th><th>Jawab</th><th>Yakin</th><th>Alasan</th></tr></thead><tbody>' +
+      Object.keys(PERSONAS).filter(p => it.sim[p]).map(p => '<tr><td>' + PERSONAS[p] + '</td><td>' + esc(it.sim[p].answer) + '</td><td>' + esc(it.sim[p].confidence) + '</td><td>' + esc(it.sim[p].reason) + '</td></tr>').join('') + '</tbody></table></div></details>' : '';
+    const st = combined(it.id);
+    return '<article class="card' + (st ? ' st-' + st : '') + '" id="card-' + it.id + '"><div class="card-head"><strong>No ' + it.no + '</strong>' +
+      (it.partLabel ? '<span class="chip plain">' + esc(it.partLabel) + '</span>' : '') + levelChip(it.level) + '<span class="chip plain">' + esc(it.type) + '</span>' +
+      '<span class="small muted">' + esc(it.topic) + '</span>' + (it.flags.length ? '<span class="chip warn">Ditandai simulasi</span>' : '') + '</div>' +
+      '<div class="card-body"><div class="q-col">' + main + '<div class="opts">' + opts + '</div>' + flags +
+      '<details open><summary>Pembahasan</summary><div class="pembahasan">' + esc(it.pembahasan) + '</div></details>' + sim + '</div>' +
+      '<div class="rev-col">' + reviewFormHtml(it) + '</div></div></article>';
+  }
+  function listHtml() {
+    const items = filtered();
+    if (!items.length) return '<div class="empty">Tidak ada soal yang cocok dengan filter ini.</div>';
+    let html = '<p class="small muted">Menampilkan ' + items.length + ' dari ' + DATA.items.length + ' soal.</p>';
+    let head = null;
+    items.forEach(it => {
+      let group = it.section + '|' + it.partLabel;
+      if (it.section === 'reading') group = it.section + '|' + it.passage;
+      if (it.group) group += '|' + it.group;
+      if (group !== head) {
+        head = group;
+        const sec = sectionOf(it.section);
+        if (it.section === 'reading') {
+          const p = DATA.passages[it.passage];
+          html += '<div class="group-head"><h2>' + esc(sec.label) + ' <small>' + esc(p.heading) + ' · ' + p.words + ' kata · topik: ' + esc(p.topic) + '</small></h2>' +
+            '<details class="passage-box"><summary>Baca teks</summary><div class="booklet">' + paragraphs(p.body) + '</div></details></div>';
+        } else {
+          html += '<div class="group-head"><h2>' + esc(sec.label) + ' <small>' + esc(it.partLabel) + (it.group ? ' · ' + (it.part === 'B' ? 'percakapan ' : 'kuliah ') + it.group + ': ' + esc(it.topic) : '') + '</small></h2></div>';
+        }
+      }
+      html += reviewCard(it);
+    });
+    return html;
+  }
+  function peninjauHtml() {
+    return '<section class="stack prose"><h1>Tinjau soal</h1><p>Beri status dan catatan per soal. Catatan tersimpan di browser ini; unduh lalu kirim ke koordinator, atau gabungkan catatan peninjau lain lewat Impor.</p>' +
+      (store.name ? '' : '<p class="notice">Isi nama di bilah atas supaya catatan tercatat atas nama Anda.</p>') + '</section>' +
+      '<section class="panel stack" id="summary">' + summaryHtml() + simSummary() + '</section>' +
+      '<section class="panel stack">' + filtersHtml() + '<div class="row"><button type="button" class="btn" data-act="export-csv">Unduh catatan (CSV)</button><button type="button" class="btn" data-act="export-json">Unduh catatan (JSON)</button><button type="button" class="btn" data-act="import">Impor catatan JSON</button><span class="small muted" id="import-msg" role="status"></span></div></section>' +
+      '<section class="stack" id="review-list">' + listHtml() + '</section>';
+  }
+
+  // ---------- Render ----------
+  function render() {
+    renderBar();
+    const keep = view.screen === 'exam' && document.getElementById('passage');
+    const keepP = keep ? { p: keep.dataset.p, top: keep.scrollTop } : null;
+    const grid = document.getElementById('sheet-grid');
+    const sheetBox = grid ? grid.closest('.sheet-box') : null;
+    const sheetTop = sheetBox ? sheetBox.scrollTop : 0;
+    if (view.mode === 'input') {
+      app.innerHTML = inputHtml();
+      renderInputList();
+    } else if (view.mode === 'peninjau') app.innerHTML = peninjauHtml();
+    else if (view.screen === 'exam') app.innerHTML = examHtml();
+    else if (view.screen === 'result') app.innerHTML = resultHtml();
+    else app.innerHTML = homeHtml();
+    if (view.mode === 'peserta' && view.screen === 'exam') {
+      updateTimer();
+      const p = document.getElementById('passage');
+      if (p && keepP && keepP.p === p.dataset.p) p.scrollTop = keepP.top;
+      const g = document.getElementById('sheet-grid');
+      if (g) g.closest('.sheet-box').scrollTop = sheetTop;
+    }
+  }
+  function refreshList() { document.getElementById('review-list').innerHTML = listHtml(); }
+  function refreshSummary() { document.getElementById('summary').innerHTML = summaryHtml() + simSummary(); }
+  function setMode(mode) {
+    stopAudio();
+    playingNo = null;
+    view.mode = mode;
+    try { history.replaceState(null, '', '#' + mode); } catch (e) { /* tidak penting */ }
+    render();
+    window.scrollTo(0, 0);
+  }
+
+  // ---------- Tinjauan ----------
+  function myEntry(id) {
+    if (!store.reviews[id]) store.reviews[id] = {};
+    if (!store.reviews[id][me()]) store.reviews[id][me()] = { status: null, tags: [], note: '', at: '' };
+    return store.reviews[id][me()];
+  }
+  function touch(id) {
+    const e = myEntry(id);
+    e.at = new Date().toISOString();
+    if (!e.status && !e.tags.length && !e.note) delete store.reviews[id][me()];
+    if (store.reviews[id] && !Object.keys(store.reviews[id]).length) delete store.reviews[id];
+    save();
+    const card = document.getElementById('card-' + id);
+    if (card) {
+      const st = combined(id);
+      card.classList.remove('st-ok', 'st-revisi', 'st-tolak');
+      if (st) card.classList.add('st-' + st);
+    }
+    refreshSummary();
+  }
+
+  // ---------- Ekspor dan impor ----------
+  function saveBlob(name, blob) {
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = name;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 60000);
+  }
+  function download(name, text, type) {
+    saveBlob(name, new Blob([text], { type }));
+  }
+  // Excel berlokal Indonesia memakai titik koma sebagai pemisah kolom.
+  const csvCell = v => '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"';
+  const csv = rows => '﻿' + rows.map(r => r.map(csvCell).join(';')).join('\r\n');
+  const fileBase = () => 'QC_' + DATA.batch + '_P' + DATA.paket + '_' + me().replace(/[^\w-]+/g, '_');
+  function exportReviewCsv() {
+    const rows = [['section', 'bagian', 'no', 'level', 'tipe', 'topik', 'kunci', 'status_gabungan', 'peninjau', 'status', 'kategori', 'catatan', 'waktu', 'ditandai_simulasi', 'soal']];
+    DATA.items.forEach(it => {
+      const es = Object.entries(entries(it.id));
+      const q = it.section === 'listening' ? it.question : it.stem;
+      const base = [it.section, it.partLabel, it.no, it.level, it.type, it.topic, it.key, STATUS[combined(it.id)] || 'Belum ditinjau'];
+      const tail = [it.flags.join(' | '), q];
+      if (!es.length) rows.push(base.concat(['', '', '', '', ''], tail));
+      es.forEach(([n, e]) => rows.push(base.concat([n, STATUS[e.status] || '', (e.tags || []).join(', '), e.note, e.at], tail)));
+    });
+    download(fileBase() + '.csv', csv(rows), 'text/csv;charset=utf-8');
+  }
+  function exportReviewJson() {
+    download(fileBase() + '.json', JSON.stringify({ batch: DATA.batch, paket: DATA.paket, reviews: store.reviews }, null, 1), 'application/json');
+  }
+  function exportAttempt() {
+    const rows = [['section', 'bagian', 'no', 'level', 'jawaban', 'kunci', 'benar', 'ragu', 'nama']];
+    DATA.sections.forEach(sec => {
+      const a = attempt(sec.id);
+      if (!a.submitted) return;
+      itemsOf(sec.id).forEach(it => rows.push([sec.id, it.partLabel, it.no, it.level, a.answers[it.no] || '', it.key, a.answers[it.no] === it.key ? 1 : 0, a.flags[it.no] ? 1 : 0, me()]));
+    });
+    download(fileBase() + '_jawaban.csv', csv(rows), 'text/csv;charset=utf-8');
+  }
+  function importJson(file) {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const msg = document.getElementById('import-msg');
+      let incoming;
+      try {
+        incoming = JSON.parse(reader.result);
+      } catch (e) {
+        msg.textContent = 'File ini bukan JSON yang valid.';
+        return;
+      }
+      if (incoming.batch !== DATA.batch || incoming.paket !== DATA.paket || typeof incoming.reviews !== 'object') {
+        msg.textContent = 'File ini berisi catatan untuk paket lain (' + (incoming.batch || 'tidak dikenal') + '), jadi tidak digabungkan.';
+        return;
+      }
+      let merged = 0;
+      Object.entries(incoming.reviews).forEach(([id, people]) => {
+        if (!DATA.items.some(it => it.id === id)) return;
+        Object.entries(people).forEach(([name, e]) => {
+          const cur = (store.reviews[id] || {})[name];
+          if (!cur || String(e.at) > String(cur.at)) {
+            if (!store.reviews[id]) store.reviews[id] = {};
+            store.reviews[id][name] = { status: STATUS[e.status] ? e.status : null, tags: Array.isArray(e.tags) ? e.tags.map(String) : [], note: String(e.note || ''), at: String(e.at || '') };
+            merged++;
+          }
+        });
+      });
+      save();
+      refreshSummary();
+      refreshList();
+      document.getElementById('import-msg').textContent = merged + ' catatan digabungkan.';
+    };
+    reader.readAsText(file);
+  }
+
+  // ---------- Aksi ----------
+  async function act(el) {
+    const a = el.dataset.act;
+    if (a === 'mode') {
+      if (el.dataset.mode === 'peninjau' && view.mode !== 'peninjau') {
+        const running = DATA.sections.some(s => { const x = store.attempts[s.id]; return x && !x.submitted && Object.keys(x.answers).length; });
+        if (running && !(await ask('Buka mode Peninjau?', 'Mode ini menampilkan kunci dan pembahasan, sementara Anda masih mengerjakan sebagai peserta. Hasil uji coba Anda jadi tidak murni.', 'Buka'))) return;
+      }
+      setMode(el.dataset.mode);
+    } else if (a === 'open-section') {
+      view.section = el.dataset.section;
+      view.screen = attempt(view.section).submitted ? 'result' : 'exam';
+      view.wrongOnly = false;
+      render();
+      window.scrollTo(0, 0);
+    } else if (a === 'home') {
+      stopAudio();
+      view.screen = 'home';
+      save();
+      render();
+    } else if (a === 'answer') {
+      const at = attempt(view.section);
+      if (at.answers[el.dataset.no] === el.dataset.l) delete at.answers[el.dataset.no];
+      else at.answers[el.dataset.no] = el.dataset.l;
+      save();
+      render();
+    } else if (a === 'goto' || a === 'next' || a === 'prev') {
+      const at = attempt(view.section);
+      stopAudio();
+      at.current = a === 'goto' ? Number(el.dataset.i) : at.current + (a === 'next' ? 1 : -1);
+      save();
+      render();
+      window.scrollTo(0, 0);
+    } else if (a === 'flag') {
+      const at = attempt(view.section);
+      const no = itemsOf(view.section)[at.current].no;
+      if (at.flags[no]) delete at.flags[no]; else at.flags[no] = true;
+      save();
+      render();
+    } else if (a === 'play') {
+      playItem(Number(el.dataset.no));
+    } else if (a === 'finish') {
+      const at = attempt(view.section);
+      const left = sectionOf(view.section).count - Object.keys(at.answers).length;
+      const body = left ? left + ' soal belum dijawab. Setelah diselesaikan, jawaban tidak bisa diubah dan kunci akan ditampilkan.' : 'Setelah diselesaikan, jawaban tidak bisa diubah dan kunci akan ditampilkan.';
+      if (await ask('Selesaikan section?', body, 'Selesaikan')) {
+        stopAudio();
+        at.submitted = true;
+        save();
+        view.screen = 'result';
+        render();
+        window.scrollTo(0, 0);
+      }
+    } else if (a === 'reset-section') {
+      if (await ask('Kerjakan ulang?', 'Semua jawaban section ini akan dihapus. Catatan peninjau tidak terpengaruh.', 'Hapus dan mulai lagi')) {
+        delete store.attempts[view.section];
+        save();
+        view.screen = 'exam';
+        render();
+        window.scrollTo(0, 0);
+      }
+    } else if (a === 'status') {
+      const e = myEntry(el.dataset.id);
+      e.status = e.status === el.dataset.status ? null : el.dataset.status;
+      el.parentElement.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.status === e.status)));
+      touch(el.dataset.id);
+    } else if (a === 'review-audio') {
+      const url = audioUrl(el.dataset.file);
+      const slot = el.closest('[data-audio-slot]');
+      slot.innerHTML = url ? '<audio controls autoplay src="' + url + '"></audio>' : '<div class="notice">File audio untuk soal ini tidak ada di paket.</div>';
+    } else if (a === 'in-save') inSaveFile(el);
+    else if (a === 'in-play') inputPlay(Number(el.dataset.no));
+    else if (a === 'in-stop') stopInputAudio();
+    else if (a === 'in-filter') { view.inFilter = el.dataset.filterId; renderInputList(); }
+    else if (a === 'export-csv') exportReviewCsv();
+    else if (a === 'export-json') exportReviewJson();
+    else if (a === 'export-attempt') exportAttempt();
+    else if (a === 'import') document.getElementById('import-file').click();
+  }
+  function playItem(no) {
+    const at = attempt(view.section);
+    const it = itemsOf(view.section).find(x => x.no === no);
+    if (store.limitAudio && at.played[no]) return;
+    stopAudio();
+    const player = new Audio(audioUrl(it.audio));
+    playing = player;
+    playingNo = no;
+    at.played[no] = true;
+    save();
+    const btn = document.getElementById('play-btn');
+    if (btn) { btn.disabled = store.limitAudio; btn.textContent = store.limitAudio ? 'Sedang diputar' : 'Putar lagi'; }
+    player.addEventListener('timeupdate', () => {
+      if (playing !== player) return; // sisa kejadian setelah pindah soal
+      const bar = document.getElementById('play-bar');
+      const time = document.getElementById('play-time');
+      if (bar && player.duration) { bar.max = player.duration; bar.value = player.currentTime; }
+      if (time && player.duration) time.textContent = clock(player.currentTime) + ' / ' + clock(player.duration);
+    });
+    player.addEventListener('ended', () => {
+      playing = null;
+      const b = document.getElementById('play-btn');
+      if (b) { b.disabled = store.limitAudio; b.textContent = store.limitAudio ? 'Audio sudah diputar' : 'Putar lagi'; }
+    });
+    player.play().catch(() => {
+      at.played[no] = false;
+      save();
+      const b = document.getElementById('play-btn');
+      if (b) { b.disabled = false; b.textContent = 'Putar audio'; }
+    });
+  }
+
+  document.addEventListener('click', e => {
+    const el = e.target.closest('[data-act]');
+    if (!el || el.tagName === 'INPUT') return;
+    act(el);
+  });
+  document.addEventListener('change', e => {
+    const t = e.target;
+    if (t.id === 'who') {
+      const had = store.name;
+      store.name = t.value.trim();
+      // Catatan yang ditulis sebelum nama diisi ikut pindah ke nama itu.
+      if (!had && store.name) {
+        Object.values(store.reviews).forEach(people => {
+          if (people['Tanpa nama'] && !people[store.name]) {
+            people[store.name] = people['Tanpa nama'];
+            delete people['Tanpa nama'];
+          }
+        });
+      }
+      save();
+      if (view.mode === 'peninjau') render();
+    } else if (t.dataset.note) {
+      touch(t.dataset.note);
+    } else if (t.dataset.act === 'in-done') {
+      if (t.checked) store.done[t.dataset.no] = true; else delete store.done[t.dataset.no];
+      save();
+      renderInputList();
+    } else if (t.dataset.act === 'limit-audio') {
+      store.limitAudio = t.checked;
+      save();
+    } else if (t.dataset.act === 'wrong-only') {
+      view.wrongOnly = t.checked;
+      render();
+    } else if (t.dataset.act === 'tag') {
+      const entry = myEntry(t.dataset.id);
+      entry.tags = t.checked ? entry.tags.concat(t.dataset.tag) : entry.tags.filter(x => x !== t.dataset.tag);
+      touch(t.dataset.id);
+    } else if (t.id === 'import-file' && t.files[0]) {
+      importJson(t.files[0]);
+      t.value = '';
+    } else if (t.dataset.filter) {
+      const key = t.dataset.filter;
+      filters[key] = t.type === 'checkbox' ? t.checked : t.value;
+      refreshList();
+    }
+  });
+  let typing = null;
+  document.addEventListener('input', e => {
+    const t = e.target;
+    if (t.dataset.note) {
+      const id = t.dataset.note;
+      myEntry(id).note = t.value;
+      clearTimeout(typing);
+      typing = setTimeout(() => touch(id), 400);
+    } else if (t.dataset.filter === 'q') {
+      filters.q = t.value;
+      clearTimeout(typing);
+      typing = setTimeout(refreshList, 200);
+    }
+  });
+  document.addEventListener('keydown', e => {
+    if (view.mode !== 'peserta' || view.screen !== 'exam' || dlg.open) return;
+    if (e.ctrlKey || e.metaKey || e.altKey || /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+    const at = attempt(view.section);
+    const its = itemsOf(view.section);
+    if (e.key === 'ArrowRight' && at.current < its.length - 1) act({ dataset: { act: 'next' } });
+    else if (e.key === 'ArrowLeft' && at.current > 0) act({ dataset: { act: 'prev' } });
+    else if (/^[abcd]$/i.test(e.key)) act({ dataset: { act: 'answer', no: String(its[at.current].no), l: e.key.toUpperCase() } });
+  });
+  setInterval(() => {
+    if (view.mode === 'peserta' && view.screen === 'exam' && view.section && !document.hidden) {
+      const at = attempt(view.section);
+      at.elapsed += 1;
+      updateTimer();
+      if (at.elapsed % 10 === 0) save();
+    }
+  }, 1000);
+
+  if (location.hash === '#peninjau') view.mode = 'peninjau';
+  else if (location.hash === '#peserta') view.mode = 'peserta';
+  render();
+})();
+</script>
+</body>
+</html>

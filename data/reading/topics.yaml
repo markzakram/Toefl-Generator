@@ -1,0 +1,122 @@
+# Bank topik teks Reading. Satu paket memakai 5 bidang berbeda, satu teks per bidang.
+# Topik yang sudah dipakai di tryout lama (3889/3892) sengaja tidak dimasukkan.
+
+fields:
+  life_science:
+    - {id: monarch-migration, title: "The long-distance migration of monarch butterflies"}
+    - {id: bat-echolocation, title: "How bats use echolocation to find food"}
+    - {id: bee-dance, title: "The waggle dance of honeybees"}
+    - {id: octopus-camouflage, title: "Camouflage in octopuses"}
+    - {id: bear-hibernation, title: "How bears survive the winter through hibernation"}
+    - {id: forest-fungi, title: "The role of underground fungi in forest health"}
+    - {id: salmon-homing, title: "How salmon return to the rivers where they were born"}
+    - {id: mole-rats, title: "The unusual social life of naked mole-rats"}
+    - {id: seed-dispersal, title: "How animals help plants spread their seeds"}
+    - {id: deep-sea-light, title: "Bioluminescence in deep-sea animals"}
+    - {id: tardigrades, title: "Tardigrades and survival in extreme conditions"}
+    - {id: plant-touch, title: "How some plants respond to touch"}
+    - {id: bird-songs, title: "How young songbirds learn their songs"}
+    - {id: ant-farming, title: "Leafcutter ants and their fungus gardens"}
+    - {id: whale-communication, title: "Communication among humpback whales"}
+
+  earth_science:
+    - {id: limestone-caves, title: "How limestone caves are formed"}
+    - {id: glacier-valleys, title: "How glaciers shape mountain valleys"}
+    - {id: tides, title: "What causes ocean tides"}
+    - {id: sand-dunes, title: "How desert sand dunes move"}
+    - {id: geysers, title: "How geysers erupt"}
+    - {id: river-deltas, title: "The formation of river deltas"}
+    - {id: permafrost, title: "Permafrost and the frozen ground of the Arctic"}
+    - {id: hurricanes, title: "How hurricanes form over warm oceans"}
+    - {id: gulf-stream, title: "The Gulf Stream and its effect on climate"}
+    - {id: soil-erosion, title: "Causes and effects of soil erosion"}
+    - {id: meteorites, title: "What meteorites reveal about the early solar system"}
+    - {id: ocean-trenches, title: "Life and conditions in deep ocean trenches"}
+    - {id: monsoons, title: "How monsoon seasons develop"}
+    - {id: fossil-formation, title: "How fossils are formed"}
+    - {id: coral-atolls, title: "How ring-shaped islands called atolls develop"}
+
+  physical_science:
+    - {id: refrigeration, title: "How refrigerators keep food cold"}
+    - {id: x-rays, title: "The discovery of X-rays"}
+    - {id: static-electricity, title: "Static electricity in everyday life"}
+    - {id: rainbows, title: "How rainbows form"}
+    - {id: thermometer, title: "The history of the thermometer"}
+    - {id: speed-of-sound, title: "Measuring the speed of sound"}
+    - {id: solar-cells, title: "How solar cells turn sunlight into electricity"}
+    - {id: compasses, title: "Magnetism and the invention of the compass"}
+    - {id: telescope, title: "The invention of the telescope"}
+    - {id: blue-sky, title: "Why the sky appears blue"}
+    - {id: star-fusion, title: "How stars produce energy"}
+    - {id: periodic-table, title: "The development of the periodic table"}
+    - {id: glassmaking, title: "The science of making glass"}
+    - {id: lasers, title: "How lasers work"}
+    - {id: superconductors, title: "Superconductors and electricity without resistance"}
+
+  social_science:
+    - {id: bystander-effect, title: "The bystander effect"}
+    - {id: habit-formation, title: "How habits are formed"}
+    - {id: origins-of-money, title: "The origins of money"}
+    - {id: child-language, title: "How young children acquire language"}
+    - {id: endowment-effect, title: "Why people value things they already own"}
+    - {id: public-libraries, title: "The rise of public libraries"}
+    - {id: standard-time, title: "The creation of standard time zones"}
+    - {id: suburbs, title: "The growth of suburbs in the twentieth century"}
+    - {id: sleep-memory, title: "The connection between sleep and memory"}
+    - {id: cooperatives, title: "How cooperatives are owned and run"}
+    - {id: color-perception, title: "How culture shapes the naming of colors"}
+    - {id: urban-heat, title: "Why cities are warmer than the countryside"}
+    - {id: tipping-points, title: "How small changes can spread through a society"}
+    - {id: oral-history, title: "Oral history as a research method"}
+    - {id: museum-learning, title: "How people learn in museums"}
+
+  history:
+    - {id: panama-canal, title: "The construction of the Panama Canal"}
+    - {id: pony-express, title: "The Pony Express"}
+    - {id: alexandria-library, title: "The ancient Library of Alexandria"}
+    - {id: printing-press, title: "The spread of the printing press in Europe"}
+    - {id: transcontinental-railroad, title: "The building of the first transcontinental railroad"}
+    - {id: ancient-olympics, title: "The ancient Olympic Games"}
+    - {id: roman-roads, title: "The road system of ancient Rome"}
+    - {id: paper-invention, title: "The invention of paper in China"}
+    - {id: hanseatic-league, title: "The Hanseatic League of medieval traders"}
+    - {id: smallpox-vaccine, title: "The first vaccine against smallpox"}
+    - {id: erie-canal, title: "The Erie Canal"}
+    - {id: lewis-clark, title: "The Lewis and Clark expedition"}
+    - {id: maya-astronomy, title: "Astronomy in Maya civilization"}
+    - {id: medieval-guilds, title: "Craft guilds in medieval towns"}
+    - {id: lighthouses, title: "The history of lighthouses"}
+
+  arts:
+    - {id: jazz-origins, title: "The origins of jazz"}
+    - {id: animation-history, title: "The early history of animated film"}
+    - {id: woodblock-prints, title: "Japanese woodblock prints"}
+    - {id: early-novel, title: "The rise of the novel"}
+    - {id: art-deco, title: "Art Deco architecture"}
+    - {id: piano-invention, title: "The invention of the piano"}
+    - {id: quilting, title: "Quilting traditions in North America"}
+    - {id: mexican-murals, title: "The Mexican mural movement"}
+    - {id: opera-origins, title: "The beginnings of opera"}
+    - {id: gothic-cathedrals, title: "How Gothic cathedrals were built"}
+    - {id: comic-strips, title: "The history of newspaper comic strips"}
+    - {id: ballet-origins, title: "The origins of ballet"}
+    - {id: globe-theatre, title: "The Globe Theatre in Shakespeare's time"}
+    - {id: chinese-porcelain, title: "Chinese porcelain and its glazes"}
+    - {id: folk-music, title: "Collecting and preserving folk songs"}
+
+  technology:
+    - {id: gps, title: "How the Global Positioning System works"}
+    - {id: bicycle-history, title: "The development of the bicycle"}
+    - {id: barcodes, title: "How barcodes work"}
+    - {id: early-computers, title: "The first electronic computers"}
+    - {id: elevators, title: "The safety elevator and the rise of tall buildings"}
+    - {id: desalination, title: "Turning seawater into drinking water"}
+    - {id: 3d-printing, title: "How 3D printing works"}
+    - {id: vertical-farming, title: "Vertical farming in cities"}
+    - {id: telephone, title: "The invention of the telephone"}
+    - {id: early-electric-cars, title: "Early electric cars"}
+    - {id: canal-locks, title: "How canal locks move boats between water levels"}
+    - {id: wind-turbines, title: "How wind turbines generate power"}
+    - {id: internet-origins, title: "The origins of the Internet"}
+    - {id: canning, title: "The invention of food canning"}
+    - {id: suspension-bridges, title: "How suspension bridges carry heavy loads"}

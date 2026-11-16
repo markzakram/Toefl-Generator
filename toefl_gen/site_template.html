@@ -1,0 +1,888 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Generator Tryout TOEFL</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,__LOGO_MARK__">
+<style>
+/* Tata letak mengikuti SKD Generator (sidebar, topbar, panel putih, Manrope dan DM Sans).
+   Warna dari logo TOEFL Academy: navy #262364 untuk aksi utama, merah #ED2B2D untuk aksen merek. */
+@font-face { font-family: "Manrope"; font-style: normal; font-weight: 200 800; font-display: swap; src: url(data:font/woff2;base64,__FONT_DISPLAY__) format("woff2"); }
+@font-face { font-family: "DM Sans"; font-style: normal; font-weight: 100 1000; font-display: swap; src: url(data:font/woff2;base64,__FONT_BODY__) format("woff2"); }
+:root {
+  --font-display: "Manrope", system-ui, "Segoe UI", sans-serif;
+  --font-body: "DM Sans", system-ui, "Segoe UI", sans-serif;
+  --bg: #f6f6fa; --sheet: #ffffff; --surface: #f8f8fc; --pale: #efeff8; --logo-tile: #ffffff;
+  --ink: #1d1e3b; --ink-2: #4a4c6b; --muted: #5f6180; --crumb: #a3a5bd;
+  --line: #e0e1ec; --line-soft: #ebebf3; --line-strong: #cbccdd;
+  /* --navy: teks merek (judul, angka). --primary: bidang tombol utama. Di mode gelap keduanya dipisah. */
+  --navy: #262364; --primary: #262364; --primary-hover: #36328a; --on-primary: #ffffff;
+  --indigo: #4845a0; --tint: #eeedf8; --tint-line: #d7d5ef;
+  --red: #ed2b2d; --red-ink: #c4191c;
+  --good: #17634b; --good-tint: #edf8f3; --good-line: #c9e3d7;
+  --warn: #7d5900; --warn-tint: #fff6d9; --warn-line: #ecdeb0;
+  --bad: #a3262b; --bad-tint: #fdeeed; --bad-line: #efd3cf; --toast: #a3262b;
+  --player: #262364; --on-player: #ffffff; --player-track: rgba(255, 255, 255, .25); --player-fill: #ffffff;
+  --shadow-panel: 0 3px 10px rgba(38, 35, 100, .03); --shadow-btn: 0 3px 7px rgba(38, 35, 100, .08);
+  --shadow-active: 0 3px 6px rgba(38, 35, 100, .16); --shadow-toast: 0 14px 40px rgba(38, 35, 100, .33);
+}
+/* Mode gelap: latar navy sangat gelap (bukan abu netral), tombol navy logo yang dicerahkan, aksen merah tetap. */
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0f0f1a; --sheet: #181828; --surface: #1d1d2f; --pale: #232338;
+  --ink: #e8e8f3; --ink-2: #c3c4da; --muted: #9fa1bd; --crumb: #5f6180;
+  --line: #2a2b42; --line-soft: #222336; --line-strong: #3d3f5c;
+  --navy: #ecebff; --primary: #5753d1; --primary-hover: #6763e0; --on-primary: #ffffff;
+  --indigo: #aaa7f5; --tint: #24234a; --tint-line: #3a3870;
+  --red: #ff4d50; --red-ink: #ff8587;
+  --good: #5fcf9c; --good-tint: #13271f; --good-line: #23503c;
+  --warn: #e9be5c; --warn-tint: #2b240f; --warn-line: #574818;
+  --bad: #f2928d; --bad-tint: #351a1b; --bad-line: #643031; --toast: #8f2c2c;
+  --player: #2a2870;
+  --shadow-panel: none; --shadow-btn: none; --shadow-active: none; --shadow-toast: 0 14px 40px rgba(0, 0, 0, .5);
+  color-scheme: dark;
+} }
+:root[data-theme="dark"] {
+  --bg: #0f0f1a; --sheet: #181828; --surface: #1d1d2f; --pale: #232338;
+  --ink: #e8e8f3; --ink-2: #c3c4da; --muted: #9fa1bd; --crumb: #5f6180;
+  --line: #2a2b42; --line-soft: #222336; --line-strong: #3d3f5c;
+  --navy: #ecebff; --primary: #5753d1; --primary-hover: #6763e0; --on-primary: #ffffff;
+  --indigo: #aaa7f5; --tint: #24234a; --tint-line: #3a3870;
+  --red: #ff4d50; --red-ink: #ff8587;
+  --good: #5fcf9c; --good-tint: #13271f; --good-line: #23503c;
+  --warn: #e9be5c; --warn-tint: #2b240f; --warn-line: #574818;
+  --bad: #f2928d; --bad-tint: #351a1b; --bad-line: #643031; --toast: #8f2c2c;
+  --player: #2a2870;
+  --shadow-panel: none; --shadow-btn: none; --shadow-active: none; --shadow-toast: 0 14px 40px rgba(0, 0, 0, .5);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.6 var(--font-body); }
+[hidden] { display: none !important; }
+h1, h2, h3, p { margin: 0; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.3; letter-spacing: -.02em; color: var(--navy); text-wrap: balance; }
+h1 { font-size: 22px; font-weight: 800; }
+h2 { font-size: 16px; font-weight: 800; }
+h3 { font-size: 14px; font-weight: 700; }
+button, input, select { font: inherit; color: inherit; }
+button { cursor: pointer; }
+button:disabled { cursor: progress; opacity: .6; }
+button svg { flex-shrink: 0; }
+input[type="text"], input[type="password"], select { width: 100%; min-width: 0; min-height: 42px; border: 1px solid var(--line-strong); border-radius: 8px; background: var(--sheet); color: var(--ink); padding: 0 12px; font-size: 14px; }
+input[type="checkbox"] { width: 16px; height: 16px; margin: 0; flex: none; accent-color: var(--primary); cursor: pointer; }
+:focus-visible { outline: 3px solid var(--red); outline-offset: 2px; }
+.muted { color: var(--muted); }
+.small { font-size: 12.5px; }
+.num { font-variant-numeric: tabular-nums; }
+.eyebrow { display: block; font-size: 11px; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; color: var(--red-ink); }
+.help { font-size: 12.5px; color: var(--muted); line-height: 1.65; }
+.dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--good); flex: none; }
+.dot.warn { background: var(--warn); }
+.icon { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Tombol */
+.primary-button, .secondary-button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 42px; padding: 0 16px; border: 1px solid transparent; border-radius: 8px; font-size: 13px; font-weight: 700; line-height: 1.3; white-space: nowrap; }
+.primary-button { background: var(--primary); color: var(--on-primary); box-shadow: var(--shadow-btn); }
+.primary-button:hover:not(:disabled) { background: var(--primary-hover); }
+.secondary-button { background: var(--sheet); border-color: var(--line-strong); color: var(--navy); }
+.secondary-button:hover:not(:disabled) { background: var(--pale); }
+.sm { min-height: 36px; padding: 0 12px; font-size: 12px; }
+.full-width { width: 100%; }
+.wrap-text { white-space: normal; text-align: left; justify-content: flex-start; padding-block: 9px; }
+.wrap-text .label { flex: 1; }
+
+/* Layar kata sandi */
+.gate { min-height: 100vh; min-height: 100dvh; display: grid; place-items: center; padding: 32px max(16px, env(safe-area-inset-right, 0px)) 32px max(16px, env(safe-area-inset-left, 0px)); }
+.gate-card { width: min(380px, 100%); background: var(--sheet); border: 1px solid var(--line); border-radius: 18px; padding: 32px 28px 24px; box-shadow: var(--shadow-panel); display: grid; gap: 14px; }
+.gate-logo { justify-self: center; width: 128px; height: 128px; border-radius: 24px; background: var(--logo-tile); display: grid; place-items: center; margin-bottom: 4px; }
+.gate-logo img { width: 112px; height: 112px; display: block; }
+.gate-card .eyebrow { text-align: center; }
+.gate-card h1 { text-align: center; }
+.gate-card > p { text-align: center; font-size: 13.5px; color: var(--muted); }
+.field { display: grid; gap: 7px; font-size: 13px; font-weight: 600; color: var(--ink); min-width: 0; }
+.error-message { background: var(--bad-tint); color: var(--bad); border: 1px solid var(--bad-line); border-radius: 8px; padding: 10px 12px; font-size: 13px; }
+.gate-foot { display: flex; gap: 8px; align-items: flex-start; justify-content: center; font-size: 12px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 14px; margin-top: 4px; }
+.gate-foot .icon { width: 14px; height: 14px; margin-top: 2px; }
+
+/* Kerangka: sidebar dan konten */
+.app-shell { display: flex; min-height: 100vh; min-height: 100dvh; }
+.sidebar { width: 238px; position: fixed; inset: 0 auto 0 0; background: var(--sheet); border-right: 1px solid var(--line); display: flex; flex-direction: column; padding: 24px 18px max(20px, env(safe-area-inset-bottom, 0px)) max(18px, env(safe-area-inset-left, 0px)); z-index: 10; }
+.brand { display: flex; align-items: center; gap: 12px; margin: 0 6px 38px; color: var(--navy); }
+.brand-mark { width: 46px; height: 46px; flex: none; border-radius: 12px; background: var(--logo-tile); border: 1px solid var(--line); box-shadow: inset 0 -3px 0 var(--red); display: grid; place-items: center; }
+.brand-mark img { width: 34px; height: 34px; display: block; margin-top: -2px; }
+.brand strong { display: block; font: 800 16px/1.15 var(--font-display); letter-spacing: -.02em; white-space: nowrap; }
+.brand strong span { display: block; margin-top: 6px; font-size: 10.5px; letter-spacing: .12em; color: var(--red-ink); font-weight: 700; }
+.nav-label { color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: .12em; margin: 0 14px 10px; }
+.sidebar nav { display: grid; gap: 6px; }
+.nav-item { border: 0; border-radius: 9px; background: transparent; color: var(--muted); display: flex; align-items: center; gap: 12px; text-align: left; padding: 11px 14px; font-size: 14px; font-weight: 500; }
+.nav-item .icon { width: 18px; height: 18px; }
+.nav-item:hover { background: var(--bg); color: var(--navy); }
+.nav-item.active { background: var(--tint); color: var(--navy); font-weight: 700; box-shadow: inset 3px 0 0 var(--red); }
+.nav-count { margin-left: auto; background: var(--sheet); border: 1px solid var(--line); border-radius: 5px; font-size: 11px; padding: 0 6px; }
+.sidebar-bottom { margin-top: auto; padding: 20px 8px 0; border-top: 1px solid var(--line); display: grid; gap: 8px; }
+.sidebar-bottom strong { font-size: 12px; color: var(--ink); }
+.sidebar-bottom p { font-size: 12px; color: var(--muted); line-height: 1.6; }
+.lock-state { display: flex; align-items: center; gap: 8px; }
+.sidebar-link { border: 0; background: none; padding: 6px 0; display: flex; align-items: center; gap: 8px; color: var(--indigo); font-size: 12px; font-weight: 700; justify-self: start; }
+.sidebar-link:hover { color: var(--navy); }
+.main-content { margin-left: 238px; width: calc(100% - 238px); min-width: 0; }
+.topbar { min-height: 52px; background: var(--sheet); border-bottom: 1px solid var(--line); display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; padding: 8px max(24px, env(safe-area-inset-right, 0px)) 8px 24px; position: sticky; top: 0; z-index: 5; }
+.breadcrumb { flex: 1 1 260px; min-width: 0; display: flex; align-items: center; color: var(--muted); font-size: 12.5px; white-space: nowrap; overflow: hidden; }
+.breadcrumb .sep { margin: 0 9px; color: var(--crumb); }
+.breadcrumb .current { color: var(--ink); font-weight: 700; }
+.breadcrumb .detail { overflow: hidden; text-overflow: ellipsis; }
+.topbar-package { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; color: var(--muted); }
+.topbar-package select { width: auto; min-width: 120px; min-height: 34px; font-size: 12.5px; font-weight: 700; color: var(--navy); border-color: var(--line); }
+.save-status { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); white-space: nowrap; }
+.page-content { max-width: 1720px; margin: auto; padding: 24px max(28px, env(safe-area-inset-right, 0px)) 72px 28px; display: grid; gap: 18px; }
+.page-title p { color: var(--muted); font-size: 13.5px; margin-top: 4px; max-width: 760px; }
+.global-message { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 9px; font-size: 13px; background: var(--warn-tint); color: var(--warn); border: 1px solid var(--warn-line); font-weight: 600; }
+
+/* Panel dan isian */
+.panel { background: var(--sheet); border: 1px solid var(--line); border-radius: 12px; padding: 20px; box-shadow: var(--shadow-panel); display: grid; gap: 14px; min-width: 0; align-content: start; }
+.section-heading { display: flex; align-items: flex-start; gap: 12px; }
+.section-heading p { font-size: 12.5px; color: var(--muted); margin-top: 3px; }
+.step-dot { background: var(--tint); color: var(--navy); border: 1px solid var(--tint-line); width: 27px; height: 27px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; flex: none; }
+.seed-row { display: flex; gap: 8px; }
+.seed-row input { flex: 1; font-variant-numeric: tabular-nums; }
+.legend { font-size: 13px; font-weight: 600; }
+.mode-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; }
+.mode-card { position: relative; padding: 12px; border: 1px solid var(--line); border-radius: 9px; background: var(--sheet); display: grid; gap: 2px; cursor: pointer; }
+.mode-card:hover { border-color: var(--line-strong); }
+.mode-card input { position: absolute; top: 12px; right: 12px; }
+.mode-card strong { font: 800 15px/1.3 var(--font-display); color: var(--navy); padding-right: 22px; }
+.mode-card span { font-size: 11.5px; color: var(--muted); }
+.mode-card:has(input:checked) { border-color: var(--indigo); background: var(--tint); box-shadow: inset 0 0 0 1px var(--indigo); }
+.mode-card:has(input:focus-visible) { outline: 3px solid var(--red); outline-offset: 2px; }
+.gen-form { display: grid; gap: 16px; }
+.gen-grid { display: grid; gap: 16px; }
+.col-control { container-type: inline-size; min-width: 0; display: grid; gap: 16px; align-content: start; }
+@container (min-width: 620px) {
+  .gen-grid { grid-template-columns: 1fr 1fr; }
+  .gen-grid .span-all { grid-column: 1 / -1; }
+  .mode-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* Ruang kerja: kontrol | ringkasan dan unduhan | audio */
+.workspace { display: grid; grid-template-columns: minmax(0, 320px) minmax(0, 1fr); gap: 16px; align-items: start; }
+.col-result { container-type: inline-size; min-width: 0; }
+.desk { display: grid; grid-template-columns: minmax(0, 310px) minmax(0, 1fr); gap: 16px; align-items: start; }
+.desk.single { grid-template-columns: minmax(0, 1fr); max-width: 560px; }
+.col-info { display: grid; gap: 16px; min-width: 0; }
+@container (max-width: 760px) { .desk { grid-template-columns: minmax(0, 1fr); } }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); border: 1px solid var(--line); border-radius: 10px; padding: 12px 4px; }
+.stats > div { padding: 0 12px; border-right: 1px solid var(--line); }
+.stats > div:last-child { border-right: 0; }
+.stats strong { display: block; font: 800 20px/1.2 var(--font-display); color: var(--navy); font-variant-numeric: tabular-nums; }
+.stats span { font-size: 11px; color: var(--muted); }
+.progress-row { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.count { font: 800 32px/1 var(--font-display); color: var(--navy); font-variant-numeric: tabular-nums; }
+.meter { display: block; height: 6px; background: var(--line-soft); border-radius: 9px; overflow: hidden; }
+.meter span { display: block; height: 100%; width: 0; background: var(--good); transition: width .2s; }
+.stack-btns { display: grid; gap: 8px; }
+.doc { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px solid var(--line-soft); }
+.doc-name { flex: 1 1 120px; min-width: 0; display: flex; gap: 8px; align-items: center; font-size: 13px; font-weight: 600; }
+.doc-btns { display: flex; gap: 6px; }
+.tag { display: inline-block; font-size: 10px; line-height: 1.4; letter-spacing: .03em; font-weight: 700; padding: 3px 7px; border-radius: 4px; background: var(--tint); color: var(--indigo); white-space: nowrap; }
+.empty-state { padding: 56px 28px; background: var(--sheet); border: 1px dashed var(--line-strong); border-radius: 12px; text-align: center; display: grid; justify-items: center; gap: 8px; }
+.empty-state p { color: var(--muted); font-size: 13.5px; max-width: 460px; }
+.empty-icon { width: 68px; height: 68px; border-radius: 18px; background: var(--pale); color: var(--indigo); display: grid; place-items: center; margin-bottom: 8px; }
+.empty-icon .icon { width: 28px; height: 28px; stroke-width: 1.6; }
+.set-card { width: 100%; text-align: left; border: 1px solid var(--line); border-radius: 9px; background: var(--sheet); padding: 12px 14px; display: grid; gap: 2px; }
+.set-card:hover { border-color: var(--line-strong); }
+.set-card strong { font: 800 14px/1.35 var(--font-display); color: var(--navy); }
+.set-card span { font-size: 11.5px; color: var(--muted); }
+.set-card[aria-pressed="true"] { border-color: var(--indigo); background: var(--tint); box-shadow: inset 0 0 0 1px var(--indigo); }
+
+/* Daftar kerja audio */
+.work { background: var(--sheet); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow-panel); display: flex; flex-direction: column; min-width: 0; }
+.work-head { padding: 18px 18px 14px; display: grid; gap: 10px; border-bottom: 1px solid var(--line); }
+.work-title { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { min-height: 32px; padding: 0 11px; border: 1px solid var(--line); border-radius: 6px; background: var(--sheet); color: var(--muted); font-size: 12px; font-weight: 600; }
+.chip:hover { border-color: var(--line-strong); }
+.chip[aria-pressed="true"] { background: var(--tint); border-color: var(--indigo); color: var(--navy); }
+.list { max-height: 640px; overflow-y: auto; }
+.part-head { position: sticky; top: 0; z-index: 1; display: flex; align-items: center; gap: 8px; padding: 8px 18px; background: var(--surface); border-bottom: 1px solid var(--line-soft); font-size: 12px; font-weight: 700; color: var(--ink-2); }
+.part-head .part-count { margin-left: auto; font-weight: 500; color: var(--muted); }
+.item { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; padding: 8px 18px; border-bottom: 1px solid var(--line-soft); }
+.tick { display: flex; align-items: center; gap: 10px; min-height: 40px; cursor: pointer; }
+.no { min-width: 36px; height: 34px; padding: 0 4px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--muted); font-size: 12px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.item.is-done { background: var(--good-tint); }
+.item.is-done .no { background: var(--good-tint); border-color: var(--good-line); color: var(--good); }
+.item.is-playing { background: var(--tint); }
+.item.is-playing .no { background: var(--primary); border-color: var(--primary); color: var(--on-primary); box-shadow: var(--shadow-active); }
+.item-info { flex: 1 1 130px; min-width: 0; }
+.item-file { font-size: 13.5px; font-weight: 600; overflow-wrap: anywhere; }
+.item-meta { font-size: 12px; color: var(--muted); }
+.item-btns { display: flex; gap: 6px; }
+.list .empty { padding: 32px 18px; text-align: center; color: var(--muted); font-size: 13px; }
+.player { position: sticky; bottom: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; padding: 10px 18px; background: var(--player); color: var(--on-player); border-radius: 0 0 11px 11px; font-size: 13px; }
+.player b { white-space: nowrap; font-family: var(--font-display); }
+.player-track { flex: 1 1 160px; min-width: 0; height: 5px; background: var(--player-track); border-radius: 3px; overflow: hidden; }
+.player-track span { display: block; height: 100%; width: 0; background: var(--player-fill); }
+.player .secondary-button { background: transparent; border-color: rgba(255, 255, 255, .5); color: var(--on-player); }
+.player .secondary-button:hover { background: rgba(255, 255, 255, .12); }
+.toast-region { position: fixed; left: 0; right: 0; bottom: max(20px, env(safe-area-inset-bottom, 0px)); display: flex; justify-content: center; padding: 0 16px; pointer-events: none; z-index: 30; }
+.toast { pointer-events: auto; max-width: 520px; background: var(--toast); color: #ffffff; border-radius: 10px; padding: 12px 16px; font-size: 13px; box-shadow: var(--shadow-toast); }
+
+/* Lebar layar */
+@media (max-width: 1380px) { .workspace { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 1250px) {
+  .sidebar { width: 210px; padding-inline: 12px; }
+  .main-content { margin-left: 210px; width: calc(100% - 210px); }
+}
+@media (max-width: 960px) {
+  .sidebar { width: 76px; padding: 20px 12px; align-items: center; }
+  .brand { margin: 0 0 30px; }
+  .brand > div, .nav-label, .nav-item > span, .sidebar-bottom > :not(.sidebar-link), .sidebar-link span { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+  .nav-item { padding: 13px; justify-content: center; }
+  .sidebar-bottom { padding: 14px 0 0; justify-items: center; }
+  .sidebar-link { padding: 10px; border-radius: 9px; justify-self: center; }
+  .sidebar-link .icon { width: 18px; height: 18px; }
+  .main-content { margin-left: 76px; width: calc(100% - 76px); }
+}
+@media (max-width: 760px) {
+  .app-shell { display: block; }
+  .sidebar { position: static; width: 100%; display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 10px 14px; padding: 12px max(16px, env(safe-area-inset-right, 0px)) 10px max(16px, env(safe-area-inset-left, 0px)); border-right: 0; border-bottom: 1px solid var(--line); }
+  .brand { margin: 0; flex: 1 1 auto; }
+  .brand > div { position: static; width: auto; height: auto; margin: 0; overflow: visible; clip: auto; }
+  .brand strong { font-size: 16px; }
+  .brand strong span { margin-top: 3px; font-size: 9.5px; }
+  .brand-mark { width: 38px; height: 38px; border-radius: 10px; }
+  .brand-mark img { width: 28px; height: 28px; }
+  .sidebar nav { flex: 1 1 100%; display: flex; gap: 6px; overflow-x: auto; }
+  .nav-item { padding: 8px 12px; gap: 8px; font-size: 13px; flex: none; }
+  .nav-item > span { position: static; width: auto; height: auto; margin: 0; overflow: visible; clip: auto; }
+  .nav-item.active { box-shadow: inset 0 -2px 0 var(--red); }
+  .sidebar-bottom { display: none; }
+  .main-content { margin: 0; width: 100%; }
+  .topbar { position: static; padding: 8px max(16px, env(safe-area-inset-right, 0px)) 8px max(16px, env(safe-area-inset-left, 0px)); }
+  .page-content { padding: 18px max(16px, env(safe-area-inset-right, 0px)) 72px max(16px, env(safe-area-inset-left, 0px)); }
+  .panel { padding: 16px; }
+  .work-head, .item, .part-head, .player { padding-inline: 14px; }
+  h1 { font-size: 20px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="gate" id="gate">
+  <form class="gate-card" id="gate-form">
+    <div class="gate-logo"><img src="data:image/png;base64,__LOGO__" alt="TOEFL Academy"></div>
+    <span class="eyebrow">Generator tryout</span>
+    <h1>TOEFL ITP</h1>
+    <p>Berisi soal TOEFL ITP dan kunci jawaban. Masukkan kata sandi tim untuk membuka.</p>
+    <label class="field" for="password">Kata sandi
+      <input id="password" type="password" autocomplete="current-password" required>
+    </label>
+    <p class="error-message" id="gate-error" role="alert" hidden></p>
+    <button class="primary-button full-width" id="gate-btn" type="submit"><span class="label">Buka</span></button>
+    <p class="gate-foot"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Isi website terenkripsi dan dibuka di browser ini. Kata sandi tidak dikirim ke server.</p>
+  </form>
+</div>
+
+<div class="app-shell" id="site" hidden>
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="brand-mark"><img src="data:image/png;base64,__LOGO_MARK__" alt=""></span>
+      <div><strong>TOEFL Academy<span>GENERATOR TRYOUT</span></strong></div>
+    </div>
+    <div class="nav-label">MENU</div>
+    <nav aria-label="Halaman">
+      <button type="button" class="nav-item" id="page-tryout" data-page="tryout"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg><span>Buat tryout</span></button>
+      <button type="button" class="nav-item" id="page-latihan" data-page="latihan"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></svg><span>Set latihan</span><span class="nav-count" id="practice-count"></span></button>
+    </nav>
+    <div class="sidebar-bottom">
+      <strong>Bank soal</strong>
+      <p id="bank-summary"></p>
+      <p class="lock-state"><span class="dot" id="lock-dot"></span><span id="lock-text">Terkunci kata sandi</span></p>
+      <button type="button" class="sidebar-link" id="lock-btn"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span>Kunci halaman</span></button>
+    </div>
+  </aside>
+  <div class="main-content">
+    <header class="topbar">
+      <nav class="breadcrumb" aria-label="Lokasi" id="breadcrumb"></nav>
+      <label class="topbar-package" id="topbar-package" hidden>Paket <select id="paket-select"></select></label>
+      <p class="save-status" id="save-status" hidden><span class="dot"></span>Centang input tersimpan di perangkat ini</p>
+    </header>
+    <main class="page-content">
+      <p class="global-message" id="plain-note" hidden>Versi lokal tanpa kata sandi. Berisi kunci jawaban, jadi jangan diunggah ke internet dalam bentuk ini.</p>
+      <div class="page-title"><h1 id="page-heading"></h1><p id="page-lede"></p></div>
+      <div id="content"></div>
+    </main>
+  </div>
+  <div class="toast-region"><p class="toast" id="action-error" role="alert" hidden></p></div>
+</div>
+
+<script id="site-config" type="application/json">__CONFIG__</script>
+<script>
+(function () {
+  'use strict';
+  const CONFIG = JSON.parse(document.getElementById('site-config').textContent);
+  const bytesOf = text => Uint8Array.from(atob(text), c => c.charCodeAt(0));
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const NONCE = 12;
+  const memoryDone = {};
+  const bodies = new Map();
+  const saved = new Set();
+  const audioUrls = new Map();
+  const state = { page: 'tryout', seed: '2026', count: 1, sections: null, run: null, paketIndex: 0, practiceIndex: null, practice: null, filter: 'all' };
+  let key = null, manifest = null, player = null, playingNo = null;
+
+  // Ikon garis 24x24 (gaya Lucide).
+  const PATHS = {
+    download: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/>',
+    package: '<path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/>',
+    music: '<path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>',
+    code: '<path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/>',
+    file: '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M16 13H8"/><path d="M16 17H8"/>',
+    sheet: '<rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M12 3v18"/>',
+    play: '<path d="M6 3v18l14-9Z"/>',
+    stop: '<rect width="14" height="14" x="5" y="5" rx="2"/>',
+    shuffle: '<path d="m18 14 4 4-4 4"/><path d="m18 2 4 4-4 4"/><path d="M2 18h2a4 4 0 0 0 3.3-1.7l5.4-7.6A4 4 0 0 1 16 7h6"/><path d="M2 6h2a4 4 0 0 1 3.6 2.2"/><path d="M22 18h-6a4 4 0 0 1-3.3-1.8l-.4-.5"/>',
+    grid: '<rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/>',
+    headphones: '<path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/>',
+    check: '<path d="M20 6 9 17l-5-5"/>',
+  };
+  const PART_NAMES = { A: 'Percakapan pendek', B: 'Percakapan panjang', C: 'Kuliah' };
+  const icon = name =>'<svg class="icon" viewBox="0 0 24 24" aria-hidden="true">' + PATHS[name] + '</svg>';
+  const setLabel = (button, text) => { (button.querySelector('.label') || button).textContent = text; };
+
+  // ---------- Kata sandi dan enkripsi ----------
+  async function deriveKey(password) {
+    const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(password), 'PBKDF2', false, ['deriveKey']);
+    return crypto.subtle.deriveKey(
+      { name: 'PBKDF2', salt: bytesOf(CONFIG.salt), iterations: CONFIG.iterations, hash: 'SHA-256' },
+      base, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
+  }
+  const decrypt = blob => crypto.subtle.decrypt({ name: 'AES-GCM', iv: blob.slice(0, NONCE) }, key, blob.slice(NONCE));
+  async function readBin(file) {
+    const response = await fetch('files/' + file);
+    if (!response.ok) throw new Error('File tidak ditemukan di server.');
+    const bytes = new Uint8Array(await response.arrayBuffer());
+    return CONFIG.plain ? bytes : new Uint8Array(await decrypt(bytes));
+  }
+  $('gate-form').addEventListener('submit', async event => {
+    event.preventDefault();
+    const error = $('gate-error'), button = $('gate-btn');
+    error.hidden = true;
+    if (!window.crypto || !crypto.subtle) {
+      error.textContent = 'Halaman ini harus dibuka lewat alamat https.';
+      error.hidden = false;
+      return;
+    }
+    button.disabled = true;
+    setLabel(button, 'Membuka...');
+    try {
+      key = await deriveKey($('password').value);
+      manifest = JSON.parse(new TextDecoder().decode(await decrypt(bytesOf(CONFIG.manifest))));
+      $('password').value = '';
+      start();
+    } catch (e) {
+      key = null;
+      error.textContent = 'Kata sandi salah.';
+      error.hidden = false;
+      $('password').select();
+    } finally {
+      button.disabled = false;
+      setLabel(button, 'Buka');
+    }
+  });
+  const sectionsWithForms = () => manifest.sections.filter(s => manifest.forms[s.id].length);
+  function start() {
+    $('gate').hidden = true;
+    $('site').hidden = false;
+    state.sections = new Set(sectionsWithForms().map(s => s.id));
+    state.count = Math.min(1, maxPaket());
+    const practice = manifest.practice.length;
+    $('bank-summary').textContent = sectionsWithForms().map(s => manifest.forms[s.id].length + ' ' + s.short).join(', ') +
+      (practice ? ', ' + practice + ' set latihan' : '') + '.';
+    $('practice-count').textContent = practice;
+    $('page-latihan').hidden = !practice;
+    if (CONFIG.plain) {
+      $('lock-dot').classList.add('warn');
+      $('lock-text').textContent = 'Versi lokal tanpa sandi';
+      $('lock-btn').hidden = true;
+    }
+    render();
+  }
+
+  // ---------- Seed: urutan bentuk per section ----------
+  function hashSeed(text) {
+    let h = 2166136261;
+    for (let i = 0; i < text.length; i++) h = Math.imul(h ^ text.charCodeAt(i), 16777619);
+    return h >>> 0;
+  }
+  function shuffled(n, text) {
+    let a = hashSeed(text);
+    const random = () => {
+      a = (a + 0x6d2b79f5) | 0;
+      let t = Math.imul(a ^ (a >>> 15), 1 | a);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+    const order = Array.from({ length: n }, (_, i) => i);
+    for (let i = n - 1; i > 0; i--) {
+      const j = Math.floor(random() * (i + 1));
+      [order[i], order[j]] = [order[j], order[i]];
+    }
+    return order;
+  }
+  const chosenSections = () => manifest.sections.filter(s => state.sections.has(s.id));
+  function maxPaket() {
+    const sizes = chosenSections().map(s => manifest.forms[s.id].length);
+    return sizes.length ? Math.min(...sizes) : 0;
+  }
+  async function loadBody(entry) {
+    if (!bodies.has(entry.id)) bodies.set(entry.id, JSON.parse(new TextDecoder().decode(await readBin(entry.file))));
+    return bodies.get(entry.id);
+  }
+  async function generate() {
+    const seed = state.seed.trim();
+    const message = $('gen-msg');
+    message.hidden = true;
+    const fail = text => { message.textContent = text; message.hidden = false; };
+    if (!seed) return fail('Isi seed dulu.');
+    if (!state.sections.size) return fail('Pilih minimal satu section.');
+    if (state.count > maxPaket()) return fail('Bank saat ini hanya cukup untuk ' + maxPaket() + ' paket dengan section ini.');
+    const button = $('gen-btn');
+    button.disabled = true;
+    setLabel(button, 'Menyusun...');
+    try {
+      const orders = {};
+      chosenSections().forEach(s => { orders[s.id] = shuffled(manifest.forms[s.id].length, seed + ':' + s.id); });
+      const pakets = [];
+      for (let k = 0; k < state.count; k++) {
+        const forms = [];
+        for (const s of chosenSections()) {
+          const entry = manifest.forms[s.id][orders[s.id][k]];
+          forms.push({ entry, body: await loadBody(entry) });
+        }
+        pakets.push({ key: seed + ':' + chosenSections().map(s => s.id).join() + ':P' + (k + 1), no: k + 1, title: 'Paket ' + (k + 1), seed, slug: 'Tryout_' + seed.replace(/[^\w-]+/g, '_') + '_P' + (k + 1), forms });
+      }
+      state.run = { seed, pakets };
+      state.paketIndex = 0;
+      state.filter = 'all';
+      render();
+      // Di layar sempit hasilnya ada di bawah formulir, jadi langsung tunjukkan.
+      if (window.matchMedia('(max-width: 1380px)').matches) document.querySelector('.col-result').scrollIntoView({ block: 'start' });
+    } catch (e) {
+      fail('Gagal menyusun tryout. Coba lagi, atau muat ulang halaman.');
+    } finally {
+      const again = $('gen-btn');
+      if (again) { again.disabled = false; setLabel(again, 'Generate paket'); }
+    }
+  }
+  async function openPractice(index) {
+    const entry = manifest.practice[index];
+    const body = await loadBody(entry);
+    state.practiceIndex = index;
+    state.practice = { key: entry.id, no: 1, title: entry.title, seed: body.meta.seed, slug: entry.title.replace(/[^\w-]+/g, '_'), forms: [{ entry, body }] };
+    state.filter = 'all';
+    render();
+  }
+
+  // ---------- Tanda sudah diinput, per browser ----------
+  const current = () => (state.page === 'tryout' ? (state.run ? state.run.pakets[state.paketIndex] : null) : state.practice);
+  const listeningOf = p => p.forms.find(f => f.body.section.id === 'listening');
+  const doneKey = form => 'toefl-input:' + form.entry.id;
+  function loadDone(form) {
+    try {
+      const raw = localStorage.getItem(doneKey(form));
+      if (raw) return new Set(JSON.parse(raw));
+    } catch (e) { /* penyimpanan browser diblokir: centang hanya berlaku sampai halaman ditutup */ }
+    return new Set(memoryDone[doneKey(form)] || []);
+  }
+  function saveDone(form, done) {
+    memoryDone[doneKey(form)] = [...done];
+    try {
+      localStorage.setItem(doneKey(form), JSON.stringify([...done]));
+    } catch (e) { /* lihat loadDone */ }
+  }
+
+  // ---------- Tampilan ----------
+  const size = bytes => (bytes >= 1e6 ? (bytes / 1e6).toFixed(1).replace('.', ',') + ' MB' : Math.max(1, Math.round(bytes / 1e3)) + ' KB');
+  const clock = seconds => {
+    if (seconds == null || !isFinite(seconds)) return '';
+    const s = Math.round(seconds);
+    return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
+  };
+  const docEntries = p => p.forms.flatMap(f => [f.body.doc.word, f.body.doc.excel]).filter(Boolean);
+  // Nama Word dan Excel mengikuti nomor paket hasil generate. Nama audio tetap, karena tertulis di dalam Word.
+  const docName = (p, e) => e.name.replace(/^P\d+_/, 'P' + p.no + '_');
+  const audioEntries = p => { const l = listeningOf(p); return l ? l.body.audio : []; };
+  const totalSize = entries => entries.reduce((sum, e) => sum + e.size, 0);
+  const shortOf = id => (manifest.sections.find(s => s.id === id) || { short: id }).short;
+  function entryFor(code) {
+    const [kind, a, b] = code.split(':');
+    const p = current();
+    if (kind === 'doc') return p.forms[a].body.doc[b];
+    return audioEntries(p).find(x => x.no === Number(a));
+  }
+  const fileButton = (code, label, doneLabel, cls, iconName, aria) => {
+    const entry = entryFor(code);
+    return '<button type="button" class="' + cls + '" data-save-file="' + code + '" data-label="' + esc(label) + '" data-done-label="' + esc(doneLabel) + '"' + (aria ? ' aria-label="' + esc(aria) + '"' : '') + '>' +
+      icon(saved.has(entry.file) ? 'check' : iconName) + '<span class="label">' + esc(saved.has(entry.file) ? doneLabel : label) + '</span></button>';
+  };
+  const packButton = (kind, label, doneLabel, cls, iconName) => {
+    const k = current().key + '|' + kind;
+    return '<button type="button" class="' + cls + ' wrap-text" data-save-pack="' + kind + '" data-label="' + esc(label) + '" data-done-label="' + esc(doneLabel) + '">' +
+      icon(saved.has(k) ? 'check' : iconName) + '<span class="label">' + esc(saved.has(k) ? doneLabel : label) + '</span></button>';
+  };
+  function render() {
+    stopAudio(false);
+    ['tryout', 'latihan'].forEach(page => {
+      const nav = $('page-' + page), active = state.page === page;
+      nav.classList.toggle('active', active);
+      if (active) nav.setAttribute('aria-current', 'page'); else nav.removeAttribute('aria-current');
+    });
+    const p = current();
+    renderTopbar(p);
+    const tryout = state.page === 'tryout';
+    $('page-heading').textContent = tryout ? 'Buat tryout' : 'Set latihan';
+    $('page-lede').textContent = tryout
+      ? 'Susun paket dari bank soal. Seed yang sama selalu menghasilkan susunan yang sama, jadi paket bisa dibuat ulang kapan saja.'
+      : 'Set latihan berdiri sendiri dan tidak ikut kombinasi seed.';
+    const control = tryout ? formHtml() : practiceHtml();
+    const empty = tryout
+      ? emptyHtml('grid', 'Belum ada paket', 'Isi seed, pilih jumlah paket dan section, lalu klik Generate paket.')
+      : emptyHtml('headphones', 'Belum ada set yang dibuka', 'Pilih salah satu set latihan untuk melihat dokumen dan audionya.');
+    $('content').innerHTML = '<div class="workspace"><div class="col-control">' + control + '</div><div class="col-result">' + (p ? deskHtml(p) : empty) + '</div></div>';
+    renderList();
+  }
+  function renderTopbar(p) {
+    const page = state.page === 'tryout' ? 'Buat tryout' : 'Set latihan';
+    let detail = '';
+    if (p && state.page === 'tryout') detail = p.title + ' · seed ' + p.seed;
+    else if (p) detail = p.title;
+    $('breadcrumb').innerHTML = '<span>TOEFL Academy</span><span class="sep">/</span><span class="' + (detail ? '' : 'current') + '">' + page + '</span>' +
+      (detail ? '<span class="sep">/</span><span class="current detail">' + esc(detail) + '</span>' : '');
+    const many = state.page === 'tryout' && state.run && state.run.pakets.length > 1;
+    $('topbar-package').hidden = !many;
+    if (many) $('paket-select').innerHTML = state.run.pakets.map((x, i) => '<option value="' + i + '"' + (i === state.paketIndex ? ' selected' : '') + '>' + esc(x.title) + '</option>').join('');
+    $('save-status').hidden = !(p && listeningOf(p));
+  }
+  const emptyHtml = (iconName, title, text) => '<div class="empty-state"><div class="empty-icon">' + icon(iconName) + '</div><h2>' + esc(title) + '</h2><p>' + esc(text) + '</p></div>';
+  function countOptions() {
+    return Array.from({ length: maxPaket() }, (_, i) => '<option value="' + (i + 1) + '"' + (i + 1 === state.count ? ' selected' : '') + '>' + (i + 1) + ' paket</option>').join('');
+  }
+  function formHtml() {
+    const cards = sectionsWithForms().map(s => {
+      const forms = manifest.forms[s.id];
+      return '<label class="mode-card"><input type="checkbox" data-section="' + s.id + '"' + (state.sections.has(s.id) ? ' checked' : '') + '>' +
+        '<strong>' + esc(s.short) + '</strong><span>' + forms[0].count + ' soal · ' + forms.length + ' bentuk</span></label>';
+    }).join('');
+    return '<section class="panel"><div class="section-heading"><span class="step-dot">1</span><div><h2>Atur paket</h2><p>Ganti seed untuk kombinasi lain.</p></div></div>' +
+      '<form class="gen-form" id="gen-form"><div class="gen-grid">' +
+      '<label class="field" for="seed">Seed<span class="seed-row"><input id="seed" type="text" inputmode="numeric" value="' + esc(state.seed) + '" autocomplete="off">' +
+      '<button type="button" class="secondary-button" id="seed-random">' + icon('shuffle') + '<span class="label">Acak</span></button></span></label>' +
+      '<label class="field" for="count">Jumlah paket<select id="count"' + (maxPaket() ? '' : ' disabled') + '>' + countOptions() + '</select></label>' +
+      '<div class="field span-all" role="group" aria-labelledby="sections-label"><span class="legend" id="sections-label">Section</span><div class="mode-grid">' + cards + '</div></div></div>' +
+      '<p class="error-message" id="gen-msg" role="alert" hidden></p>' +
+      '<button type="submit" class="primary-button full-width" id="gen-btn"><span class="label">Generate paket</span></button></form>' +
+      '<p class="help">Satu generate paling banyak sejumlah bentuk tersedikit di section terpilih, supaya soal antarpaket tidak berulang. Soal baru hanya bertambah kalau bank ditambah.</p></section>';
+  }
+  function practiceHtml() {
+    const rows = manifest.practice.map((e, i) => '<button type="button" class="set-card" data-practice="' + i + '" aria-pressed="' + (i === state.practiceIndex) + '">' +
+      '<strong>' + esc(e.title) + '</strong><span>' + e.count + ' soal' + (i === state.practiceIndex ? ' · sedang dibuka' : '') + '</span></button>').join('');
+    return '<section class="panel"><div class="section-heading"><span class="step-dot">1</span><div><h2>Pilih set</h2><p>' + manifest.practice.length + ' set tersedia.</p></div></div>' + rows + '</section>';
+  }
+  function deskHtml(p) {
+    const listening = listeningOf(p);
+    const isTryout = state.page === 'tryout';
+    const eyebrow = isTryout ? 'Paket ' + p.no + ' dari ' + state.run.pakets.length + ' · seed ' + p.seed : 'Set latihan';
+    const sources = p.forms.map(f => f.entry.label || f.entry.source).join(', ');
+    const stats = '<div class="stats">' + p.forms.map(f => '<div><strong>' + f.entry.count + '</strong><span>' + esc(shortOf(f.body.section.id)) + '</span></div>').join('') + '</div>';
+    const progress = listening
+      ? '<div class="progress-row"><span class="count" id="done-count"></span><span class="muted small">dari ' + listening.body.audio.length + ' audio sudah diinput</span></div><span class="meter" id="done-meter" role="img"><span></span></span>'
+      : '';
+    const docs = p.forms.map((f, i) => {
+      const buttons = (f.body.doc.word ? fileButton('doc:' + i + ':word', 'Word', 'Word', 'secondary-button sm', 'file', 'Unduh Word ' + f.body.doc.label) : '') +
+        (f.body.doc.excel ? fileButton('doc:' + i + ':excel', 'Excel', 'Excel', 'secondary-button sm', 'sheet', 'Unduh Excel ' + f.body.doc.label) : '');
+      return '<div class="doc"><span class="doc-name"><span class="tag">' + esc(shortOf(f.body.section.id)) + '</span>' + esc(f.body.doc.label) + '</span><span class="doc-btns">' + buttons + '</span></div>';
+    }).join('');
+    const whole = totalSize(docEntries(p)) + totalSize(audioEntries(p));
+    const info = '<div class="col-info"><section class="panel"><div><span class="eyebrow">' + esc(eyebrow) + '</span><h2 style="font-size:20px;margin-top:6px">' + esc(p.title) + '</h2>' +
+      '<p class="small muted" style="margin-top:4px">Disusun dari ' + esc(sources) + '</p></div>' + stats + progress + '</section>' +
+      '<section class="panel"><h3>Unduh sekaligus</h3><div class="stack-btns">' +
+      packButton('zip', 'Paket lengkap (' + size(whole) + ')', 'Paket lengkap terunduh', 'primary-button', 'package') +
+      (listening ? packButton('audio', 'Semua audio (' + size(totalSize(audioEntries(p))) + ')', 'Semua audio terunduh', 'secondary-button', 'music') : '') +
+      packButton('html', 'File HTML tryout', 'File HTML terunduh', 'secondary-button', 'code') +
+      '</div><p class="help">Paket lengkap berisi Word, Excel, audio, dan petunjuk input. File HTML bisa dikerjakan peserta dan ditinjau tanpa internet.</p></section>' +
+      '<section class="panel"><h3>Dokumen soal</h3>' + docs + '</section></div>';
+    if (!listening) return '<div class="desk single">' + info + '</div>';
+    return '<div class="desk">' + info + '<section class="work"><div class="work-head"><div class="work-title"><h2>Audio Listening</h2><span class="small muted">' + listening.body.audio.length + ' file</span></div>' +
+      '<p class="help">Nomor sama dengan nomor soal di file Word. Di Part B dan C, percakapan atau kuliah hanya ada di audio soal pertama tiap kelompok. Awalan nama audio mengikuti sumbernya di bank, jadi bisa berbeda dari nomor paket. Cocokkan dengan baris File audio di Word.</p>' +
+      '<div class="chips" role="group" aria-label="Saring audio" id="filters"></div></div>' +
+      '<div class="list" id="audio-list" tabindex="0" aria-label="Daftar audio"></div>' +
+      '<div class="player" id="player" hidden><b id="player-label"></b><span class="player-track"><span id="player-bar"></span></span><span class="num" id="player-time"></span><button type="button" class="secondary-button sm" data-stop>' + icon('stop') + 'Berhenti</button></div></section></div>';
+  }
+  function renderList() {
+    const list = $('audio-list');
+    if (!list) return;
+    const form = listeningOf(current()), all = form.body.audio, done = loadDone(form);
+    const parts = [...new Set(all.map(a => a.part))];
+    const onePart = parts.length === 1;
+    const filters = [['all', 'Semua'], ...(onePart ? [] : parts.map(x => [x, 'Part ' + x])), ['todo', 'Belum diinput']];
+    $('filters').innerHTML = filters.map(([id, label]) => '<button type="button" class="chip" data-filter="' + id + '" aria-pressed="' + (id === state.filter) + '">' + label + '</button>').join('');
+    const rows = all.filter(a => state.filter === 'all' || (state.filter === 'todo' ? !done.has(a.no) : a.part === state.filter));
+    const groupOf = a => (onePart ? a.group : a.part);
+    const sizes = {};
+    rows.forEach(a => { sizes[groupOf(a)] = (sizes[groupOf(a)] || 0) + 1; });
+    let group = null;
+    const top = list.scrollTop;
+    list.innerHTML = rows.map(a => {
+      const groupKey = groupOf(a);
+      let head = '';
+      if (groupKey !== group) {
+        const tag = onePart && a.group ? 'Kuliah ' + a.group : 'Part ' + a.part;
+        const topic = String(a.topic || '');
+        const title = onePart && a.group ? topic.charAt(0).toUpperCase() + topic.slice(1) : (PART_NAMES[a.part] || '');
+        head = '<div class="part-head"><span class="tag">' + esc(tag) + '</span>' + esc(title) + '<span class="part-count">' + sizes[groupKey] + ' audio</span></div>';
+      }
+      group = groupKey;
+      const isDone = done.has(a.no), isPlaying = playingNo === a.no, label = isPlaying ? 'Berhenti' : 'Putar';
+      return head + '<div class="item' + (isPlaying ? ' is-playing' : isDone ? ' is-done' : '') + '">' +
+        '<label class="tick"><input type="checkbox" data-done="' + a.no + '"' + (isDone ? ' checked' : '') + ' aria-label="Soal ' + a.no + ' sudah diinput"><span class="no">' + a.no + '</span></label>' +
+        '<div class="item-info"><div class="item-file">' + esc(a.name) + '</div><div class="item-meta">' + esc(a.content) + (a.seconds != null ? ' · ' + clock(a.seconds) : '') + '</div></div>' +
+        '<div class="item-btns"><button type="button" class="secondary-button sm" data-play="' + a.no + '" aria-label="' + label + ' soal ' + a.no + '">' + icon(isPlaying ? 'stop' : 'play') + label + '</button>' +
+        fileButton('audio:' + a.no, 'Unduh', 'Terunduh', 'secondary-button sm', 'download', 'Unduh audio soal ' + a.no) + '</div></div>';
+    }).join('') || '<p class="empty">Semua audio di daftar ini sudah diinput.</p>';
+    list.scrollTop = top;
+    const count = all.filter(a => done.has(a.no)).length;
+    $('done-count').textContent = count;
+    const meter = $('done-meter');
+    meter.setAttribute('aria-label', count + ' dari ' + all.length + ' audio sudah diinput');
+    meter.firstChild.style.width = (count / all.length * 100) + '%';
+  }
+
+  // ---------- ZIP tanpa kompresi: mp3, docx, dan xlsx sudah terkompresi ----------
+  const CRC_TABLE = (() => {
+    const table = new Uint32Array(256);
+    for (let n = 0; n < 256; n++) {
+      let c = n;
+      for (let k = 0; k < 8; k++) c = c & 1 ? 0xedb88320 ^ (c >>> 1) : c >>> 1;
+      table[n] = c >>> 0;
+    }
+    return table;
+  })();
+  function crc32(bytes) {
+    let c = 0xffffffff;
+    for (let i = 0; i < bytes.length; i++) c = CRC_TABLE[(c ^ bytes[i]) & 255] ^ (c >>> 8);
+    return (c ^ 0xffffffff) >>> 0;
+  }
+  function makeZip(files) {
+    const parts = [], central = [];
+    let offset = 0;
+    const DOS_DATE = 33; // 1 Januari 1980: tanggal berkas tidak dipakai.
+    files.forEach(file => {
+      const name = new TextEncoder().encode(file.name), crc = crc32(file.bytes), length = file.bytes.length;
+      const head = new DataView(new ArrayBuffer(30));
+      head.setUint32(0, 0x04034b50, true); head.setUint16(4, 20, true); head.setUint16(6, 0x0800, true);
+      head.setUint16(12, DOS_DATE, true); head.setUint32(14, crc, true); head.setUint32(18, length, true);
+      head.setUint32(22, length, true); head.setUint16(26, name.length, true);
+      parts.push(new Uint8Array(head.buffer), name, file.bytes);
+      const entry = new DataView(new ArrayBuffer(46));
+      entry.setUint32(0, 0x02014b50, true); entry.setUint16(4, 20, true); entry.setUint16(6, 20, true); entry.setUint16(8, 0x0800, true);
+      entry.setUint16(14, DOS_DATE, true); entry.setUint32(16, crc, true); entry.setUint32(20, length, true);
+      entry.setUint32(24, length, true); entry.setUint16(28, name.length, true); entry.setUint32(42, offset, true);
+      central.push(new Uint8Array(entry.buffer), name);
+      offset += 30 + name.length + length;
+    });
+    const centralSize = central.reduce((sum, part) => sum + part.length, 0);
+    const end = new DataView(new ArrayBuffer(22));
+    end.setUint32(0, 0x06054b50, true); end.setUint16(8, files.length, true); end.setUint16(10, files.length, true);
+    end.setUint32(12, centralSize, true); end.setUint32(16, offset, true);
+    return new Blob([...parts, ...central, new Uint8Array(end.buffer)], { type: 'application/zip' });
+  }
+  async function fetchAll(entries, progress) {
+    const out = new Array(entries.length);
+    let next = 0, finished = 0;
+    async function worker() {
+      while (next < entries.length) {
+        const i = next++;
+        out[i] = await readBin(entries[i].file);
+        progress(++finished, entries.length);
+      }
+    }
+    await Promise.all(Array.from({ length: Math.min(6, entries.length) }, worker));
+    return out;
+  }
+  function saveBlob(name, blob) {
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = name;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 60000);
+  }
+  async function packZip(p, progress) {
+    const root = p.slug + '/';
+    const docs = docEntries(p), audio = audioEntries(p);
+    const bytes = await fetchAll([...docs, ...audio], progress);
+    const guide = manifest.guide.replace('Paket {paket}', p.title).replace(/\n/g, '\r\n');
+    const files = [{ name: root + 'CARA_INPUT.txt', bytes: new TextEncoder().encode(guide) }];
+    docs.forEach((e, i) => files.push({ name: root + docName(p, e), bytes: bytes[i] }));
+    audio.forEach((e, i) => files.push({ name: root + 'audio/' + e.name, bytes: bytes[docs.length + i] }));
+    return makeZip(files);
+  }
+  async function audioZip(p, progress) {
+    const audio = audioEntries(p);
+    const bytes = await fetchAll(audio, progress);
+    return makeZip(audio.map((e, i) => ({ name: p.slug + '_audio/' + e.name, bytes: bytes[i] })));
+  }
+  function toBase64(bytes) {
+    let text = '';
+    for (let i = 0; i < bytes.length; i += 32768) text += String.fromCharCode.apply(null, bytes.subarray(i, i + 32768));
+    return btoa(text);
+  }
+  const scriptJson = value => JSON.stringify(value).replace(/<\//g, '<\\/');
+  const docBrief = (p, e) => (e ? { name: docName(p, e), size: e.size } : null);
+  // File HTML tryout: halaman yang sama dengan `toefl_gen review-html`, disusun dari bentuk yang terpilih.
+  async function packHtml(p, progress) {
+    const template = new TextDecoder().decode(await readBin(manifest.template));
+    const docs = docEntries(p), audio = audioEntries(p);
+    const bytes = await fetchAll([...docs, ...audio], progress);
+    const files = {}, audioData = {};
+    docs.forEach((e, i) => { files[docName(p, e)] = toBase64(bytes[i]); });
+    audio.forEach((e, i) => { audioData[e.name] = toBase64(bytes[docs.length + i]); });
+    const isPractice = state.page !== 'tryout';
+    const meta = p.forms[0].body.meta;
+    const title = isPractice ? p.title : 'Tryout TOEFL ITP · ' + p.title;
+    const data = {
+      batch: isPractice ? meta.batch : 'seed-' + p.seed, paket: p.no, seed: p.seed, versiPustaka: meta.versiPustaka, model: meta.model, dibuat: meta.dibuat,
+      sections: p.forms.map(f => f.body.section), passages: Object.assign({}, ...p.forms.map(f => f.body.passages)), items: p.forms.flatMap(f => f.body.items),
+      baseline: manifest.baseline, docs: p.forms.map(f => ({ label: f.body.doc.label, word: docBrief(p, f.body.doc.word), excel: docBrief(p, f.body.doc.excel) })),
+      title, heading: p.title, guide: manifest.guide.replace('Paket {paket}', p.title).replace(/\n/g, '\r\n'), audioBytes: totalSize(audio),
+    };
+    const html = template.split('__TITLE__').join(esc(isPractice ? p.title : 'Tryout TOEFL ' + p.title))
+      .split('__DATA__').join(scriptJson(data)).split('__AUDIO__').join(scriptJson(audioData)).split('__FILES__').join(scriptJson(files));
+    return new Blob([html], { type: 'text/html' });
+  }
+  function showError(message) {
+    $('action-error').textContent = message;
+    $('action-error').hidden = !message;
+  }
+  async function busy(button, label, doneLabel, savedKey, task, fileLabel) {
+    button.disabled = true;
+    setLabel(button, 'Menyiapkan...');
+    showError('');
+    try {
+      await task((n, total) => { setLabel(button, 'Menyiapkan ' + n + '/' + total); });
+      saved.add(savedKey);
+    } catch (e) {
+      showError('Gagal menyiapkan ' + fileLabel + '. Coba lagi, atau muat ulang halaman.');
+    } finally {
+      button.disabled = false;
+      setLabel(button, saved.has(savedKey) ? doneLabel : label);
+      const svg = button.querySelector('svg');
+      if (svg && saved.has(savedKey)) svg.innerHTML = PATHS.check;
+    }
+  }
+  function saveFile(button) {
+    const code = button.dataset.saveFile, entry = entryFor(code);
+    const name = code.startsWith('doc:') ? docName(current(), entry) : entry.name;
+    busy(button, button.dataset.label, button.dataset.doneLabel, entry.file, async () => {
+      saveBlob(name, new Blob([await readBin(entry.file)]));
+    }, name);
+  }
+  function savePack(button) {
+    const p = current(), kind = button.dataset.savePack;
+    const k = p.key + '|' + kind;
+    const names = { zip: p.slug + '_paket_input.zip', audio: p.slug + '_audio.zip', html: p.slug + '.html' };
+    const makers = { zip: packZip, audio: audioZip, html: packHtml };
+    busy(button, button.dataset.label, button.dataset.doneLabel, k, async progress => {
+      saveBlob(names[kind], await makers[kind](p, progress));
+    }, names[kind]);
+  }
+  function stopAudio(redraw = true) {
+    if (player) player.pause();
+    player = null;
+    const had = playingNo !== null;
+    playingNo = null;
+    if ($('player')) $('player').hidden = true;
+    if (had && redraw) renderList();
+  }
+  async function play(entry) {
+    const same = playingNo === entry.no;
+    stopAudio();
+    if (same) return;
+    showError('');
+    try {
+      if (!audioUrls.has(entry.file)) audioUrls.set(entry.file, URL.createObjectURL(new Blob([await readBin(entry.file)], { type: 'audio/mpeg' })));
+      const audio = new Audio(audioUrls.get(entry.file));
+      stopAudio();
+      player = audio;
+      playingNo = entry.no;
+      $('player').hidden = false;
+      $('player-label').textContent = 'Soal ' + entry.no;
+      $('player-bar').style.width = '0';
+      $('player-time').textContent = '0:00 / ' + clock(entry.seconds);
+      audio.addEventListener('timeupdate', () => {
+        if (player !== audio || !audio.duration) return;
+        $('player-bar').style.width = (audio.currentTime / audio.duration * 100) + '%';
+        $('player-time').textContent = clock(audio.currentTime) + ' / ' + clock(audio.duration);
+      });
+      audio.addEventListener('ended', () => { if (player === audio) stopAudio(); });
+      renderList();
+      await audio.play();
+    } catch (e) {
+      stopAudio();
+      showError('Gagal memutar ' + entry.name + '.');
+    }
+  }
+
+  // ---------- Aksi ----------
+  document.addEventListener('click', event => {
+    const button = event.target.closest('button');
+    if (!button) return;
+    const data = button.dataset;
+    if (button.id === 'seed-random') { state.seed = String(Math.floor(1000 + Math.random() * 9000)); $('seed').value = state.seed; }
+    else if (button.id === 'lock-btn') window.location.reload();
+    else if (data.page) { state.page = data.page; state.filter = 'all'; render(); }
+    else if (data.saveFile) saveFile(button);
+    else if (data.savePack) savePack(button);
+    else if (data.play) play(entryFor('audio:' + data.play));
+    else if ('stop' in data) stopAudio();
+    else if (data.filter) { state.filter = data.filter; renderList(); }
+    else if (data.practice) openPractice(Number(data.practice)).catch(() => showError('Gagal membuka set latihan. Coba lagi, atau muat ulang halaman.'));
+  });
+  document.addEventListener('change', event => {
+    const input = event.target;
+    if (input.dataset.done) {
+      const form = listeningOf(current()), done = loadDone(form), no = Number(input.dataset.done);
+      if (input.checked) done.add(no); else done.delete(no);
+      saveDone(form, done);
+      renderList();
+    } else if (input.dataset.section) {
+      if (input.checked) state.sections.add(input.dataset.section); else state.sections.delete(input.dataset.section);
+      state.count = Math.max(1, Math.min(state.count, maxPaket()));
+      const select = $('count');
+      select.disabled = !maxPaket();
+      select.innerHTML = countOptions();
+    } else if (input.id === 'count') state.count = Number(input.value);
+    else if (input.id === 'seed') state.seed = input.value;
+    else if (input.id === 'paket-select') { state.paketIndex = Number(input.value); state.filter = 'all'; render(); }
+  });
+  document.addEventListener('input', event => { if (event.target.id === 'seed') state.seed = event.target.value; });
+  document.addEventListener('submit', event => {
+    if (event.target.id === 'gen-form') { event.preventDefault(); generate(); }
+  });
+
+  // Versi lokal tanpa kata sandi: langsung terbuka.
+  if (CONFIG.plain) {
+    manifest = JSON.parse(new TextDecoder().decode(bytesOf(CONFIG.manifest)));
+    $('plain-note').hidden = false;
+    start();
+  }
+})();
+</script>
+</body>
+</html>

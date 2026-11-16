@@ -1,0 +1,157 @@
+# Bahan Listening.
+# settings: tempat/situasi percakapan pendek Part A (boleh dipakai ulang antarpaket).
+# part_b: topik percakapan panjang antara dua mahasiswa.
+# part_c: topik kuliah; terpisah dari bank topik Reading agar tidak tumpang tindih.
+
+settings:
+  - library
+  - campus bookstore
+  - dormitory
+  - cafeteria
+  - chemistry lab
+  - professor's office hours
+  - campus bus stop
+  - registration office
+  - student health center
+  - computer lab
+  - lecture hall before class
+  - campus gym
+  - post office
+  - student apartment
+  - campus parking lot
+  - art studio
+  - music practice room
+  - study group meeting
+  - campus job fair
+  - department office
+  - coffee shop near campus
+  - train station
+  - airport
+  - bank
+  - grocery store
+  - doctor's waiting room
+  - photocopy center
+  - student newspaper office
+  - theater rehearsal
+  - field trip bus
+  - university museum
+  - campus garden
+  - swimming pool
+  - housing office
+  - language lab
+  - international student center
+  - graduation ceremony
+  - restaurant
+  - hardware store
+  - bicycle repair shop
+
+part_b:
+  - {id: course-choice, title: "choosing an elective course for next semester"}
+  - {id: library-fine, title: "a problem with an overdue library fine"}
+  - {id: group-presentation, title: "planning a group presentation"}
+  - {id: campus-job, title: "looking for a part-time job on campus"}
+  - {id: dorm-heater, title: "a broken heater in a dormitory room"}
+  - {id: volunteer-program, title: "joining a community volunteer program"}
+  - {id: exam-change, title: "a change in the final exam schedule"}
+  - {id: lab-equipment, title: "borrowing equipment for a lab project"}
+  - {id: roommate-schedule, title: "a roommate's late-night schedule"}
+  - {id: field-trip-prep, title: "preparing for a geology field trip"}
+  - {id: scholarship-deadline, title: "an approaching scholarship application deadline"}
+  - {id: club-registration, title: "registering a new student club"}
+  - {id: late-paper, title: "asking for an extension on a research paper"}
+  - {id: parking-permit, title: "getting a campus parking permit"}
+  - {id: study-partner, title: "finding a study partner for statistics"}
+  - {id: bike-rental, title: "using the campus bicycle rental service"}
+  - {id: lost-id, title: "replacing a lost student ID card"}
+  - {id: cafeteria-menu, title: "changes to the cafeteria menu"}
+  - {id: internship-interview, title: "preparing for an internship interview"}
+  - {id: apartment-move, title: "moving from a dormitory to an apartment"}
+  - {id: tutoring-center, title: "getting help at the writing center"}
+  - {id: concert-tickets, title: "buying tickets for a campus concert"}
+  - {id: textbook-prices, title: "saving money on expensive textbooks"}
+  - {id: research-survey, title: "recruiting participants for a class survey"}
+  - {id: study-abroad, title: "deciding whether to study abroad"}
+  - {id: printer-problem, title: "a printer problem before a deadline"}
+  - {id: sports-tryout, title: "trying out for a university sports team"}
+  - {id: museum-assignment, title: "an assignment that requires a museum visit"}
+  - {id: noise-library, title: "noise problems in the library study rooms"}
+  - {id: recycling-project, title: "starting a recycling project in the dormitory"}
+  - {id: lab-partner, title: "a disagreement with a lab partner"}
+  - {id: campus-garden, title: "volunteering at the campus garden"}
+  - {id: thesis-topic, title: "choosing a topic for a senior thesis"}
+  - {id: meal-plan, title: "changing a dormitory meal plan"}
+  - {id: language-exchange, title: "joining a language exchange program"}
+  - {id: gym-hours, title: "the new opening hours of the campus gym"}
+  - {id: full-class, title: "trying to enroll in a class that is already full"}
+  - {id: absent-member, title: "a group member who never comes to meetings"}
+  - {id: graduation-plans, title: "plans after graduation"}
+  - {id: student-council, title: "running for student council"}
+  - {id: missed-lecture, title: "borrowing notes after missing a lecture"}
+  - {id: bus-schedule, title: "changes to the campus bus schedule"}
+  - {id: photo-exhibit, title: "an exhibition by the photography club"}
+  - {id: math-tutor, title: "working as a math tutor"}
+  - {id: book-club, title: "starting a book club in the dormitory"}
+
+part_c:
+  - {id: horse-domestication, title: "the domestication of horses", course: "anthropology"}
+  - {id: coffee-crop, title: "how coffee became a global crop", course: "economics"}
+  - {id: frog-life-cycle, title: "the life cycle of frogs", course: "biology"}
+  - {id: autumn-leaves, title: "why leaves change color in autumn", course: "botany"}
+  - {id: bridge-inspection, title: "how engineers inspect bridges", course: "engineering"}
+  - {id: postal-service, title: "the early history of the postal service", course: "history"}
+  - {id: beaver-dams, title: "how beavers build dams", course: "zoology"}
+  - {id: doppler-effect, title: "the Doppler effect", course: "physics"}
+  - {id: calendar-origins, title: "the origins of the modern calendar", course: "history"}
+  - {id: paperback-books, title: "the rise of the paperback book", course: "publishing"}
+  - {id: chocolate-history, title: "the history of chocolate", course: "food science"}
+  - {id: sponges, title: "how sea sponges filter water", course: "marine biology"}
+  - {id: salt-flats, title: "the formation of salt flats", course: "geology"}
+  - {id: library-classification, title: "how libraries classify books", course: "library science"}
+  - {id: mangroves, title: "the role of mangrove forests along coastlines", course: "ecology"}
+  - {id: public-parks, title: "the first public parks in cities", course: "urban planning"}
+  - {id: sonar-mapping, title: "using sound to map the ocean floor", course: "oceanography"}
+  - {id: umbrella-history, title: "the history of the umbrella", course: "design history"}
+  - {id: cheese-making, title: "the science of cheese making", course: "microbiology"}
+  - {id: mosaic-art, title: "the art of mosaic", course: "art history"}
+  - {id: baseball-origins, title: "the origins of baseball", course: "American studies"}
+  - {id: seismographs, title: "how seismographs detect earthquakes", course: "geophysics"}
+  - {id: carrier-pigeons, title: "the use of carrier pigeons for communication", course: "history"}
+  - {id: hot-air-balloons, title: "how hot air balloons fly", course: "physics"}
+  - {id: eyeglasses, title: "the invention of eyeglasses", course: "history of science"}
+  - {id: ice-cores, title: "what ice cores reveal about past climates", course: "climate science"}
+  - {id: cactus-adaptation, title: "how cacti survive in deserts", course: "botany"}
+  - {id: ant-colonies, title: "how ant colonies divide work", course: "entomology"}
+  - {id: radio-broadcasting, title: "the beginnings of radio broadcasting", course: "media studies"}
+  - {id: stained-glass, title: "how medieval stained glass was made", course: "art history"}
+  - {id: owl-hunting, title: "how owls hunt at night", course: "biology"}
+  - {id: sea-otters, title: "sea otters and kelp forests", course: "ecology"}
+  - {id: tornado-formation, title: "how tornadoes form", course: "meteorology"}
+  - {id: rubber-history, title: "the history of natural rubber", course: "economics"}
+  - {id: penguin-parenting, title: "how emperor penguins raise their chicks", course: "zoology"}
+  - {id: crop-rotation, title: "crop rotation in early farming", course: "agriculture"}
+  - {id: aqueducts, title: "how ancient aqueducts carried water", course: "engineering"}
+  - {id: sundials, title: "how sundials measure time", course: "astronomy"}
+  - {id: cave-paintings, title: "early cave paintings", course: "art history"}
+  - {id: weaving-looms, title: "the development of the weaving loom", course: "history of technology"}
+  - {id: tea-ceremony, title: "the Japanese tea ceremony", course: "cultural studies"}
+  - {id: wetlands-filter, title: "how wetlands clean water", course: "environmental science"}
+  - {id: hydro-dams, title: "how hydroelectric dams generate power", course: "engineering"}
+  - {id: kites-history, title: "the history of kites", course: "history"}
+  - {id: language-families, title: "how languages are grouped into families", course: "linguistics"}
+  - {id: dream-research, title: "what researchers have learned about dreams", course: "psychology"}
+  - {id: first-zoos, title: "the first public zoos", course: "history"}
+  - {id: marathon-origins, title: "the origins of the marathon race", course: "sports history"}
+  - {id: hermit-crabs, title: "the life of hermit crabs", course: "marine biology"}
+  - {id: woodpeckers, title: "how woodpeckers avoid head injuries", course: "zoology"}
+  - {id: snowflakes, title: "how snowflakes form", course: "physics"}
+  - {id: northern-lights, title: "what causes the northern lights", course: "astronomy"}
+  - {id: potters-wheel, title: "the invention of the potter's wheel", course: "archaeology"}
+  - {id: pyramid-builders, title: "who built the Egyptian pyramids", course: "archaeology"}
+  - {id: maple-syrup, title: "how maple syrup is made", course: "food science"}
+  - {id: shipwrecks, title: "how archaeologists study shipwrecks", course: "archaeology"}
+  - {id: moon-phases, title: "why the moon has phases", course: "astronomy"}
+  - {id: typewriter, title: "the invention of the typewriter", course: "history of technology"}
+  - {id: bamboo-growth, title: "why bamboo grows so fast", course: "botany"}
+  - {id: soap-making, title: "the history of soap making", course: "chemistry"}
+  - {id: bird-nests, title: "how birds build their nests", course: "ornithology"}
+  - {id: procrastination, title: "why people procrastinate", course: "psychology"}

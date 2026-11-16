@@ -1,0 +1,48 @@
+# Blueprint satu paket TOEFL ITP. Angka di sini dipakai perencana batch dan QC.
+paket_per_batch: 5
+options: [A, B, C, D]
+
+# Proporsi level per part. Dibulatkan dengan metode sisa terbesar.
+level_mix:
+  Mudah: 0.30
+  Sedang: 0.50
+  Sulit: 0.20
+
+# Sebaran kunci per section dan batas kunci sama berturut-turut.
+key_rules:
+  min_share: 0.20
+  max_share: 0.30
+  max_run: 3
+
+# Satu topik grammar paling banyak muncul sekian kali per paket (Structure + WE).
+max_per_topic: 4
+
+sections:
+  listening:
+    lesson_name: Listening Comprehension
+    type: AUDIO
+    parts:
+      A: {first: 1, items: 30, per_group: 1}
+      B: {first: 31, items: 8, per_group: 4}
+      C: {first: 39, items: 12, per_group: 4}
+    # Dikalibrasi dari audio edge-tts: 140 kata = 68 detik (Part B), 194 kata = 83 detik (Part C).
+    part_b_words: [120, 220]
+    part_c_words: [180, 300]
+    # first: percakapan/kuliah Part B dan C hanya ada di file audio soal pertama tiap kelompok.
+    # every: percakapan/kuliah diulang di setiap file soal.
+    audio_mode: first
+  structure:
+    lesson_name: Structure and Written Expression
+    type: TEXT
+    parts:
+      structure: {first: 1, items: 15}
+      written_expression: {first: 16, items: 25}
+  reading:
+    lesson_name: Reading Comprehension
+    type: TEXT
+    parts:
+      reading: {first: 1, items: 50}
+    passages: 5
+    items_per_passage: [8, 12]
+    passage_words: [250, 350]
+    max_tone_items: 2
