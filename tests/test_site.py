@@ -380,7 +380,7 @@ def test_perintah_cek_situs(batch_dir, tmp_path, monkeypatch, capsys):
     assert "Siap di-deploy" in capsys.readouterr().out
     assert main(["cek-situs", "--dir", str(out)]) == 0
     printed = capsys.readouterr().out
-    assert "Siap di-deploy: npx vercel deploy --prod --cwd" in printed and PASSWORD not in printed
+    assert "Siap di-deploy: commit dan push" in printed and PASSWORD not in printed
     build_site([batch_dir], tmp_path / "lokal", None)
     assert main(["cek-situs", "--dir", str(tmp_path / "lokal")]) == 1
     assert "Belum siap" in capsys.readouterr().out
@@ -393,3 +393,34 @@ def test_logo_dan_font_tersemat_tanpa_sumber_luar(batch_dir, tmp_path):
     assert not any(placeholder in html for placeholder in [*EMBEDDED, "__CONFIG__"])
     assert html.count("data:font/woff2;base64,") == 2 and "data:image/png;base64,iVBOR" in html
     assert re.search(r'(src|href)="https?://', html) is None and "@import" not in html
+
+
+def _snapshot(out):
+    return {p.relative_to(out).as_posix(): p.read_bytes() for p in out.rglob("*") if p.is_file()}
+
+
+def test_build_ulang_dengan_sandi_sama_tidak_mengubah_file(batch_dir, tmp_path):
+    out = tmp_path / "situs"
+    build_site([batch_dir], out, PASSWORD)
+    first = _snapshot(out)
+    build_site([batch_dir], out, PASSWORD)
+    assert _snapshot(out) == first
+
+
+def test_ganti_sandi_mengganti_semua_file_terenkripsi(batch_dir, tmp_path):
+    out = tmp_path / "situs"
+    build_site([batch_dir], out, PASSWORD)
+    old_salt, old_files = _config(out)["salt"], set((out / "files").iterdir())
+    build_site([batch_dir], out, "sandi-baru-yang-panjang")
+    assert _config(out)["salt"] != old_salt
+    assert not old_files & set((out / "files").iterdir())
+    assert check_site(out, "sandi-baru-yang-panjang")["problems"] == []
+
+
+def test_file_yang_tidak_dipakai_lagi_dihapus(batch_dir, tmp_path):
+    out = tmp_path / "situs"
+    build_site([batch_dir], out, PASSWORD)
+    (batch_dir / "P1" / "P1_structure.xlsx").write_bytes(b"excel-baru")
+    build_site([batch_dir], out, PASSWORD)
+    report = check_site(out, PASSWORD)
+    assert report["problems"] == [] and not any("tidak dipakai" in w for w in report["warnings"])

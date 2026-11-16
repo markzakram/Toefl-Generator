@@ -2,5 +2,8 @@
 .venv/
 __pycache__/
 .pytest_cache/
-output/
+# Hasil generator berisi kunci jawaban, Word, audio, dan versi tanpa sandi, jadi tidak boleh masuk repo.
+# Kecuali output/situs: website terenkripsi yang di-deploy Vercel dari GitHub.
+output/*
+!output/situs/
 .vercel

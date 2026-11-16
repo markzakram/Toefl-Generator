@@ -282,7 +282,7 @@ def _print_check(report):
             folder = report["out"].resolve().relative_to(ROOT)
         except ValueError:
             folder = report["out"]
-        print(f'Siap di-deploy: npx vercel deploy --prod --cwd "{folder.as_posix()}"')
+        print(f"Siap di-deploy: commit dan push {folder.as_posix()} ke GitHub, Vercel akan deploy otomatis.")
 
 
 def cmd_site(args):

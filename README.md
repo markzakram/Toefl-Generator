@@ -142,7 +142,7 @@ Isi website dienkripsi dengan kata sandi, jadi aman ditaruh di host statis mana 
 .venv\Scripts\python -m http.server 8000 --directory output/situs
 ```
 
-4. Deploy ke Vercel (lihat di bawah). Alamatnya harus `https`, karena browser hanya membuka enkripsi lewat `https` atau
+4. Commit dan push, lalu Vercel deploy otomatis (lihat Deploy ke Vercel di bawah). Alamatnya harus `https`, karena browser hanya membuka enkripsi lewat `https` atau
    `localhost`. Vercel selalu memakai `https`.
 
 Untuk melihat website di komputer sendiri tanpa kata sandi, tambahkan `--tanpa-sandi`. Hasilnya masuk ke folder
@@ -161,57 +161,48 @@ orang, jadi kalau ada anggota yang keluar dari tim, kata sandinya perlu diganti.
 
 ### Deploy ke Vercel
 
+Website di-deploy dari GitHub, sama seperti SKD Generator. Folder `output/situs` (versi terenkripsi) ikut masuk repo,
+sedangkan isi `output/` lainnya tetap diabaikan `.gitignore`, termasuk batch, kunci jawaban, Word, audio, file tryout,
+dan versi tanpa sandi. Vercel cukup menyajikan folder itu apa adanya, tanpa build command dan tanpa environment variable.
+Kata sandi tidak pernah dikirim ke GitHub maupun Vercel.
+
 **Paket Vercel.** Menurut ketentuan layanan Vercel (bagian 4), paket gratis Hobby hanya untuk pemakaian pribadi atau
-non-komersial. Website ini alat kerja tim, jadi pakai tim Vercel kantor dengan paket Pro. Batas unggah lewat CLI adalah
-100 MB untuk Hobby dan 1 GB untuk Pro, dengan maksimal 15.000 file. Bank sekarang memakai 44 MB: Listening sekitar 6 MB
-per bentuk, set latihan Part C 120 soal sekitar 23 MB, Structure dan Reading kecil.
+non-komersial. Website ini alat kerja tim, jadi sebaiknya pakai tim Vercel kantor dengan paket Pro. Bank sekarang
+memakai 44 MB: Listening sekitar 6 MB per bentuk, set latihan Part C 120 soal sekitar 23 MB, Structure dan Reading kecil.
 
-**Yang dibuat otomatis.** Build terenkripsi menulis `vercel.json` berisi header `noindex`, `no-referrer`, `nosniff`,
-larangan dibingkai situs lain, dan cache panjang untuk `files/` (nama file acak, jadi aman di-cache). Website ini statis,
-tanpa build command dan tanpa environment variable. Kata sandi tidak pernah dikirim ke Vercel.
+**Repo sebaiknya private.** Isi `output/situs` terenkripsi, tetapi di repo publik siapa pun bisa mengunduhnya lalu
+mencoba menebak kata sandi tanpa batas. Jadikan repo private di GitHub (Settings, Danger Zone, Change visibility).
 
-**Jangan deploy dari GitHub.** Repo ini hanya berisi generator Python. Website-nya dibangun di komputer sendiri dari
-bank soal (`output/`) dan `SITUS_PASSWORD`, dan keduanya sengaja tidak masuk repo. Kalau repo diimpor ke Vercel, build
-selalu gagal dengan pesan `No python entrypoint found`, karena Vercel mengira repo ini aplikasi server Python. File
-`vercel.json` di root repo mematikan deploy otomatis setiap push, jadi build yang gagal itu tidak muncul lagi. Proyek
-Vercel yang terlanjur dibuat dari GitHub tetap bisa dipakai: saat `link` di bawah, pilih proyek itu.
+**Membuat proyek Vercel (sekali saja).**
 
-**Pertama kali**, dengan Node.js terpasang. Vercel CLI dijalankan lewat `npx`, tidak perlu diinstal:
+1. Add New, lalu Project, lalu impor repo `Toefl-Generator`.
+2. Root Directory: klik Edit, pilih `output/situs`.
+3. Framework Preset: Other. Build Command, Output Directory, dan Install Command dibiarkan kosong.
+4. Deploy. Buka alamatnya, lalu masukkan kata sandi tim.
 
-```bash
-npx vercel login
-```
+Root Directory harus `output/situs`. Kalau dibiarkan di root repo, Vercel menemukan `requirements.txt`, mengira repo ini
+aplikasi server Python, dan build gagal dengan pesan `No python entrypoint found`.
 
-```bash
-npx vercel switch
-```
+**Setiap ada batch baru atau kata sandi berubah:** bangun ulang dengan perintah `site` (pemeriksaan `cek-situs` langsung
+berjalan), lalu commit dan push. Vercel deploy otomatis. Build ulang dengan kata sandi yang sama memakai salt lama dan
+nama file yang diturunkan dari isinya, jadi file yang tidak berubah tetap sama persis dan repo hanya bertambah sebesar
+file yang baru. Kalau kata sandi diganti, semua file berubah sekali.
 
 ```bash
-npx vercel link --cwd output/situs
-```
-
-`switch` dipakai untuk memilih tim kantor. Saat `link`, buat proyek baru (misalnya `toefl-generator`) dan biarkan
-pengaturan bawaan: framework Other, tanpa build command. Tautan proyek disimpan di `output/situs/.vercel`. Build ulang
-tidak menghapusnya, tetapi kalau folder `output/situs` dihapus, jalankan `link` lagi.
-
-**Setiap deploy:**
-
-```bash
-.venv\Scripts\python -m toefl_gen cek-situs
-```
-
-```bash
-npx vercel deploy --prod --cwd output/situs
+.venv/Scripts/python -m toefl_gen cek-situs
 ```
 
 `cek-situs` memakai `SITUS_PASSWORD` dari `.env` untuk membuka setiap file. Pemeriksaan gagal kalau folder berisi versi
 tanpa sandi, kata sandi tidak cocok dengan build, ada file lain yang ikut terbawa (misalnya Word yang tidak sengaja
-disalin), ada file yang dirujuk tapi hilang atau tidak terenkripsi, atau ukurannya melewati batas Pro. Ukuran di atas
-batas Hobby hanya muncul sebagai peringatan. Deploy hanya kalau hasilnya "Siap di-deploy".
+disalin), ada file yang dirujuk tapi hilang atau tidak terenkripsi, atau ukurannya melewati batas Pro. Commit hanya
+kalau hasilnya "Siap di-deploy".
 
-`npx vercel deploy` tanpa `--prod` membuat alamat pratinjau. Alamat ini juga terkunci kata sandi, jadi aman dipakai
-untuk mencoba sebelum alamat utama diganti. Proteksi bawaan Vercel tidak diperlukan, karena gerbang kata sandinya sudah
-ada di halaman.
+**Yang dibuat otomatis.** Build terenkripsi menulis `output/situs/vercel.json` berisi header `noindex`, `no-referrer`,
+`nosniff`, larangan dibingkai situs lain, dan cache panjang untuk `files/`. Proteksi bawaan Vercel tidak diperlukan,
+karena gerbang kata sandinya sudah ada di halaman.
+
+**Tanpa GitHub.** Folder yang sama juga bisa diunggah lewat Vercel CLI: `npx vercel login`, lalu
+`npx vercel deploy --prod --cwd output/situs`.
 
 ## Set latihan Listening Part C
 

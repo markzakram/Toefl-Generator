@@ -6,7 +6,9 @@ kombinasi bentuk di browser, jadi tidak perlu server, API key, atau biaya per ge
 
 File paket memuat kunci jawaban, sedangkan host statis biasanya bisa dibuka siapa saja. Karena itu setiap
 file dan daftar isinya dienkripsi AES-GCM dengan kunci dari kata sandi (PBKDF2-SHA256), lalu dibuka di
-browser. Nama file di server acak, jadi nama soal atau paket juga tidak terlihat tanpa kata sandi.
+browser. Nama file di server diturunkan dari isi dan kata sandi lewat HMAC, jadi nama soal atau paket tidak terlihat
+tanpa kata sandi. Build ulang dengan kata sandi yang sama memakai salt lama, sehingga file yang isinya tidak berubah
+tetap sama persis. Ini membuat folder deploy aman disimpan di Git tanpa bertambah 44 MB setiap build.
 
 Tanpa kata sandi (`password=None`), file disimpan apa adanya. Versi ini hanya untuk dibuka di komputer sendiri,
 karena memuat kunci jawaban tanpa perlindungan. Foldernya diberi `.vercelignore` yang mengabaikan semua file, dan
@@ -18,10 +20,12 @@ semua file yang dirujuk ada dan terbuka dengan kata sandi, serta ukurannya masih
 
 import base64
 import hashlib
+import hmac
+import io
 import json
 import os
 import re
-import secrets
+import zipfile
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
@@ -73,8 +77,8 @@ def derive_key(password, salt, iterations=ITERATIONS):
     return hashlib.pbkdf2_hmac("sha256", password.encode("utf-8"), salt, iterations)
 
 
-def encrypt(key, data):
-    nonce = os.urandom(NONCE_BYTES)
+def encrypt(key, data, nonce=None):
+    nonce = nonce or os.urandom(NONCE_BYTES)
     return nonce + AESGCM(key).encrypt(nonce, data, None)
 
 
@@ -82,17 +86,42 @@ def decrypt(key, blob):
     return AESGCM(key).decrypt(blob[:NONCE_BYTES], blob[NONCE_BYTES:], None)
 
 
+def _subkey(key, label):
+    return hmac.new(key, label, hashlib.sha256).digest()
+
+
 class _Store:
-    """Menyimpan file dengan nama acak, terenkripsi kalau ada kunci."""
+    """Menyimpan file terenkripsi (kalau ada kunci) dengan nama yang tidak bisa ditebak tanpa kunci.
+
+    Nama file dan nonce diturunkan dari isinya lewat HMAC dengan subkunci dari kata sandi. Isi yang sama dengan kata
+    sandi yang sama selalu menjadi file yang sama persis, jadi build ulang hanya mengubah file yang memang berubah.
+    Ini penting karena folder deploy disimpan di Git. Nonce hanya terulang untuk isi yang sama persis, dan itu aman
+    bagi AES-GCM karena hasil enkripsinya juga sama."""
 
     def __init__(self, files_dir, key):
         self.files_dir = files_dir
         self.key = key
+        self.name_key = _subkey(key, b"nama-file") if key else b"versi-lokal-tanpa-sandi"
+        self.nonce_key = _subkey(key, b"nonce") if key else None
+        self.written = set()
+
+    def seal(self, data):
+        if self.key is None:
+            return data
+        return encrypt(self.key, data, hmac.new(self.nonce_key, data, hashlib.sha256).digest()[:NONCE_BYTES])
 
     def data(self, data):
-        name = secrets.token_hex(12) + ".bin"
-        (self.files_dir / name).write_bytes(data if self.key is None else encrypt(self.key, data))
+        name = hmac.new(self.name_key, data, hashlib.sha256).hexdigest()[:24] + ".bin"
+        path = self.files_dir / name
+        if name not in self.written and not path.exists():
+            path.write_bytes(self.seal(data))
+        self.written.add(name)
         return name
+
+    def remove_unused(self):
+        for old in self.files_dir.glob("*.bin"):
+            if old.name not in self.written:
+                old.unlink()
 
     def file(self, path, display_name=None):
         data = path.read_bytes()
@@ -133,7 +162,19 @@ def _bank_word(batch_dir, archive, paket, section, store):
         copy = Path(folder) / path.name
         items = [Item(**it) for it in archive["sections"][section][paket - 1]]
         write_section_word(copy, items, section, paket, info["seed"], label=f"Bank {info['batch']} P{paket}")
-        return store.file(copy)
+        data = _stable_zip(copy.read_bytes())
+    return {"name": path.name, "size": len(data), "file": store.data(data)}
+
+
+def _stable_zip(data):
+    """Arsip yang sama tanpa cap waktu pembuatan, supaya Word yang isinya sama selalu menjadi berkas yang sama."""
+    out = io.BytesIO()
+    with zipfile.ZipFile(io.BytesIO(data)) as source, zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as target:
+        for info in source.infolist():
+            entry = zipfile.ZipInfo(info.filename, date_time=(1980, 1, 1, 0, 0, 0))
+            entry.compress_type = zipfile.ZIP_DEFLATED
+            target.writestr(entry, source.read(info.filename))
+    return out.getvalue()
 
 
 def _forms(batch_dir, store, missing):
@@ -166,6 +207,21 @@ def _forms(batch_dir, store, missing):
     return forms
 
 
+def _previous_key(out, password):
+    """Salt dan kunci build sebelumnya di folder ini, kalau kata sandinya masih sama.
+    Dengan salt yang sama, file yang isinya tidak berubah tetap sama persis setelah build ulang."""
+    config = site_config(out)
+    if not config or config.get("plain") or "salt" not in config or config.get("iterations") != ITERATIONS:
+        return None
+    salt = base64.b64decode(config["salt"])
+    key = derive_key(password, salt)
+    try:
+        decrypt(key, base64.b64decode(config["manifest"]))
+    except (InvalidTag, ValueError):
+        return None
+    return salt, key
+
+
 def build_site(batch_dirs, out, password):
     """Bangun website di `out`. `password=None` membuat versi lokal tanpa enkripsi.
     Kembalikan ringkasan: lokasi, jumlah file, ukuran MB, audio yang hilang, jumlah bentuk per section."""
@@ -178,12 +234,14 @@ def build_site(batch_dirs, out, password):
         if not (Path(batch_dir) / "batch.json").exists():
             raise FileNotFoundError(f"batch.json tidak ditemukan di {batch_dir}")
 
-    salt = os.urandom(16)
-    key = None if password is None else derive_key(password, salt)
+    salt, key = None, None
+    if password is not None:
+        salt, key = _previous_key(out, password) or (None, None)
+        if key is None:
+            salt = os.urandom(16)
+            key = derive_key(password, salt)
     files_dir = out / "files"
     files_dir.mkdir(parents=True, exist_ok=True)
-    for old in files_dir.glob("*.bin"):
-        old.unlink()
     store = _Store(files_dir, key)
 
     missing = []
@@ -212,8 +270,9 @@ def build_site(batch_dirs, out, password):
         config = {
             "salt": base64.b64encode(salt).decode("ascii"),
             "iterations": ITERATIONS,
-            "manifest": base64.b64encode(encrypt(key, listing)).decode("ascii"),
+            "manifest": base64.b64encode(store.seal(listing)).decode("ascii"),
         }
+    store.remove_unused()
     html = embed_assets(TEMPLATE_PATH.read_text(encoding="utf-8")).replace("__CONFIG__", json.dumps(config))
     (out / "index.html").write_text(html, encoding="utf-8")
     (out / "robots.txt").write_text("User-agent: *\nDisallow: /\n", encoding="utf-8")
